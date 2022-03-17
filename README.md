@@ -1,4 +1,4 @@
-# :wave: Hi - I'm Debert
+# :wave: Hi - I'm [Debert](https://debertjamie.is-a.dev)
 
 I'm a self-taught developer and a high school student from Indonesia. I'm interested in learning new tools and technologies :telescope:.
 Currently learning **Rust** and **Go**.
