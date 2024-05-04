@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 3 31 33;
+  --background-rgb: 237 251 253;
+  --primary-color: 33 209 232;
+  --secondary-color: 221 219 255;
+  --accent-color: 80 114 237;
+  --red: #8F0000;
+  --green: #065115;
+  --yellow: #574100;
+  --neutral: #3E3D3D;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 222 250 252;
+    --background-rgb: 2 16 18;
+    --primary-color: 23 198 222;
+    --secondary-color: 2 0 36;
+    --accent-color: 18 52 175;
+    --red: #FF6666;
+    --green: #11FF00;
+    --yellow: #FFF700;
+    --neutral: #A7A7A5;
+  }
+}
+
+.svgIcon {
+  fill: rgba(0,0,0,1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .svgIcon {
+      fill: rgba(255,255,255,1);
+  }
+}
+
+#xhs {
+  fill: rgba(255,255,255,1);
+}
+
+@media (prefers-color-scheme: dark) {
+  #xhs {
+      fill: rgba(0,0,0,1);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+::selection {
+  color: rgb(var(--background-rgb));
+  background: rgb(var(--primary-color));
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
