@@ -36,7 +36,7 @@ export function Time() {
     new Date(now).getUTCHours() + 7 < 19;
 
   return (
-    <p className="text-sm">
+    <p className="text-sm" suppressHydrationWarning={true}>
       {isDay ? "🌤️" : "😴"} {formatDay.format(now)} - {formatTime.format(now)}
     </p>
   );
