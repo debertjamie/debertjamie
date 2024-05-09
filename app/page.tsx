@@ -1,18 +1,42 @@
 import { Metadata } from "next";
-import { Summary, Extras, Photo, Contact } from "@/ui/landing";
+import { Summary, Extras, Photo, Time, Contact } from "@/ui/landing";
 
 export default function Home() {
   return (
-    <main className="grid lg:grid-cols-[60%_40%] gap-6">
-      <div className="space-y-8">
-        <Summary />
+    <>
+      <main className="hidden lg:grid grid-cols-[60%_40%] gap-6">
+        <div className="space-y-8">
+          <Summary />
+          <Extras />
+        </div>
+        <div className="space-y-4 sm:flex sm:gap-x-4 lg:block">
+          <div className="space-y-2">
+            <Photo />
+            <Time />
+          </div>
+          <Contact />
+        </div>
+      </main>
+      <main className="hidden md:grid space-y-8 lg:hidden">
+        <div className="grid gap-6 grid-cols-[60%_40%]">
+          <div className="space-y-4">
+            <Summary />
+          </div>
+          <div>
+            <Photo />
+          </div>
+        </div>
         <Extras />
-      </div>
-      <div className="space-y-4 md:flex md:gap-x-4 lg:block">
-        <Photo />
         <Contact />
-      </div>
-    </main>
+      </main>
+      <main className="space-y-4 md:hidden">
+        <div className="space-y-4">
+          <Summary />
+        </div>
+        <Extras />
+        <Contact />
+      </main>
+    </>
   );
 }
 
@@ -28,7 +52,7 @@ export const metadata: Metadata = {
     type: "website",
     title,
     description,
-    locale: "en_EN"
+    locale: "en_EN",
   },
   twitter: {
     title,

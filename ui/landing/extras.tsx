@@ -1,74 +1,68 @@
+import { format } from "date-fns";
 import { getGithubData } from "@/lib/githubStats";
-import { getDiscordData } from "@/lib/lanyardStats";
 import { getWakatimeData } from "@/lib/wakatimeStats";
-import Image from "next/image";
+import { Lanyard } from "@/wrapper";
+
+function ordinalSuffix(num: number) {
+  const unitsDigit = num % 10;
+  const tensDigit = Math.floor(num / 10) % 10;
+  if (tensDigit === 1 && unitsDigit !== 0 && unitsDigit !== 1) {
+    return "th";
+  } else {
+    switch (unitsDigit) {
+      case 1:
+        return "st";
+      case 2:
+        return "nd";
+      case 3:
+        return "rd";
+      default:
+        return "th";
+    }
+  }
+}
+
+function formatDateString(str: string) {
+  const parts = str.split(" ");
+  return `${parts[1]} ${parts[2]}${ordinalSuffix(parseInt(parts[2]))}, ${parts[3]}`;
+}
 
 export async function Extras() {
   const githubData = await getGithubData();
   const wakatimeData = await getWakatimeData();
-  const discordData = await getDiscordData();
 
   const wakatimeUsername = wakatimeData.username;
-  const totalTime = wakatimeData.human_readable_total_including_other_language;
   const startedTime = wakatimeData.human_readable_range;
   const language = wakatimeData.languages[0];
 
-  const colors: { [key: string]: string } = {
-    online: "text-[color:var(--green)]",
-    idle: "text-[color:var(--yellow)]",
-    dnd: "text-[color:var(--red)]",
-    offline: "text-[color:var(--neutral)]",
-  };
+  const time = parseInt(wakatimeData.total_seconds);
+  const hours = Math.floor(time / 3600);
+  const minutes = Math.floor((time - hours * 3600) / 60);
 
   return (
     <div className="space-y-4">
       <h3 className="text-xl font-semibold">More From Me</h3>
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid sm:grid-cols-2 gap-4">
         <div className="space-y-6">
-          <div className="py-1 px-2 rounded-lg bg-secondary border-accent border-2 space-y-2">
-            <div className="text-lg flex items-center">
-              <Image
-                src={
-                  "https://cdn.discordapp.com/avatars/755773452756975646/" +
-                  discordData.discord_user.avatar +
-                  ".png"
-                }
-                height={50}
-                width={50}
-                alt="Discord avatar"
-                className="rounded-full"
-              />
-              <div className="ml-2 text-sm">
-                <p>{discordData.discord_user.username}</p>
-                <p>
-                  Status:{" "}
-                  <span
-                    className={
-                      "font-semibold " + colors[discordData.discord_status]
-                    }
-                  >
-                    {discordData.discord_status}
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
+          <Lanyard />
           <div className="space-y-2">
-            <h4 className="text-lg font-medium">Currently Messing Around With</h4>
-            <div className="flex flex-wrap gap-y-2 gap-x-4 text-base">
+            <h4 className="text-lg font-medium">Learning More About</h4>
+            <div className="flex flex-wrap gap-y-2 gap-x-2 text-base *:bg-brand-200 dark:*:bg-brand-600 *:px-2 *:py-1 *:rounded-lg *:font-semibold">
               <p>React</p>
               <p>Remix</p>
               <p>NextJS</p>
-              <p>Unified</p>
+              <p>Vite</p>
+              <p>Tanstack</p>
               <p>NodeJS</p>
               <p>Deno</p>
+              <p>MongoDB</p>
+              <p>TypeScript</p>
             </div>
           </div>
         </div>
         <div className="space-y-2">
-          <h4 className="text-lg font-medium">Statistics and whatnot</h4>
           <div className="pb-4">
-            <p className="text-lg">GitHub</p>
+            <p className="text-lg font-semibold">GitHub</p>
             <p className="text-base">
               {githubData.user.name} has submitted{" "}
               <span className="font-semibold">
@@ -81,14 +75,12 @@ export async function Extras() {
             </p>
           </div>
           <div>
-            <p className="text-lg">Wakatime</p>
+            <p className="text-lg font-semibold">Wakatime</p>
             <p className="text-base">
               {wakatimeUsername} has logged{" "}
-              <span className="font-semibold">{totalTime}</span> of coding since{" "}
-              {startedTime}, primarily in{" "}
-              <span className="font-semibold text-primary">
-                {language.name}
-              </span>
+              <span className="font-semibold">{`${hours} hour${hours > 1 ? "s" : ""}${minutes ? ` and ${minutes} minute${minutes > 1 ? "s" : ""}` : ""}`}</span>{" "}
+              of coding since {formatDateString(startedTime)}, primarily in{" "}
+              <span className="font-semibold">{language.name}</span>
             </p>
           </div>
         </div>
