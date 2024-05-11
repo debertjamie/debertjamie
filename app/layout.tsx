@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import Footer from "@/ui/footer";
+import { Footer } from "@/ui/footer";
+import { Header } from "@/ui/header";
 import { inter } from "@/ui/fonts";
 import { ThemedHTML } from "@/wrapper";
 
@@ -16,13 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <ThemedHTML>
-      <body className="mx-auto max-w-5xl bg-brand-50 dark:bg-brand-950 text-brand-950 dark:text-brand-50 selection:bg-brand-800 selection:text-brand-50">
+      <body className="mx-auto max-w-3xl bg-brand-50 dark:bg-brand-950 text-brand-950 dark:text-brand-50 selection:bg-brand-800 selection:text-brand-50">
         <div
           className={
-            inter.className + " mt-8 mx-4 lg:mt-12 flex flex-col min-h-screen"
+            inter.className + " mt-8 mx-4 flex flex-col min-h-screen sm:space-y-12"
           }
         >
-          <div className="mb-12">{children}</div>
+          <Header />
+          <div className="mt-4 sm:mt-0">{children}</div>
           <Footer />
         </div>
       </body>
