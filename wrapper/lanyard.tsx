@@ -1,13 +1,12 @@
 "use client";
 
-import { Discord } from "@/ui/icons";
 import Image from "next/image";
 import { useLanyard } from "react-use-lanyard";
 import React from "react";
 import { formatDistance } from "date-fns";
 
 const colors: Record<string, string> = {
-  online: "text-emerald-400",
+  online: "text-green-400",
   idle: "text-amber-400",
   dnd: "text-rose-400",
   offline: "text-gray-300",
@@ -40,7 +39,7 @@ export function Lanyard() {
   }, []);
 
   return (
-    <div className="py-1 px-2 rounded-lg bg-brand-400 text-brand-50 space-y-2">
+    <div className="py-1 px-2 rounded-lg bg-brand-500 text-brand-50 space-y-2">
       <div className="flex gap-x-4 justify-between items-center">
         <div className="flex gap-4 items-center">
           {lanyard?.discord_user.avatar ? (
@@ -83,13 +82,12 @@ export function Lanyard() {
             <p className="text-lg">Loading discord profile</p>
           )}
         </div>
-        <Discord width={40} height={40} id="brand-50" />
       </div>
       <div className="space-y-2">
         {otherActivities?.map((act) => (
           <div
             key={act.application_id}
-            className="leading-tight text-base ml-4"
+            className="leading-tight text-base ml-2"
           >
             <p>
               {activityTypes[act.type]}{" "}
