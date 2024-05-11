@@ -1,6 +1,7 @@
 "use client";
 
 import { useDarkMode } from "@/lib/darkMode";
+import { LightTheme, DarkTheme } from "@/ui/icons";
 
 export function ThemedHTML({ children }: { children: React.ReactNode }) {
   const { isDarkMode } = useDarkMode();
@@ -13,17 +14,16 @@ export function ThemedHTML({ children }: { children: React.ReactNode }) {
 }
 
 export function ToggleTheme() {
-  const { toggleDarkMode, toggleOSPreference } = useDarkMode();
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
+  console.log(isDarkMode);
 
   return (
     <div className="*:cursor-pointer">
-      <span onClick={toggleDarkMode}>Switch Theme</span>
-      <span
-        onClick={toggleOSPreference}
-        className="before:mx-2 before:content-['\00B7']"
-      >
-        Use OS Preference
-      </span>
+      {isDarkMode ? (
+        <DarkTheme width={18} height={18} onClick={toggleDarkMode} />
+      ) : (
+        <LightTheme width={18} height={18} onClick={toggleDarkMode} />
+      )}
     </div>
   );
 }

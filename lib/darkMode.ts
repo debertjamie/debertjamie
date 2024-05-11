@@ -6,10 +6,14 @@ export function useDarkMode() {
   const [isDarkMode, setIsDarkMode] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    const darkMode =
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches);
+    if (
+      !("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      localStorage.setItem("theme", "dark");
+    }
+
+    const darkMode = localStorage.theme === "dark";
     setIsDarkMode(darkMode === true);
   }, []);
 
@@ -19,12 +23,5 @@ export function useDarkMode() {
     document.documentElement.classList.toggle("dark");
   }
 
-  function toggleOSPreference() {
-    localStorage.removeItem("theme");
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? document.documentElement.classList.add("dark")
-      : document.documentElement.classList.remove("dark");
-  }
-
-  return { isDarkMode, toggleDarkMode, toggleOSPreference };
+  return { isDarkMode, toggleDarkMode };
 }
