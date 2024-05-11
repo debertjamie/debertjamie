@@ -18,7 +18,7 @@ export function Status() {
       </div>
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Skills and Tools</h3>
-        <div className="flex flex-wrap gap-2 text-base *:text-brand-50 *:rounded-lg *:px-2 *:py-1">
+        <div className="flex flex-wrap gap-2 select-none text-base *:text-brand-50 *:rounded-lg *:px-2 *:py-1">
           <p className="bg-brand-500">TypeScript</p>
           <p className="bg-brand-700">NodeJS</p>
           <p className="bg-brand-700">Deno</p>
