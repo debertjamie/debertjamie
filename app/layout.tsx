@@ -20,11 +20,11 @@ export default function RootLayout({
       <body className="mx-auto max-w-3xl bg-brand-50 dark:bg-brand-950 text-brand-950 dark:text-brand-50 selection:bg-brand-800 selection:text-brand-50">
         <div
           className={
-            inter.className + " mt-8 mx-4 flex flex-col min-h-screen sm:space-y-12"
+            inter.className + " mt-8 mx-4 flex flex-col min-h-screen"
           }
         >
           <Header />
-          <div className="mt-4 sm:mt-0">{children}</div>
+          <div className="mt-2 mb-8">{children}</div>
           <Footer />
         </div>
       </body>
