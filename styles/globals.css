@@ -7,10 +7,6 @@
   background: transparent;
 }
 
-#brand-50 path {
-  fill: #ebebff !important;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;

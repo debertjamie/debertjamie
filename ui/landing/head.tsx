@@ -18,7 +18,7 @@ const formatTime = new Intl.DateTimeFormat("en-GB", {
   timeZoneName: "shortGeneric",
 });
 
-export function Time() {
+export function Head() {
   const [now, setNow] = React.useState(0);
 
   React.useEffect(() => {
@@ -34,10 +34,20 @@ export function Time() {
   const isDay =
     new Date(now).getUTCHours() + 7 >= 5 &&
     new Date(now).getUTCHours() + 7 < 19;
-
   return (
-    <p className="text-sm" suppressHydrationWarning={true}>
-      {isDay ? "🌤️" : "😴"} {formatDay.format(now)} - {formatTime.format(now)}
-    </p>
+    <section className="space-y-6 select-none">
+      <div className="space-y-2 *:leading-tight">
+        <h1 className="text-4xl font-bold">@Debert</h1>
+        <h2 className="text-2xl font-semibold">
+          Also Known As: 陈宥维 / 陳宥維 / Debert Jamie Chanderson
+        </h2>
+        <p className="text-base">
+          High Schooler, Espresso Addict, Math Maven, Tech Ardent
+        </p>
+      </div>
+      <p className="text-lg" suppressHydrationWarning={true}>
+        {isDay ? "🌤️" : "😴"} {formatDay.format(now)} {formatTime.format(now)}
+      </p>
+    </section>
   );
 }

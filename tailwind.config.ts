@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 const config: Config = {
   content: [
@@ -24,6 +25,10 @@ const config: Config = {
           950: "#01001E",
         },
       },
+    },
+    screens: {
+      xs: "475px",
+      ...defaultTheme.screens,
     },
   },
   plugins: [],
