@@ -6,9 +6,9 @@ import React from "react";
 import { formatDistance } from "date-fns";
 
 const colors: Record<string, string> = {
-  online: "text-green-400",
+  online: "text-green-500",
   idle: "text-amber-400",
-  dnd: "text-rose-400",
+  dnd: "text-red-400",
   offline: "text-gray-300",
 };
 
@@ -39,7 +39,7 @@ export function Lanyard() {
   }, []);
 
   return (
-    <div className="py-1 px-2 rounded-lg bg-brand-500 text-brand-50 space-y-2">
+    <div className="py-1 px-2 rounded-lg bg-brand-900 border-2 dark:border-brand-800 text-brand-50 space-y-2">
       <div className="flex gap-x-4 justify-between items-center">
         <div className="flex gap-4 items-center">
           {lanyard?.discord_user.avatar ? (
