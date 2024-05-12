@@ -3,7 +3,7 @@ import { Lanyard } from "@/wrapper";
 
 export function Status() {
   return (
-    <div className="border-t-2 border-t-brand-700 pt-4 grid sm:grid-cols-2 gap-4">
+    <section className="border-t-2 border-t-brand-700 pt-4 grid sm:grid-cols-2 gap-4">
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Discord Profile</h3>
         <div>
@@ -31,6 +31,6 @@ export function Status() {
           <p className="bg-brand-400">VS Code</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

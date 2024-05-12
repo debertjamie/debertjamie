@@ -35,7 +35,7 @@ export function Head() {
     new Date(now).getUTCHours() + 7 >= 5 &&
     new Date(now).getUTCHours() + 7 < 19;
   return (
-    <div className="space-y-6 select-none">
+    <section className="space-y-6 select-none">
       <div className="space-y-2 *:leading-tight">
         <h1 className="text-4xl font-bold">@Debert</h1>
         <h3 className="text-xl font-semibold">
@@ -48,6 +48,6 @@ export function Head() {
       <p className="text-lg" suppressHydrationWarning={true}>
         {isDay ? "🌤️" : "😴"} {formatDay.format(now)} {formatTime.format(now)}
       </p>
-    </div>
+    </section>
   );
 }

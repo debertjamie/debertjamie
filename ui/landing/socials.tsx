@@ -3,7 +3,7 @@ import { GitHub, LinkedIn, Twitter, Code } from "../icons";
 
 export function Socials() {
   return (
-    <div className="flex flex-wrap gap-4 text-lg *:bg-brand-600 text-brand-50 *:px-4 *:py-2 *:rounded-lg">
+    <section className="flex flex-wrap xs:justify-between gap-y-4 gap-x-2 text-lg *:bg-brand-600 text-brand-50 *:px-4 *:py-2 *:rounded-lg">
       <Link
         href="https://github.com/debertjamie"
         target="_blank"
@@ -40,6 +40,6 @@ export function Socials() {
         <Code width={28} height={28} className="inline-block" />
         &nbsp;Google Developers
       </Link>
-    </div>
+    </section>
   );
 }
