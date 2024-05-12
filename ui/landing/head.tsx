@@ -38,9 +38,9 @@ export function Head() {
     <section className="space-y-6 select-none">
       <div className="space-y-2 *:leading-tight">
         <h1 className="text-4xl font-bold">@Debert</h1>
-        <h3 className="text-xl font-semibold">
+        <h2 className="text-2xl font-semibold">
           Also Known As: 陈宥维 / 陳宥維 / Debert Jamie Chanderson
-        </h3>
+        </h2>
         <p className="text-base">
           High Schooler, Espresso Addict, Math Maven, Tech Ardent
         </p>
