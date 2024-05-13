@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { Head, Socials, Status } from "@/ui/landing";
 
 export default function Home() {
@@ -20,7 +20,6 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  keywords: "debert, debert jamie chanderson, 陈宥维",
   openGraph: {
     title,
     description,
