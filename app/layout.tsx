@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "@/styles/globals.css";
 import { Footer } from "@/ui/footer";
 import { Header } from "@/ui/header";
@@ -8,7 +8,22 @@ import { ThemedHTML } from "@/wrapper";
 export const metadata: Metadata = {
   title: "Debert Jamie",
   description: "Heya 👋😀 I'm Debert Jamie",
+  openGraph: {
+    locale: "en_EN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@debertjamie",
+  }
 };
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#EBEBFF' },
+    { media: '(prefers-color-scheme: dark)', color: '#01001E' },
+  ],
+}
 
 export default function RootLayout({
   children,

@@ -22,15 +22,11 @@ export const metadata: Metadata = {
   description,
   keywords: "debert, debert jamie chanderson, 陈宥维",
   openGraph: {
-    type: "website",
     title,
     description,
-    locale: "en_EN",
   },
   twitter: {
     title,
     description,
-    card: "summary",
-    creator: "@debertjamie",
   },
 };
