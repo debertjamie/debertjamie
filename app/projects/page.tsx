@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 export default function Projects() {
@@ -23,3 +24,20 @@ export default function Projects() {
     </main>
   );
 }
+
+const title = "Projects";
+const description =
+  "Lists of projects I've made";
+
+export const metadata: Metadata = {
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+  },
+  twitter: {
+    title,
+    description,
+  },
+};

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 export default function Guestbook() {
@@ -24,3 +25,20 @@ export default function Guestbook() {
     </main>
   );
 }
+
+const title = "Guestbook";
+const description =
+  "Hi! You can sign your name in here if you want";
+
+export const metadata: Metadata = {
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+  },
+  twitter: {
+    title,
+    description,
+  },
+};

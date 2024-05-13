@@ -1,0 +1,24 @@
+{
+  "name": "Debert Jamie",
+  "description": "Hey! I'm Debert, a student from Indonesia who likes to tinker with code ⌨️",
+  "start_url": "/",
+  "background_color": "#EBEBFF",
+  "theme_color": "#EBEBFF",
+  "short_name": "Debert",
+  "display": "standalone",
+  "orientation": "portrait",
+  "dir": "ltr",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/static/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
