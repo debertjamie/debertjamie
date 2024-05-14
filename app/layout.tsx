@@ -5,12 +5,12 @@ import { Header } from "@/ui/header";
 import { inter } from "@/ui/fonts";
 import { ThemedHTML } from "@/wrapper";
 
-const url = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_URL! : process.env.VERCEL_URL!;
+const publicUrl = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_URL! : process.env.NEXT_PUBLIC_VERCEL_URL!;
 const title = "Debert Jamie";
 const description = "Heya 👋😀 I'm Debert Jamie";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(url),
+  metadataBase: new URL(publicUrl),
   authors: [{ name: "Debert Jamie Chanderson" }],
   title: {
     default: "Debert Jamie",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    url,
+    url: publicUrl,
     locale: "en_US",
     type: "website",
   },

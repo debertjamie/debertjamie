@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
     title,
