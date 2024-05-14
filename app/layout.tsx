@@ -5,7 +5,7 @@ import { Header } from "@/ui/header";
 import { inter } from "@/ui/fonts";
 import { ThemedHTML } from "@/wrapper";
 
-const url = "https://debertjamie.vercel.app/static";
+const url = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_URL! : process.env.VERCEL_URL!;
 const title = "Debert Jamie";
 const description = "Heya 👋😀 I'm Debert Jamie";
 
@@ -23,20 +23,12 @@ export const metadata: Metadata = {
     url,
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: `${url}/banner.png`,
-        width: 1004,
-        height: 590,
-      },
-    ],
   },
   twitter: {
     title,
     description,
     card: "summary_large_image",
     creator: "@debertjamie",
-    images: [`${url}/banner.png`],
   },
   icons: {
     shortcut: "/static/favicon.ico",
