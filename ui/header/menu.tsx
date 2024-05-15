@@ -50,6 +50,9 @@ export function HamburgerMenu() {
           <Link href="/">Home</Link>
         </p>
         <p>
+          <Link href="/blog">Blog</Link>
+        </p>
+        <p>
           <Link href="/projects">Projects</Link>
         </p>
         <p>
