@@ -3,7 +3,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 const config: Config = {
   content: [
-    "./app/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./ui/**/*.{js,ts,jsx,tsx,mdx}",
     "./wrapper/*.{js,ts,jsx,tsx,mdx}",
   ],
