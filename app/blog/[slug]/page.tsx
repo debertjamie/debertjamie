@@ -3,16 +3,51 @@ import { Suspense } from "react";
 import { publicUrl } from "@/app/env.mjs";
 import { getBlogs, formatDate } from "@/lib/mdx";
 import { Card, Mdx } from "@/ui/blog";
+import type { Metadata } from 'next/types';
+import type { Blog } from "@/lib/mdx";
 
-const language: Record<string, string> = {
+const language: Record<Blog["language"], string> = {
   EN: "Written in English",
   ZH: "以简体中文书写",
 };
 
-const draft: Record<string, string> = {
+const draft: Record<Blog["language"], string> = {
   EN: "This blog post is still a draft and may subject to change",
   ZH: "本博文仍是草稿，可能会有改动",
 };
+
+export function generateMetadata({
+  params,
+}: {
+  readonly params: { slug: string };
+}): Metadata {
+  const blog = getBlogs().find((blog) => blog.slug === params.slug);
+  if(!blog) return {};
+
+  const locale: Record<Blog["language"], string> = {
+    EN: "en-US",
+    ZH: "zh-CN",
+  };
+
+  return {
+    title: blog.title,
+    description: blog.excerpt,
+    keywords: blog.tags,
+    openGraph: {
+      title: blog.title,
+      description: blog.excerpt,
+      type: "article",
+      publishedTime: blog.publishedDate,
+      url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}blog/${blog.slug}`,
+      locale: locale[blog.language],
+    },
+    twitter: {
+      title: blog.title,
+      description: blog.excerpt,
+      card: "summary_large_image"
+    },
+  };
+}
 
 export default function Page({
   params,
@@ -63,7 +98,7 @@ export default function Page({
           <span>ERT: {ert} min</span>
           <span>
             {formatDate(
-              blog.publishedDate,
+              blog.date,
               blog.language === "ZH" ? "zh-CN" : undefined
             )}
           </span>

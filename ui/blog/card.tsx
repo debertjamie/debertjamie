@@ -1,6 +1,6 @@
 import { Blog } from "@/lib/mdx";
 
-const language: Record<string, string> = {
+const language: Record<Blog["language"], string> = {
   EN: "English",
   ZH: "中文",
 };
@@ -22,7 +22,7 @@ export function Card({ blog, minimal = false }: CardProps) {
       ) : (
         <div className="flex flex-wrap justify-between gap-x-4 text-base">
           <span>{language[blog.language]}</span>
-          <span>{blog.publishedDate}</span>
+          <span>{blog.date}</span>
         </div>
       )}
       <div className="flex flex-wrap gap-x-2 font-semibold *:bg-brand-400 *:px-1.5 *:py-0.5 *:rounded-sm">

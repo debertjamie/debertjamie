@@ -7,7 +7,8 @@ export interface Blog {
   draft?: boolean;
   excerpt: string;
   publishedDate: string;
-  language: string;
+  date: string;
+  language: "EN" | "ZH";
   tags: string[];
   pinned?: boolean;
   slug: string;
@@ -18,8 +19,9 @@ export interface Projects {
   title: string;
   excerpt: string;
   publishedDate: string;
+  date: string;
   lastUpdate?: string;
-  language: string;
+  language: "EN" | "ZH";
   live?: string;
   openSource?: string;
   tags: string[];
@@ -59,8 +61,7 @@ function getMdxData<T extends Mdx>(resourcePath: string, filepath: string) {
   const slug = filepath.replace(/\.mdx$/, "");
   const { data, content } = matter(contents);
   const formattedDate = formatDate(data.publishedDate as string);
-  let { date: _, ...mdxData } = data;
-  return { ...mdxData, publishedDate: formattedDate, slug, content } as T;
+  return { ...data, date: formattedDate, slug, content } as T;
 }
 
 export function getBlogs() {
