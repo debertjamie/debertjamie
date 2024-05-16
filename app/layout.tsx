@@ -4,8 +4,8 @@ import { Footer } from "@/ui/footer";
 import { Header } from "@/ui/header";
 import { inter } from "@/ui/fonts";
 import { ThemedHTML } from "@/wrapper";
+import { publicUrl } from "./env.mjs"
 
-const publicUrl = `https://${process.env.NODE_ENV === "development" ? process.env.VERCEL_URL! : process.env.NEXT_PUBLIC_VERCEL_URL!}`;
 const title = "Debert Jamie";
 const description = "Heya 👋😀 I'm Debert Jamie";
 
