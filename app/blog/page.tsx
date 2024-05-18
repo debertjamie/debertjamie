@@ -1,4 +1,3 @@
-import { getBlogs } from "@/lib/mdx";
 import { Grid } from "@/ui/blog";
 import type { Metadata } from "next";
 import { Suspense } from "react";
@@ -8,14 +7,6 @@ export default function Blog({
 }: {
   searchParams?: { [key: string]: string | undefined };
 }) {
-  const blogs = getBlogs();
-  const selectedTag = decodeURIComponent(searchParams?.tag || "");
-  const selectedBlogs = selectedTag
-    ? blogs.filter(
-        (data) => data.tags.indexOf(selectedTag.toUpperCase()) !== -1
-      )
-    : blogs;
-  const pinnedBlogs = blogs.filter((data) => data.pinned === true);
   return (
     <main className="space-y-8">
       <div className="space-y-2">
@@ -24,19 +15,17 @@ export default function Blog({
           A collection of thoughts poured into readable forms
         </p>
       </div>
-      <Suspense fallback={<p className="text-lg">Loading blogs... Please wait</p>}>
-        <Grid
-          blogs={selectedBlogs}
-          selectedTag={selectedTag}
-          pinnedBlogs={pinnedBlogs}
-        />
+      <Suspense
+        fallback={<p className="text-lg">Loading blogs...</p>}
+      >
+        <Grid searchParams={searchParams} />
       </Suspense>
     </main>
   );
 }
 
 const title = "Blog";
-const description = "Debert Jamie's blogpage.";
+const description = "Here is where the random thoughts inside my mind are poured into human language";
 
 export const metadata: Metadata = {
   title,

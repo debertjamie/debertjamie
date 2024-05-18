@@ -69,8 +69,11 @@ function CustomImage(props: ImageProps) {
   return (
     <div className="relative">
       <Image
+        width={0}
+        height={0}
+        sizes="100%"
         alt={alt}
-        className="rounded-xl my-4 mx-auto"
+        className="w-full h-full rounded-xl my-4"
         {...rest}
       />
     </div>

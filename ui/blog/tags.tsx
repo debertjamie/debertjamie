@@ -5,8 +5,7 @@ export const tag: Record<string, string> = {
   PSYCHOLOGY: "PSYCHOLOGY",
   SOFTWARE: "SOFTWARE ENGINEERING",
   DESIGN: "DESIGN & STYLING",
-  FRONTEND: "FRONTEND DEVELOPMENT",
-  BACKEND: "BACKEND DEVELOPMENT",
+  WEBDEV: "WEB DEVELOPMENT",
   DATABASE: "DATABASE",
   "AI & ML": "ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING",
   "ALGO & DS": "ALGORITHMS AND DATA STRUCTURES",
@@ -15,67 +14,16 @@ export const tag: Record<string, string> = {
 
 export function Tags() {
   return (
-    <div className="flex flex-wrap gap-y-4 gap-x-2 text-base font-semibold select-none">
-      <Link
-        href="?tag=life"
-        className="bg-brand-700 text-brand-50 px-2 py-1 rounded-lg"
-      >
-        LIFE
-      </Link>
-      <Link
-        href="?tag=psychology"
-        className="bg-brand-700 text-brand-50 px-2 py-1 rounded-lg"
-      >
-        PSYCHOLOGY
-      </Link>
-      <Link
-        href="?tag=software"
-        className="bg-brand-700 text-brand-50 px-2 py-1 rounded-lg"
-      >
-        SOFTWARE
-      </Link>
-      <Link
-        href="?tag=design"
-        className="bg-brand-700 text-brand-50 px-2 py-1 rounded-lg"
-      >
-        DESIGN
-      </Link>
-      <Link
-        href="?tag=frontend"
-        className="bg-brand-700 text-brand-50 px-2 py-1 rounded-lg"
-      >
-        FRONTEND
-      </Link>
-      <Link
-        href="?tag=backend"
-        className="bg-brand-700 text-brand-50 px-2 py-1 rounded-lg"
-      >
-        BACKEND
-      </Link>
-      <Link
-        href="?tag=database"
-        className="bg-brand-700 text-brand-50 px-2 py-1 rounded-lg"
-      >
-        DATABASE
-      </Link>
-      <Link
-        href="?tag=ai%20%26%20ml"
-        className="bg-brand-700 text-brand-50 px-2 py-1 rounded-lg"
-      >
-        AI & ML
-      </Link>
-      <Link
-        href="?tag=algo%20%26%20ds"
-        className="bg-brand-700 text-brand-50 px-2 py-1 rounded-lg"
-      >
-        ALGO & DS
-      </Link>
-      <Link
-        href="?tag=cybersecurity"
-        className="bg-brand-700 text-brand-50 px-2 py-1 rounded-lg"
-      >
-        CYBERSECURITY
-      </Link>
+    <div className="flex flex-wrap gap-y-2 gap-x-2 text-base font-semibold select-none *:bg-emerald-900 *:text-cyan-50 *:px-2 *:py-1 *:rounded-lg">
+      <Link href="?tag=life">LIFE</Link>
+      <Link href="?tag=psychology">PSYCHOLOGY</Link>
+      <Link href="?tag=software">SOFTWARE</Link>
+      <Link href="?tag=design">DESIGN</Link>
+      <Link href="?tag=webdev">WEBDEV</Link>
+      <Link href="?tag=database">DATABASE</Link>
+      <Link href="?tag=ai%20%26%20ml">AI & ML</Link>
+      <Link href="?tag=algo%20%26%20ds">ALGO & DS</Link>
+      <Link href="?tag=cybersecurity">CYBERSECURITY</Link>
     </div>
   );
 }

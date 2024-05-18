@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { publicUrl } from "@/app/env.mjs";
 import { getBlogs, formatDate } from "@/lib/mdx";
 import { Card, Mdx } from "@/ui/blog";
-import type { Metadata } from 'next/types';
+import type { Metadata } from "next/types";
 import type { Blog } from "@/lib/mdx";
 
 const language: Record<Blog["language"], string> = {
@@ -22,7 +22,7 @@ export function generateMetadata({
   readonly params: { slug: string };
 }): Metadata {
   const blog = getBlogs().find((blog) => blog.slug === params.slug);
-  if(!blog) return {};
+  if (!blog) return {};
 
   const locale: Record<Blog["language"], string> = {
     EN: "en-US",
@@ -44,7 +44,8 @@ export function generateMetadata({
     twitter: {
       title: blog.title,
       description: blog.excerpt,
-      card: "summary_large_image"
+      card: "summary_large_image",
+      creator: "@debertjamie",
     },
   };
 }
@@ -85,10 +86,10 @@ export default function Page({
           }),
         }}
       />
-      <h1 className="text-5xl font-bold">{blog.title}</h1>
+      <h1 className="text-3xl md:text-5xl font-bold">{blog.title}</h1>
       <div className="space-y-4 border-b-2 border-b-brand-600 pb-2">
         {blog.draft ? (
-          <h2 className="text-2xl font-semibold">⚠️ {draft[blog.language]}</h2>
+          <h2 className="text-lg md:text-2xl font-semibold">⚠️ {draft[blog.language]}</h2>
         ) : (
           <></>
         )}
@@ -114,16 +115,14 @@ export default function Page({
           ))}
         </div>
       </div>
-      <div className="md:grid md:grid-cols-[60%_40%]">
-        <div>
-          <Suspense
-            fallback={<p className="text-lg">Loading blog content...</p>}
-          >
-            <Mdx content={blog.content} />
-          </Suspense>
-        </div>
-        <div className="space-y-4 md:ml-4">
-          <h3 className="text-xl font-semibold">Recent blogs:</h3>
+      <div>
+        <Suspense fallback={<p className="text-lg">Loading blog content...</p>}>
+          <Mdx content={blog.content} />
+        </Suspense>
+      </div>
+      <div className="space-y-4 md:ml-4">
+        <h3 className="text-xl font-semibold">Recent blogs:</h3>
+        <div className=" space-y-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:space-y-0">
           {moreBlogs.map((blog) => (
             <Link href={`/blog/${blog.slug}`} key={blog.slug} className="block">
               <Card blog={blog} minimal />
