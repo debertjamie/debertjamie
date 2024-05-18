@@ -1,33 +1,31 @@
+import { getProjects } from "@/lib/mdx";
+import { Grid } from "@/ui/projects";
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Suspense } from "react";
 
 export default function Projects() {
+  let projects = getProjects();
+  projects = [
+    ...projects.filter((p) => p.pinned),
+    ...projects.filter((p) => !p.pinned),
+  ];
   return (
     <main className="space-y-8">
-      <div>
-        <h1 className="text-4xl font-bold">Where is everyone?</h1>
-        <h2 className="text-2xl font-semibold">This place looks empty...</h2>
+      <div className="space-y-2">
+        <h1 className="text-4xl font-bold">Projects</h1>
+        <p className="text-lg">
+          List of projects I created, some are open source too :o
+        </p>
       </div>
-      <p className="text-lg">
-        <span className="font-semibold">/projects</span> is currently under
-        development.
-      </p>
-      <p className="text-lg">Target of Completion: June 2024</p>
-      <div>
-        <Link
-          className="w-fit mt-12 px-4 py-2 bg-brand-600 text-brand-50 font-semibold text-lg rounded-lg"
-          href="/"
-        >
-          Return Home -&gt;
-        </Link>
-      </div>
+      <Suspense fallback={<p className="text-lg">Finding projects...</p>}>
+        <Grid />
+      </Suspense>
     </main>
   );
 }
 
 const title = "Projects";
-const description =
-  "Lists of projects I've made";
+const description = "List of projects I created, some are open source too :o";
 
 export const metadata: Metadata = {
   title,
