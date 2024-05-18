@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Head, Socials, Status } from "@/ui/landing";
+import { Head, Socials, More } from "@/ui/landing";
 
 export default function Home() {
   return (
@@ -7,7 +7,7 @@ export default function Home() {
       <main className="space-y-8">
         <Head />
         <Socials />
-        <Status />
+        <More />
       </main>
     </>
   );

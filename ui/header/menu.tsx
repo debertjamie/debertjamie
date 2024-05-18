@@ -14,7 +14,7 @@ export function HamburgerMenu() {
   return (
     <nav className="relative">
       <div
-        className="flex flex-col justify-between h-5 w-5 cursor-pointer *:h-1 *:bg-brand-950 *:dark:bg-brand-50 *:transition *:ease-in-out *:duration-100"
+        className="flex flex-col justify-between h-5 w-5 cursor-pointer *:h-1 *:bg-zinc-950 *:dark:bg-cyan-50 *:transition *:ease-in-out *:duration-100"
         onClick={toggleMenu}
       >
         <span
@@ -42,7 +42,7 @@ export function HamburgerMenu() {
       <div
         className={
           isOpen
-            ? "absolute text-xl mt-4 w-36 space-y-2 bg-brand-200 dark:bg-brand-900 rounded-xl bg-opacity-90 py-2 px-4 backdrop-blur-sm shadow-xl"
+            ? "absolute text-xl mt-4 w-36 space-y-2 bg-sky-700 rounded-xl bg-opacity-90 py-2 px-4 backdrop-blur-sm shadow-xl"
             : "hidden"
         }
       >
