@@ -6,10 +6,10 @@ import React from "react";
 import { formatDistance } from "date-fns";
 
 const colors: Record<string, string> = {
-  online: "text-green-500",
-  idle: "text-amber-400",
-  dnd: "text-red-400",
-  offline: "text-gray-300",
+  online: "bg-green-500",
+  idle: "bg-amber-400",
+  dnd: "bg-red-400",
+  offline: "bg-gray-300",
 };
 
 const activityTypes = [
@@ -27,7 +27,7 @@ export function Lanyard() {
     socket: true,
   });
   const otherActivities = lanyard?.activities.filter(
-    (activity) => activity.type !== 2 && activity.type !== 4,
+    (activity) => activity.type !== 2 && activity.type !== 4
   );
 
   const [now, setNow] = React.useState(new Date());
@@ -39,11 +39,11 @@ export function Lanyard() {
   }, []);
 
   return (
-    <div className="py-1 px-2 rounded-lg bg-brand-900 border-2 dark:border-brand-800 text-brand-50 space-y-2">
+    <div className="py-1 px-2 rounded-lg bg-indigo-700 text-brand-50 space-y-2">
       <div className="flex gap-x-4 justify-between items-center">
         <div className="flex gap-4 items-center">
           {lanyard?.discord_user.avatar ? (
-            <div className="w-12 h-12 md:w-16 md:h-16">
+            <div className="w-12 h-12 md:w-16 md:h-16 relative">
               <Image
                 src={
                   "https://cdn.discordapp.com/avatars/755773452756975646/" +
@@ -59,7 +59,12 @@ export function Lanyard() {
                 height={0}
                 sizes="100%"
                 priority={true}
-                className="rounded-full w-12 h-12 md:w-16 md:h-16 bg-brand-700"
+                className="rounded-full w-12 h-12 md:w-16 md:h-16"
+              />
+              <div
+                className={`absolute bottom-0.5 right-0.5 w-4 h-4 md:w-4 md:h-4 rounded-full ${
+                  colors[lanyard?.discord_status]
+                }`}
               />
             </div>
           ) : (
@@ -69,13 +74,6 @@ export function Lanyard() {
             <div className="leading-tight">
               <p className="font-semibold text-lg">
                 {lanyard.discord_user.username}
-              </p>
-              <p
-                className={
-                  colors[lanyard.discord_status] + " text-base font-semibold"
-                }
-              >
-                {lanyard.discord_status.toUpperCase()}
               </p>
             </div>
           ) : (
