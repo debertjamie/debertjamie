@@ -40,7 +40,7 @@ function Anchor(props: AnchorHTMLAttributes<HTMLAnchorElement>) {
       <Link
         href={href}
         {...props}
-        className="text-brand-700 dark:text-brand-200"
+        className="text-sky-700 dark:text-sky-400"
       >
         {props.children}
       </Link>
@@ -51,7 +51,7 @@ function Anchor(props: AnchorHTMLAttributes<HTMLAnchorElement>) {
         href={href}
         target="_blank"
         rel="norefferer noopener"
-        className="text-brand-700 dark:text-brand-200"
+        className="text-sky-700 dark:text-sky-400"
         {...props}
       >
         {props.children}

@@ -3,7 +3,7 @@ import { GitHub, LinkedIn, Twitter, Code } from "../icons";
 
 export function Socials() {
   return (
-    <section className="flex flex-wrap xs:justify-between gap-y-4 gap-x-2 text-lg text-brand-50 *:px-4 *:py-2 *:rounded-lg">
+    <section className="flex flex-wrap xs:justify-between gap-y-4 gap-x-2 text-lg text-cyan-50 *:px-4 *:py-2 *:rounded-lg">
       <Link
         href="https://github.com/debertjamie"
         target="_blank"
