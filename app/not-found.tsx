@@ -9,7 +9,7 @@ export default async function NotFound() {
         This place doesn&#39;t hold any secrets... yet. Check back later.
       </p>
       <Link
-        className="w-fit mt-12 px-4 py-2 bg-brand-600 text-brand-50 font-semibold text-lg rounded-lg"
+        className="w-fit mt-12 px-4 py-2 bg-blue-800 text-cyan-50 font-semibold text-lg rounded-lg"
         href="/"
       >
         Return Home -&gt;
