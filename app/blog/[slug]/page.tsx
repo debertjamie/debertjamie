@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Suspense } from "react";
 import { publicUrl } from "@/app/env.mjs";
 import { getBlogs, formatDate } from "@/lib/mdx";
 import { Card, Mdx } from "@/ui/blog";
@@ -89,7 +88,9 @@ export default function Page({
       <h1 className="text-3xl md:text-5xl font-bold">{blog.title}</h1>
       <div className="space-y-4 border-b-2 border-b-brand-600 pb-2">
         {blog.draft ? (
-          <h2 className="text-lg md:text-2xl font-semibold">⚠️ {draft[blog.language]}</h2>
+          <h2 className="text-lg md:text-2xl font-semibold">
+            ⚠️ {draft[blog.language]}
+          </h2>
         ) : (
           <></>
         )}
@@ -116,9 +117,7 @@ export default function Page({
         </div>
       </div>
       <div>
-        <Suspense fallback={<p className="text-lg">Loading blog content...</p>}>
-          <Mdx content={blog.content} />
-        </Suspense>
+        <Mdx content={blog.content} />
       </div>
       <div className="space-y-4 md:ml-4">
         <h3 className="text-xl font-semibold">Recent blogs:</h3>
