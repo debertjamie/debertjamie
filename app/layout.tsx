@@ -65,7 +65,7 @@ export default function RootLayout({
 }>) {
   return (
     <ThemedHTML>
-      <body className="mx-auto max-w-3xl bg-brand-50 dark:bg-brand-950 text-brand-950 dark:text-brand-50 selection:bg-brand-800 selection:text-brand-50">
+      <body className="mx-auto max-w-3xl bg-cyan-50 dark:bg-zinc-950 text-zinc-950 dark:text-cyan-50 selection:bg-violet-950 selection:text-cyan-50">
         <div
           className={inter.className + " mt-8 mx-4 flex flex-col min-h-screen"}
         >
