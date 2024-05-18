@@ -21,7 +21,6 @@ export interface Projects {
   publishedDate: string;
   date: string;
   lastUpdate?: string;
-  language: "EN" | "ZH";
   live?: string;
   openSource?: string;
   tags: string[];
