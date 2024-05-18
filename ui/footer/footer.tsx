@@ -3,7 +3,7 @@ import Link from "next/link";
 export function Footer() {
   return (
     <footer className="mb-1 lg:mb-4 pt-4 border-t-2 border-t-brand-950 space-y-4 dark:border-t-brand-50">
-      
+      <div>SOON</div>
       <div className="grid grid-cols-2 sm:grid-cols-3 items-start gap-2 text-base">
         <div className="flex flex-col justify-center gap-2 *:w-fit font-semibold">
           <Link href="/">Home</Link>
@@ -27,7 +27,7 @@ export function Footer() {
             href="https://nextjs.org"
             target="_blank"
             rel="norefferer noopener"
-            className="text-brand-600 dark:text-brand-200 font-semibold"
+            className="text-sky-700 dark:text-sky-400 font-semibold"
           >
             NextJS
           </Link>{" "}
@@ -36,7 +36,7 @@ export function Footer() {
             href="https://tailwindcss.com"
             target="_blank"
             rel="norefferer noopener"
-            className="text-brand-600 dark:text-brand-200 font-semibold"
+            className="text-sky-700 dark:text-sky-400 font-semibold"
           >
             TailwindCSS
           </Link>
