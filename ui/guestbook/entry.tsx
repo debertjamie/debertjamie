@@ -33,7 +33,7 @@ export function GuestbookEntry({ entry, session }: GuestBookEntryProps) {
         {entry.created_by}
       </p>
       <div className="w-full text-lg break-words">{entry.body}</div>
-      <div className="flex items-center space-x-3">
+      <div className="flex flex-wrap items-center gap-x-3 select-none">
         <p className="text-sm dark:text-neutral-300 font-semibold">
           {new Date(entry.updated_at)
             .toLocaleDateString("en-GB", {
@@ -46,7 +46,8 @@ export function GuestbookEntry({ entry, session }: GuestBookEntryProps) {
               hour12: true,
             })
             .replace("am", "AM")
-            .replace("pm", "PM")}
+            .replace("pm", "PM")}{" "}
+          Jakarta Time
         </p>
         {session?.user &&
           (entry.email === session.user.email || session.user.isAdmin) && (

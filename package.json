@@ -10,13 +10,12 @@
     "format": "prettier --write .",
     "format:check": "prettier -c .",
     "typecheck": "tsc --noEmit --incremental false",
-    "prepare": "husky",
     "db:check": "drizzle-kit check",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "npx tsx lib/db/migrate.ts",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@auth/core": "^0.31.0",
