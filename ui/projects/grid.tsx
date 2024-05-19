@@ -11,7 +11,7 @@ export function Grid() {
   return (
     <>
       {projects.length ? (
-        <div className="grid md:grid-cols-2 gap-x-4">
+        <div className="grid md:grid-cols-2 gap-4">
           {projects.map((project) => (
             <Link
               href={`/projects/${project.slug}`}
