@@ -119,7 +119,7 @@ export default function Page({
       <div>
         <Mdx content={blog.content} />
       </div>
-      <div className="space-y-4 md:ml-4">
+      <div className="space-y-4">
         <h3 className="text-xl font-semibold">Recent blogs:</h3>
         <div className=" space-y-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:space-y-0">
           {moreBlogs.map((blog) => (
