@@ -1,6 +1,6 @@
 {
   "name": "debertjamie",
-  "version": "2.1.0-dev.3",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
