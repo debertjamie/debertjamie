@@ -35,7 +35,7 @@ export function Head() {
     new Date(now).getUTCHours() + 7 >= 5 &&
     new Date(now).getUTCHours() + 7 < 19;
   return (
-    <section className="space-y-6 select-none">
+    <section className="space-y-6">
       <div className="space-y-2 *:leading-tight">
         <h1 className="text-4xl font-bold">@Debert</h1>
         <h2 className="text-2xl font-semibold">

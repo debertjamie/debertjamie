@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Head, Socials, Status } from "@/ui/landing";
+import { Head, Socials, More } from "@/ui/landing";
 
 export default function Home() {
   return (
@@ -7,7 +7,7 @@ export default function Home() {
       <main className="space-y-8">
         <Head />
         <Socials />
-        <Status />
+        <More />
       </main>
     </>
   );
@@ -23,9 +23,13 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
     title,
     description,
+    card: "summary_large_image",
+    creator: "@debertjamie",
   },
 };
