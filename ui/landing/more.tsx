@@ -18,7 +18,7 @@ export function More() {
       </div>
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Skills and Tools</h3>
-        <div className="flex flex-wrap gap-2 select-none text-base *:text-brand-50 *:rounded-lg *:px-2 *:py-1">
+        <div className="flex flex-wrap gap-2 select-none text-base *:text-cyan-50 *:rounded-lg *:px-2 *:py-1">
           <p className="bg-blue-800">TypeScript</p>
           <p className="bg-green-700">NodeJS</p>
           <p className="bg-neutral-800">Deno</p>
