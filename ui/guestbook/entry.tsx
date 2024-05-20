@@ -14,6 +14,17 @@ interface GuestBookEntryProps {
   session: Session | null;
 }
 
+const time = new Intl.DateTimeFormat("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+  hour12: true,
+  timeZone: "Asia/Jakarta",
+  timeZoneName: "shortGeneric",
+});
+
 export function GuestbookEntry({ entry, session }: GuestBookEntryProps) {
   const router = useRouter();
   async function deleteEntry() {
@@ -35,19 +46,7 @@ export function GuestbookEntry({ entry, session }: GuestBookEntryProps) {
       <div className="w-full text-lg break-words">{entry.body}</div>
       <div className="flex flex-wrap items-center gap-x-3 select-none">
         <p className="text-sm dark:text-neutral-300 font-semibold">
-          {new Date(entry.updated_at)
-            .toLocaleDateString("en-GB", {
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-              hour: "numeric",
-              minute: "numeric",
-              timeZone: "Asia/Jakarta",
-              hour12: true,
-            })
-            .replace("am", "AM")
-            .replace("pm", "PM")}{" "}
-          Jakarta Time
+          {time.format(new Date(entry.updated_at))}
         </p>
         {session?.user &&
           (entry.email === session.user.email || session.user.isAdmin) && (
