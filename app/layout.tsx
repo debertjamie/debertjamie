@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 import { Footer } from "@/ui/footer";
 import { Header } from "@/ui/header";
 import { inter } from "@/ui/fonts";
-import { ThemedHTML } from "@/wrapper";
+import { ThemedHTML } from "@/ui/header";
 import { publicUrl } from "./env.mjs"
 
 const title = "Debert Jamie";
