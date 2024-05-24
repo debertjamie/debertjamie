@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { MobileToggleTheme } from "@/wrapper";
+import { MobileToggleTheme } from ".";
 
 export function HamburgerMenu() {
   const [isOpen, setIsOpen] = React.useState(false);
