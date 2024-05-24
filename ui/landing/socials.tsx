@@ -26,7 +26,7 @@ export function Socials() {
         href="https://twitter.com/debertjamie"
         target="_blank"
         rel="norefferer noopener"
-        className="flex items-center bg-sky-700"
+        className="flex items-center bg-stone-900"
       >
         <Twitter width={28} height={28} className="inline-block" />
         &nbsp;Twitter (X)
