@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Lanyard } from "@/wrapper";
+import { Lanyard } from ".";
 
 export function More() {
   return (
