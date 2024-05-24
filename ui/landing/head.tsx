@@ -42,7 +42,7 @@ export function Head() {
           Also Known As: 陈宥维 / 陳宥維 / Debert Jamie Chanderson
         </h2>
         <p className="text-base">
-          High Schooler, Espresso Addict, Math Maven, Tech Ardent
+          Espresso Addict, Math Maven, Tech Ardent
         </p>
       </div>
       <p className="text-lg" suppressHydrationWarning={true}>
