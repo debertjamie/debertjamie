@@ -6,7 +6,7 @@ export default function Sitemap(): MetadataRoute.Sitemap {
   const blogs: MetadataRoute.Sitemap = getBlogs().map((blog) => ({
     url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}blog/${blog.slug}`,
     lastModified: blog.publishedDate,
-    changeFrequency: "never",
+    changeFrequency: blog.draft ? "weekly" : "never",
     priority: 0.8,
   }));
 
