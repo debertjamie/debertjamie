@@ -7,5 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: "https://debertjamie.vercel.app/sitemap.xml",
+    host: "https://debertjamie.vercel.app",
   };
 }
