@@ -59,7 +59,7 @@ export default function Page({
 
   const moreBlogs = getBlogs()
     .filter((blog) => blog.slug !== params.slug)
-    .splice(0, 3);
+    .splice(0, 2);
 
   const wordlength = blog.content.trim().length;
   const ert = Math.ceil(wordlength / 200);
