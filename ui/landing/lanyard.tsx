@@ -90,7 +90,7 @@ export function Lanyard() {
           )}
         </div>
       </div>
-      {otherActivities?.length && (
+      {!!otherActivities?.length && (
         <div className="space-y-2">
           {otherActivities.map((act) => (
             <div
