@@ -6,8 +6,8 @@ import type { Metadata } from "next/types";
 import type { Blog } from "@/lib/mdx";
 
 const language: Record<Blog["language"], string> = {
-  EN: "Written in English",
-  ZH: "以简体中文书写",
+  EN: "Language: English",
+  ZH: "博客语言：中文",
 };
 
 const draft: Record<Blog["language"], string> = {
@@ -61,11 +61,11 @@ export default function Page({
     .filter((blog) => blog.slug !== params.slug)
     .splice(0, 2);
 
-  const wordlength = blog.content.trim().length;
+  const wordlength = blog.content.trim().split(/\s+/).length;
   const ert = Math.ceil(wordlength / 200);
 
   return (
-    <main className="space-y-8 select-none">
+    <main className="space-y-8">
       <script
         type="application/ld+json"
         suppressHydrationWarning={true}
@@ -116,7 +116,7 @@ export default function Page({
           ))}
         </div>
       </div>
-      <div>
+      <div className="tracking-wider">
         <Mdx content={blog.content} />
       </div>
       <div className="space-y-4">
