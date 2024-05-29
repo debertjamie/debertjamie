@@ -7,9 +7,9 @@ import { formatDistance } from "date-fns";
 
 const colors: Record<string, string> = {
   online: "bg-green-500",
-  idle: "bg-amber-400",
-  dnd: "bg-red-400",
-  offline: "bg-gray-300",
+  idle: "bg-amber-500",
+  dnd: "bg-red-600",
+  offline: "bg-gray-400",
 };
 
 const activityTypes = [
@@ -39,7 +39,7 @@ export function Lanyard() {
   }, []);
 
   return (
-    <div className="py-1 px-2 rounded-lg bg-indigo-700 text-cyan-50 space-y-2">
+    <div className="py-1 px-2 rounded-lg bg-indigo-600 text-cyan-50 flex flex-col gap-y-2 justify-center">
       <div className="flex gap-x-4 justify-between items-center">
         <div className="flex gap-4 items-center">
           {lanyard?.discord_user.avatar ? (
@@ -71,38 +71,45 @@ export function Lanyard() {
             <></>
           )}
           {lanyard ? (
-            <div className="leading-tight">
-              <p className="font-semibold text-lg">
-                {lanyard.discord_user.username}
-              </p>
+            <div className="leading-tight flex flex-col justify-between">
+              {lanyard.discord_user.global_name ? (
+                <>
+                  <p className="font-semibold text-lg">
+                    {lanyard.discord_user.global_name}
+                  </p>
+                  <p className="text-base">{lanyard.discord_user.username}</p>
+                </>
+              ) : (
+                <p className="font-semibold text-lg">
+                  {lanyard.discord_user.username}
+                </p>
+              )}
             </div>
           ) : (
-            <p className="text-lg">Loading discord profile</p>
+            <p className="text-lg">Loading Discord profile</p>
           )}
         </div>
       </div>
-      <div className="space-y-2">
-        {otherActivities?.map((act) => (
-          <div
-            key={act.application_id}
-            className="leading-tight text-base ml-2"
-          >
-            <p>
-              {activityTypes[act.type]}{" "}
-              <span className="font-semibold">{act.name}</span>
-            </p>
-            {act.details ? (
-              <p className="tracking-tight">{act.details}</p>
-            ) : (
-              <></>
-            )}
-            <p className="text-sm font-semibold">
-              {formatDistance(now, act.timestamps?.start ?? act.created_at)}{" "}
-              elapsed
-            </p>
-          </div>
-        ))}
-      </div>
+      {!!otherActivities?.length && (
+        <div className="space-y-2">
+          {otherActivities.map((act) => (
+            <div
+              key={act.application_id}
+              className="leading-tight text-base ml-2"
+            >
+              <p>
+                {activityTypes[act.type]}{" "}
+                <span className="font-semibold">{act.name}</span>
+              </p>
+              {act.details && <p className="tracking-tight">{act.details}</p>}
+              <p className="text-sm font-semibold">
+                {formatDistance(now, act.timestamps?.start ?? act.created_at)}{" "}
+                elapsed
+              </p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

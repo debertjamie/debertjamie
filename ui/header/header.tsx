@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ToggleTheme } from "@/wrapper";
+import { ToggleTheme } from ".";
 import { HamburgerMenu } from ".";
 
 export function Header() {

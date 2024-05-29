@@ -7,6 +7,28 @@
   background: transparent;
 }
 
+.ol-counter {
+  list-style-type: none;
+  counter-reset: item;
+}
+.ol-counter li:before {
+  content: counter(item);
+  counter-increment: item;
+  font-size: 0.7rem;
+  font-weight: bold;
+  background-color: rgb(217 119 6);
+  color: rgb(236 254 255);
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.2rem;
+  width: 1.8rem;
+  box-sizing: border-box;
+  margin-right: 20px;
+  transform: translateY(-3px)
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

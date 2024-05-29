@@ -13,9 +13,9 @@ export default function Home() {
   );
 }
 
-const title = "@Debert";
+const title = "@Debert Jamie C";
 const description =
-  "Hey! I'm Debert, a student from Indonesia who likes to tinker with code ⌨️";
+  "Hey! I'm Debert, a Computer Science enthusiast who likes Maths and Tech ⌨️";
 
 export const metadata: Metadata = {
   title,

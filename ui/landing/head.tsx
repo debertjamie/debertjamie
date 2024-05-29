@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 
 const formatDay = new Intl.DateTimeFormat("en-GB", {
@@ -37,14 +38,17 @@ export function Head() {
   return (
     <section className="space-y-6">
       <div className="space-y-2 *:leading-tight">
-        <h1 className="text-4xl font-bold">@Debert</h1>
+        <h1 className="text-4xl font-bold">@Debert Jamie C</h1>
         <h2 className="text-2xl font-semibold">
-          Also Known As: 陈宥维 / 陳宥維 / Debert Jamie Chanderson
+          Also Known As: 陈宥维 / 陳宥維
         </h2>
         <p className="text-base">
-          High Schooler, Espresso Addict, Math Maven, Tech Ardent
+          CompSci enthusiast interested in Maths and Tech
         </p>
       </div>
+      <p className="text-lg text-sky-700 dark:text-sky-400">
+        <Link href="/blog/about">More About Me -&gt;</Link>
+      </p>
       <p className="text-lg" suppressHydrationWarning={true}>
         {isDay ? "🌤️" : "😴"} {formatDay.format(now)} {formatTime.format(now)}
       </p>
