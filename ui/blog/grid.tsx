@@ -11,7 +11,7 @@ interface GridProps {
 }
 
 export function Grid({ searchParams }: GridProps) {
-  const blogs = getBlogs();
+  const blogs = getBlogs().filter((data) => !!Number(data.slug));
 
   const selectedTag = decodeURIComponent(searchParams?.tag || "");
   const selectedBlogs = selectedTag
