@@ -3,7 +3,7 @@ import { GitHub, LinkedIn, Twitter, Code } from "../icons";
 
 export function Socials() {
   return (
-    <section className="flex flex-wrap xs:justify-between gap-y-4 gap-x-2 text-lg text-cyan-50 *:px-4 *:py-2 *:rounded-lg">
+    <section className="flex flex-wrap xs:justify-between gap-y-4 gap-x-2 text-lg text-zinc-100 *:px-4 *:py-2 *:rounded-lg">
       <Link
         href="https://github.com/debertjamie"
         target="_blank"
@@ -26,7 +26,7 @@ export function Socials() {
         href="https://twitter.com/debertjamie"
         target="_blank"
         rel="norefferer noopener"
-        className="flex items-center bg-stone-900"
+        className="flex items-center bg-neutral-900"
       >
         <Twitter width={28} height={28} className="inline-block" />
         &nbsp;Twitter (X)

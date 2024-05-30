@@ -86,7 +86,7 @@ export default function Page({
         }}
       />
       <h1 className="text-3xl md:text-5xl font-bold">{blog.title}</h1>
-      <div className="space-y-4 border-b-2 border-b-zinc-950 dark:border-b-cyan-50 pb-2">
+      <div className="space-y-4 border-b-2 border-b-zinc-950 dark:border-b-zinc-100 pb-2">
         {blog.draft ? (
           <h2 className="text-lg md:text-2xl font-semibold">
             ⚠️ {draft[blog.language]}
@@ -105,7 +105,7 @@ export default function Page({
             )}
           </span>
         </div>
-        <div className="flex flex-wrap gap-x-4 text-lg *:bg-emerald-900 *:text-cyan-50 *:px-2 *:py-1 *:rounded-lg *:font-semibold">
+        <div className="flex flex-wrap gap-x-4 text-lg *:bg-emerald-900 *:text-zinc-100 *:px-2 *:py-1 *:rounded-lg *:font-semibold">
           {blog.tags.map((t) => (
             <Link
               href={`/blog?tag=${encodeURIComponent(t.toLowerCase())}`}

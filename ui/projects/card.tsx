@@ -8,7 +8,7 @@ export function Card({ project }: CardProps) {
   return (
     <div
       className={
-        "px-4 py-2 rounded-xl text-cyan-50 space-y-2 " +
+        "px-4 py-2 rounded-xl text-zinc-100 space-y-2 " +
         (project.pinned
           ? "bg-gradient-to-tr from-blue-800 to-cyan-800"
           : "bg-blue-800")

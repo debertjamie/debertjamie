@@ -38,7 +38,7 @@ export function Grid({ searchParams }: GridProps) {
               className={
                 "py-2 " +
                 (index !== 0
-                  ? "border-t-2 border-t-zinc-950 dark:border-t-cyan-50"
+                  ? "border-t-2 border-t-zinc-950 dark:border-t-zinc-100"
                   : "")
               }
             >

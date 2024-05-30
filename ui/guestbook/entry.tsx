@@ -39,19 +39,19 @@ export function GuestbookEntry({ entry, session }: GuestBookEntryProps) {
   }
 
   return (
-    <div className="bg-cyan-200 dark:bg-zinc-800 w-fit px-4 py-1 rounded-lg">
-      <p className="text-base text-zinc-800 dark:text-cyan-200 font-semibold">
+    <div className="bg-zinc-300 dark:bg-zinc-800 w-fit px-4 py-1 rounded-lg">
+      <p className="text-base text-zinc-900 dark:text-zinc-300 font-semibold">
         {entry.created_by}
       </p>
       <div className="w-full text-lg break-words">{entry.body}</div>
       <div className="flex flex-wrap items-center gap-x-3 select-none">
-        <p className="text-sm dark:text-neutral-300 font-semibold">
+        <p className="text-sm text-zinc-900 dark:text-zinc-300 font-semibold">
           {time.format(new Date(entry.updated_at))}
         </p>
         {session?.user &&
           (entry.email === session.user.email || session.user.isAdmin) && (
             <button
-              className="text-sm text-red-800 dark:text-red-500"
+              className="text-sm font-bold text-red-800 dark:text-red-500"
               onClick={deleteEntry}
             >
               Delete

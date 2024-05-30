@@ -62,9 +62,9 @@ export default function Page({
         }}
       />
       <h1 className="text-3xl md:text-5xl font-bold">{project.title}</h1>
-      <div className="space-y-4 border-b-2 border-b-zinc-950 dark:border-b-cyan-50 pb-2">
+      <div className="space-y-4 border-b-2 border-b-zinc-950 dark:border-b-zinc-100 pb-2">
         <h2 className="text-2xl">{project.excerpt}</h2>
-        <div className="flex flex-wrap gap-x-4 gap-y-2 text-lg *:bg-emerald-900 *:text-cyan-50 *:px-2 *:py-1 *:rounded-lg *:font-semibold">
+        <div className="flex flex-wrap gap-x-4 gap-y-2 text-lg *:bg-emerald-900 *:text-zinc-100 *:px-2 *:py-1 *:rounded-lg *:font-semibold">
           {project.tags.map((t) => (
             <p key={t}>{t}</p>
           ))}
@@ -88,7 +88,7 @@ export default function Page({
             </div>
             <div className="space-y-2">
               <h3 className="text-xl font-semibold">Links</h3>
-              <div className="flex flex-wrap gap-2 text-cyan-50">
+              <div className="flex flex-wrap gap-2 text-zinc-100">
                 {project.openSource ? (
                   <Link
                     href={project.openSource}

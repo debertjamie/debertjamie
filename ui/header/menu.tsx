@@ -14,7 +14,7 @@ export function HamburgerMenu() {
   return (
     <nav className="relative">
       <div
-        className="flex flex-col justify-between h-5 w-5 cursor-pointer *:h-1 *:bg-zinc-950 *:dark:bg-cyan-50 *:transition *:ease-in-out *:duration-100"
+        className="flex flex-col justify-between h-5 w-5 cursor-pointer *:h-1 *:bg-zinc-950 *:dark:bg-zinc-100 *:transition *:ease-in-out *:duration-100"
         onClick={toggleMenu}
       >
         <span

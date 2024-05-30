@@ -14,7 +14,7 @@ export function Card({ blog, minimal = false }: CardProps) {
   return (
     <div
       className={
-        "select-none rounded-lg hover:bg-cyan-100 dark:hover:bg-zinc-900 duration-200 " +
+        "select-none rounded-lg hover:bg-zinc-300 dark:hover:bg-zinc-900 duration-200 " +
         (minimal ? "px-2 py-1" : "px-4 py-2 space-y-2")
       }
     >
@@ -30,7 +30,7 @@ export function Card({ blog, minimal = false }: CardProps) {
           <span>{blog.date}</span>
         </div>
       )}
-      <div className="flex flex-wrap gap-x-2 font-semibold *:bg-blue-900 *:px-1.5 *:py-0.5 *:rounded-sm">
+      <div className="flex flex-wrap gap-x-2 font-semibold *:bg-emerald-900 *:text-zinc-100 *:px-1.5 *:py-0.5 *:rounded-sm">
         {blog.tags.map((t) => (
           <p key={t}>{t}</p>
         ))}

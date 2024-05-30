@@ -70,12 +70,12 @@ export function GuestbookForm({ session }: { session: Session | null }) {
 
   return (
     <>
-      <div className="my-4 rounded-xl space-y-4 bg-cyan-100 dark:bg-zinc-900 p-6">
+      <div className="my-4 rounded-xl space-y-4 bg-zinc-300 dark:bg-zinc-900 p-6">
         {!session && (
           <div className="flex flex-wrap gap-x-4">
             <button
               type="button"
-              className="px-4 py-2 bg-indigo-700 text-cyan-50 mb-4 rounded-lg"
+              className="px-4 py-2 bg-indigo-700 text-zinc-100 mb-4 rounded-lg"
               onClick={() => {
                 void signIn("discord");
               }}
@@ -83,7 +83,7 @@ export function GuestbookForm({ session }: { session: Session | null }) {
               Sign In With Discord
             </button>
             <p className="text-base font-semibold select-none">
-              Note: Your email and possibly other confidentials will remain
+              Note: Your email and other confidentials will remain
               private 🔒
             </p>
           </div>
@@ -102,14 +102,14 @@ export function GuestbookForm({ session }: { session: Session | null }) {
               maxLength={100}
               type="text"
               disabled={form.state === Form.Loading}
-              className="mt-1 py-2 pl-2 block w-full rounded-lg focus:outline-none text-lg bg-cyan-50 dark:bg-zinc-950"
+              className="mt-1 py-2 pl-2 block w-full rounded-lg focus:outline-none text-lg bg-zinc-100 dark:bg-zinc-950"
             />
             <div className="flex justify-end gap-x-6 font-semibold *:flex *:items-center *:justify-center *:rounded-md">
-              <button className="" type="button" onClick={() => signOut()}>
+              <button className="font-bold text-red-800 dark:text-red-500" type="button" onClick={() => signOut()}>
                 LOGOUT
               </button>
               <button
-                className="bg-blue-800 text-cyan-50 px-2 py-1"
+                className="bg-blue-800 text-zinc-100 px-2 py-1"
                 type="submit"
               >
                 {form.state === Form.Loading ? "Hold on..." : "Submit"}

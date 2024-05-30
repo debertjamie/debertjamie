@@ -85,7 +85,7 @@ function Callout({
   return (
     <div
       className={
-        "my-4 rounded-r-lg bg-cyan-200 dark:bg-zinc-900 py-2 pr-2 pl-4 flex items-center border-l-4 " +
+        "my-4 rounded-r-lg bg-zinc-300 dark:bg-zinc-900 py-2 pr-2 pl-4 flex items-center border-l-4 " +
         colours[type]
       }
     >

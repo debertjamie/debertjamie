@@ -14,7 +14,7 @@ export const tag: Record<string, string> = {
 
 export function Tags() {
   return (
-    <div className="flex flex-wrap gap-y-2 gap-x-2 text-base font-semibold select-none *:bg-emerald-900 *:text-cyan-50 *:px-2 *:py-1 *:rounded-lg">
+    <div className="flex flex-wrap gap-y-2 gap-x-2 text-base font-semibold select-none *:bg-emerald-900 *:text-zinc-100 *:px-2 *:py-1 *:rounded-lg">
       <Link href="?tag=life">LIFE</Link>
       <Link href="?tag=psychology">PSYCHOLOGY</Link>
       <Link href="?tag=software">SOFTWARE</Link>

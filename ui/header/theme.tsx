@@ -32,7 +32,7 @@ export function MobileToggleTheme() {
 
   return (
     <p
-      className="*:cursor-pointer flex gap-x-2 items-center pt-2 border-t-2 border-t-zinc-950 dark:border-t-cyan-50"
+      className="*:cursor-pointer flex gap-x-2 items-center pt-2 border-t-2 border-t-zinc-950 dark:border-t-zinc-100"
       onClick={toggleDarkMode}
     >
       {isDarkMode ? (
