@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Head, Socials, More } from "@/ui/landing";
+import { Head, More } from "@/ui/landing";
 
 export default function Home() {
   return (
     <>
       <main className="space-y-8">
         <Head />
-        <Socials />
         <More />
       </main>
     </>
