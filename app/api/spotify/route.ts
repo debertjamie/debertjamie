@@ -1,47 +1,72 @@
-import { SpotifyApi } from "@spotify/web-api-ts-sdk";
-import { getAccessToken } from "@/lib/spotify";
-import { spotifyId } from "@/app/env.mjs";
+import { getNowPlaying } from "@/lib/spotify";
 
 export const runtime = "edge";
 
-export async function GET() {
-  const accessToken = await getAccessToken();
-  const api = SpotifyApi.withAccessToken(spotifyId!, accessToken);
-  const currentlyPlaying = await api.player.getCurrentlyPlayingTrack();
+interface SongResponse {
+  item: {
+    name: string;
+    artists: {
+      name: string;
+    }[];
+    album: {
+      name: string;
+      images: {
+        url: string;
+      }[];
+    };
+    external_urls: {
+      spotify: string;
+    };
+  };
+  is_playing: boolean;
+}
 
-  if (currentlyPlaying.item && "album" in currentlyPlaying.item && currentlyPlaying.is_playing) {
-    return new Response(
-      JSON.stringify({
-        album: currentlyPlaying.item.album.name,
-        albumImageUrl: currentlyPlaying.item.album.images[0].url,
-        artist: currentlyPlaying.item.artists
-          .map((artist) => artist.name)
-          .join(", "),
-        isPlaying: currentlyPlaying.is_playing,
-        songUrl: currentlyPlaying.item.external_urls.spotify,
-        title: currentlyPlaying.item.name,
-      }),
-      {
-        status: 200,
-        headers: {
-          "content-type": "application/json",
-          "cache-control": "public, s-maxage=180, stale-while-revalidate=90",
-        },
-      }
-    );
-  } else {
-    return new Response(
-      JSON.stringify({
-        isPlaying: false,
-      }),
-      {
-        status: 200,
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    );
+export async function GET() {
+  const res = await getNowPlaying();
+
+  if (res.status === 204 || res.status > 400) {
+    return new Response(JSON.stringify({ isPlaying: false }), {
+      status: 200,
+      headers: {
+        "content-type": "application/json",
+      },
+    });
   }
 
+  const song = (await res.json()) as SongResponse;
+  if (song.item === null) {
+    return new Response(JSON.stringify({ isPlaying: false }), {
+      status: 200,
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+  }
 
+  const isPlaying = song.is_playing;
+  const title = song.item.name;
+  const artist = song.item.artists
+    .map((_artist: { name: string }) => _artist.name)
+    .join(", ");
+  const album = song.item.album.name;
+  const albumImageUrl = song.item.album.images[0]?.url ?? "";
+  const songUrl = song.item.external_urls.spotify;
+
+  return new Response(
+    JSON.stringify({
+      album,
+      albumImageUrl,
+      artist,
+      isPlaying,
+      songUrl,
+      title,
+    }),
+    {
+      status: 200,
+      headers: {
+        "content-type": "application/json",
+        "cache-control": "public, s-maxage=60, stale-while-revalidate=30",
+      },
+    }
+  );
 }
