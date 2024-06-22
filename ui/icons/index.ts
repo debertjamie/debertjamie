@@ -1,5 +1,10 @@
-export * from "./linkedin";
-export * from "./github";
-export * from "./code";
-export * from "./twitter";
 export * from "./theme";
+
+export * from "./lang";
+export * from "./arrow";
+export * from "./programming"
+export * from "./webdev";
+export * from "./socials";
+export * from "./software";
+export * from "./cloud";
+export * from "./misc";
