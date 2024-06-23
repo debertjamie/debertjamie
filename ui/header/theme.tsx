@@ -3,16 +3,6 @@
 import { useDarkMode } from "@/lib/darkMode";
 import { LightTheme, DarkTheme } from "@/ui/icons";
 
-export function ThemedHTML({ children }: { children: React.ReactNode }) {
-  const { isDarkMode } = useDarkMode();
-
-  return (
-    <html lang="en" className={isDarkMode ? "dark" : ""}>
-      {children}
-    </html>
-  );
-}
-
 export function ToggleTheme() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
