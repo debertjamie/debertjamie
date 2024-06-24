@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { Skills } from "@/ui/about";
+import { Contacts, Email, Skills } from "@/ui/about";
+import { QuoteIcon } from "@/ui/icons";
 
 export default function About() {
   return (
@@ -39,57 +40,40 @@ export default function About() {
             start of 2024. Other than coding I also listen to music (mostly
             Chinese/Taiwanese songs and English), like{" "}
             <span className="font-medium">We Are Young</span>,{" "}
-            <span className="font-thin">美丽的神话</span> and{" "}
+            <span className="font-thin">若月亮没来</span> and{" "}
             <span className="font-thin">如果可以</span>.
           </p>
           <p>
-            Other than code, I find photography and human psychology
-            interesting. You can read some psychology-related blogs in this{" "}
-            <Link
-              href="/blog?tag=psychology"
-              className="text-cyan-600 dark:text-cyan-500"
-            >
-              section
-            </Link>{" "}
-            or visit my{" "}
-            <Link
-              href="https://gallery.debertjamie.com"
-              target="_blank"
-              rel="norefferer noopener"
-              className="text-cyan-600 dark:text-cyan-500"
-            >
-              internet gallery
-            </Link>{" "}
-            where I showcase some of the photos I shot. I also enjoy gardening,
-            hiking and cycling from time to time. Once in a while I like
-            watching sitcoms like Young Sheldon and South Park*
+            Other than tech-related bits and bobs, I find photography and human
+            psychology interesting. I also enjoy gardening, hiking and cycling
+            from time to time. Sometimes I like to watch food shows in TV
+            channels or sitcoms like South Park*
             <br />
             <span className="text-base bg-yellow-500 text-zinc-950 font-semibold px-1">
               *Viewer discretion adviced - I warned you
             </span>
           </p>
+          <Link
+            href="/about/more"
+            className="block font-semibold text-xl w-fit text-cyan-600 dark:text-cyan-500"
+          >
+            More About Me -&gt;
+          </Link>
         </article>
       </section>
       <section className="space-y-8 text-left">
         <h2 className="text-2xl font-semibold">Skills</h2>
         <Skills />
-        <p>
-          <span className="font-semibold">&#8895;</span> -&gt; Currently in
-          early stage of learning
-        </p>
       </section>
       <section>
-        <h2 className="text-2xl font-semibold">Shortcut Links</h2>
-        <p>
-          Check out my socials on{" "}
-          <Link
-            href="https://links.debertjamie.com"
-            target="_blank"
-            rel="norefferer noopener"
-            className="text-cyan-600 dark:text-cyan-500"
-          >
-            links.debertjamie.com
-          </Link>
+        <h2 className="text-2xl font-semibold">Contacts, Connect, Socials</h2>
+        <Contacts />
+        <Email />
+      </section>
+      <section className="flex items-center rounded-r-xl border-l-4 border-l-zinc-400 dark:border-l-zinc-600 bg-zinc-300 dark:bg-zinc-800 px-4 py-2 max-w-[30rem]">
+        <QuoteIcon className="pointer-events-none w-12 h-12" />
+        <p className="pl-2 font-medium z-10">
+          Impermanence is elegance, it's what makes life worth to live.
         </p>
       </section>
     </main>
