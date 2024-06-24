@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/ui/components";
 import { skills } from ".";
+import { InfoIcon } from "../icons";
 
 export function Skills() {
   return (
@@ -37,6 +38,17 @@ export function Skills() {
             </AccordionItem>
           );
         })}
+        <AccordionItem value="Note">
+          <AccordionTrigger>
+            <div className="*:inline flex items-center gap-x-2">
+              <InfoIcon className="w-4" />
+              <p>Note</p>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent>
+            <p>&#8895; &#8594; Currently in early stage of learning</p>
+          </AccordionContent>
+        </AccordionItem>
       </Accordion>
     </div>
   );
