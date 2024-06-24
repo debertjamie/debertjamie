@@ -44,7 +44,7 @@ export function Socials() {
             <p>Reddit profile</p>
           </Link>
           <Link
-            href="mailto:hi@debertjamie.com"
+            href="mailto:debertjamie@outlook.com"
             target="_blank"
             rel="norefferer noopener"
             className="block bg-indigo-800 text-zinc-100 rounded-lg px-2 py-1 hover:scale-95 duration-300"
