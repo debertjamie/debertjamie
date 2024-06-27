@@ -1,21 +1,40 @@
+"use client";
+
 import Link from "next/link";
+import React from "react";
 import { ToggleTheme } from ".";
-import { HamburgerMenu } from ".";
+import { HamburgerMenu, Menu } from ".";
+
 
 export function Header() {
+  const [isWide, setIsWide] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    const mediaWidth = window.matchMedia("(min-width: 768px)");
+    const onChange = () => setIsWide(mediaWidth.matches);
+    mediaWidth.addEventListener("change", onChange);
+    setIsWide(mediaWidth.matches);
+    return () => mediaWidth.removeEventListener("change", onChange);
+  }, [setIsWide]);
+
   return (
-    <>
-      <header className="hidden xs:flex flex-wrap items-center gap-x-6 z-50 sticky max-w-3xl rounded-xl top-4 mx-auto bg-sky-700 bg-opacity-30 dark:bg-opacity-60 py-2 px-4 backdrop-blur-sm shadow-xl text-base font-semibold">
-        <Link href="/">Home</Link>
-        <Link href="/blog">Blog</Link>
-        <Link href="/projects">Projects</Link>
-        <Link href="/guestbook">Guestbook</Link>
-        <Link href="mailto:debertjamie+website@outlook.com">Email</Link>
-        <ToggleTheme />
-      </header>
-      <header className="flex xs:hidden z-50 sticky w-fit max-w-3xl rounded-xl top-4 bg-sky-700 bg-opacity-30 dark:bg-opacity-60 py-2 px-4 backdrop-blur-sm shadow-xl">
+    <header className="z-50 sticky top-8">
+      {isWide ? (
+        <div className="flex flex-wrap items-center justify-between gap-x-6 h-14 shadow-md dark:shadow-zinc-800 bg-zinc-100 dark:bg-zinc-950 border border-zinc-400 dark:border-zinc-600 rounded-lg py-2 px-4 text-xl">
+          <p className="font-medium">Debert Jamie</p>
+          <div className="flex items-center gap-x-6">
+            <Menu name="Home" path="/" />
+            <Menu name="About" path="/about" />
+            <Menu name="Blog" path="/blog" />
+            <Menu name="Projects" path="/projects" />
+            <Menu name="Guestbook" path="/guestbook" />
+            <Link href="mailto:debertjamie@outlook.com">Email</Link>
+            <ToggleTheme />
+          </div>
+        </div>
+      ) : (
         <HamburgerMenu />
-      </header>
-    </>
+      )}
+    </header>
   );
 }

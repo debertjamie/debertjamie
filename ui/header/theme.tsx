@@ -5,15 +5,14 @@ import { LightTheme, DarkTheme } from "@/ui/icons";
 
 export function ToggleTheme() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
-
   return (
-    <div className="*:cursor-pointer" onClick={toggleDarkMode}>
+    <button className="flex items-center *:cursor-pointer" onClick={toggleDarkMode}>
       {isDarkMode ? (
-        <DarkTheme width={18} height={18} />
+        <DarkTheme width={20} height={20} className="-mt-1" />
       ) : (
-        <LightTheme width={18} height={18} />
+        <LightTheme width={20} height={20} className="-mt-1" />
       )}
-    </div>
+    </button>
   );
 }
 
@@ -21,16 +20,16 @@ export function MobileToggleTheme() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <p
-      className="*:cursor-pointer flex gap-x-2 items-center pt-2 border-t-2 border-t-zinc-950 dark:border-t-zinc-100"
+    <button
+      className="w-full text-left"
       onClick={toggleDarkMode}
     >
       {isDarkMode ? (
-        <DarkTheme width={28} height={28} className="" />
+        <DarkTheme width={18} height={18} className="mr-2 -mt-1 inline" />
       ) : (
-        <LightTheme width={28} height={28} className="" />
+        <LightTheme width={18} height={18} className="mr-2 -mt-1 inline" />
       )}
       Switch Theme
-    </p>
+    </button>
   );
 }
