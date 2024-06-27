@@ -7,6 +7,10 @@
   background: transparent;
 }
 
+body.dropdown-active {
+  overflow: hidden;
+}
+
 .ol-counter {
   list-style-type: none;
   counter-reset: item;
