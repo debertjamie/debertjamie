@@ -7,7 +7,7 @@ export function Head() {
   return (
     <section className="space-y-16">
       <div className="space-y-14">
-        <h1 className="text-6xl font-bold">
+        <h1 className="text-4xl sm:text-6xl font-bold">
           <Typewriter cursor words={["Debert Jamie Chanderson 陈宥维"]} />
         </h1>
         <h2 className="text-3xl">
