@@ -28,7 +28,9 @@ export function Spotify() {
         >
           <div>
             <p className="text-xl font-semibold">{data.title}</p>
-            <p className="text-base text-zinc-700 dark:text-zinc-400">{data.artist}</p>
+            <p className="text-base text-zinc-700 dark:text-zinc-400">
+              {data.artist}
+            </p>
           </div>
           <Image
             src={data.albumImageUrl}
