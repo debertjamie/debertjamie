@@ -57,24 +57,24 @@ export default function About() {
             href="/about/more"
             className="block font-semibold text-xl w-fit text-cyan-600 dark:text-cyan-500"
           >
-            More About Me -&gt;
+            Statistics and More About Me -&gt;
           </Link>
         </article>
-      </section>
-      <section className="space-y-8 text-left">
-        <h2 className="text-2xl font-semibold">Skills</h2>
-        <Skills />
-      </section>
-      <section>
-        <h2 className="text-2xl font-semibold">Contacts, Connect, Socials</h2>
-        <Contacts />
-        <Email />
       </section>
       <section className="flex items-center rounded-r-xl border-l-4 border-l-zinc-400 dark:border-l-zinc-600 bg-zinc-300 dark:bg-zinc-800 px-4 py-2 max-w-[30rem]">
         <QuoteIcon className="pointer-events-none w-12 h-12" />
         <p className="pl-2 font-medium z-10">
           Impermanence is elegance, it's what makes life worth to live.
         </p>
+      </section>
+      <section className="space-y-8 text-left">
+        <h2 className="text-2xl font-semibold">Skills</h2>
+        <Skills />
+      </section>
+      <section>
+        <h2 className="text-2xl font-semibold">Socials</h2>
+        <Contacts />
+        <Email />
       </section>
     </main>
   );
