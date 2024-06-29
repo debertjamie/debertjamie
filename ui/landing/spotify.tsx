@@ -16,7 +16,7 @@ interface NowPlaying {
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 export function Spotify() {
-  const { data } = useSWR<NowPlaying>("/api/spotify", fetcher);
+  const { data } = useSWR<NowPlaying>("/api/now-playing", fetcher);
   return (
     <div className="text-lg bg-zinc-300 dark:bg-zinc-900 px-2 py-2 rounded-xl">
       {data?.isPlaying ? (
