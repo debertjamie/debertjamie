@@ -19,3 +19,6 @@ export const sha = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA ?? "97976100879
 export const spotifyId = process.env.SPOTIFY_CLIENT_ID
 export const spotifySecret = process.env.SPOTIFY_CLIENT_SECRET;
 export const spotifyToken = process.env.SPOTIFY_REFRESH_TOKEN;
+
+// WAKATIME
+export const wakatimeKey = process.env.WAKATIME_KEY;
