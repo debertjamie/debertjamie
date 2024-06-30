@@ -20,7 +20,7 @@ export async function getAccessToken() {
   return (await response.json()) as { access_token: string };
 }
 
-export const getNowPlaying = async () => {
+export async function getNowPlaying() {
   const { access_token } = await getAccessToken();
 
   return fetch("https://api.spotify.com/v1/me/player/currently-playing", {
@@ -30,3 +30,14 @@ export const getNowPlaying = async () => {
     },
   });
 };
+
+export async function getRecentlyPlayed() {
+  const { access_token } = await getAccessToken();
+
+  return fetch("https://api.spotify.com/v1/me/player/recently-played?limit=6", {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+      cache: "no-store",
+    },
+  });
+}
