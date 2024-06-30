@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
+import type { Metadata } from "next";
 import { Movies, Spotify, Wakatime } from "@/ui/about";
 import { GameIcon, SteamIcon } from "@/ui/icons";
 import { Time } from "@/ui/components";
@@ -20,7 +21,9 @@ export default function More() {
         </div>
       </section>
       <section className="grid xs:grid-cols-2 md:grid-cols-3 gap-4">
-        <h2 className="font-semibold xs:col-span-2 md:col-span-3">Coding Data (Wakatime)</h2>
+        <h2 className="font-semibold xs:col-span-2 md:col-span-3">
+          Coding Data (Wakatime)
+        </h2>
         <Suspense
           fallback={
             <div className="rounded-xl bg-neutral-300 dark:bg-neutral-800 px-4 py-2">
@@ -29,7 +32,9 @@ export default function More() {
           }
         >
           <Wakatime />
-          <p className="xs:col-span-2 md:col-span-3 -mt-2">*Per 26 April 2024</p>
+          <p className="xs:col-span-2 md:col-span-3 -mt-2">
+            *Per 26 April 2024
+          </p>
         </Suspense>
       </section>
       <section className="grid sm:grid-cols-2 gap-4">
@@ -65,7 +70,7 @@ export default function More() {
       </section>
       <section>
         <h2 className="font-semibold">Special Thanks</h2>
-        <div className="grid md:grid-cols-3 gap-2">
+        <div className="grid xs:grid-cols-2 md:grid-cols-3 gap-2">
           <p>Elvin Freddrick</p>
           <p>Fernando Putra</p>
         </div>
@@ -73,3 +78,23 @@ export default function More() {
     </main>
   );
 }
+
+const title = "More About Me";
+const description = "Some statistics and other things about me";
+
+export const metadata: Metadata = {
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    title,
+    description,
+    card: "summary_large_image",
+    creator: "@debertjamie",
+  },
+};
