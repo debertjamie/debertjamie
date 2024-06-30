@@ -22,7 +22,14 @@ const formatTime = new Intl.DateTimeFormat("en-GB", {
   timeZoneName: "shortGeneric",
 });
 
-export function Time() {
+const formatSimpleTime = new Intl.DateTimeFormat("en-GB", {
+  hour: "numeric",
+  minute: "numeric",
+  second: "numeric",
+  timeZone: "Asia/Jakarta",
+});
+
+export function Time({ simple = false }: { simple?: boolean }) {
   const [now, setNow] = React.useState(0);
 
   React.useEffect(() => {
@@ -39,7 +46,9 @@ export function Time() {
     new Date(now).getUTCHours() + 7 >= 5 &&
     new Date(now).getUTCHours() + 7 < 19;
 
-  return (
+  return simple ? (
+    <span suppressHydrationWarning>{formatSimpleTime.format(now)}</span>
+  ) : (
     <div className="relative flex items-center justify-center h-7">
       {isDay ? (
         <Image
