@@ -36,7 +36,7 @@ export function Movies() {
                 className="w-40 h-60 lg:w-48 lg:h-72"
               />
               <span className="pointer-events-none absolute inset-0 duration-300 opacity-0 group-hover:opacity-100 bg-black/60" />
-              <small className="pointer-events-none absolute opacity-0 group-hover:opacity-100 duration-300 bottom-2 p-2 w-full font-semibold text-center flex justify-center items-center">
+              <small className="text-zinc-100 pointer-events-none absolute opacity-0 group-hover:opacity-100 duration-300 bottom-2 p-2 w-full font-semibold text-center flex justify-center items-center">
                 {movie.name}
               </small>
             </div>
