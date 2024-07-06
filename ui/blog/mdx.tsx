@@ -4,6 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 import type { ImageProps } from "next/image";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import rehypeHighlight from "rehype-highlight";
 
 function slugify(str: ReactNode) {
   return str!
@@ -20,7 +24,7 @@ function Heading2({ children }: { children: ReactNode }) {
   return (
     <Link
       href={`#${h2slug}`}
-      className="block text-2xl font-semibold pt-6 pb-4 w-fit before:content-['#'] before:-ml-6 before:mr-2 before:opacity-0 hover:before:opacity-70 before:duration-200"
+      className="block text-2xl font-semibold pt-6 w-fit before:content-['#'] before:-ml-6 before:mr-2 before:opacity-0 hover:before:opacity-70 before:duration-200"
     >
       <h2 id={h2slug} className="inline">
         {children}
@@ -30,11 +34,11 @@ function Heading2({ children }: { children: ReactNode }) {
 }
 
 function Heading3({ children }: { children: ReactNode }) {
-  return <h3 className="text-xl font-semibold pt-4 pb-4">{children}</h3>;
+  return <h3 className="text-xl font-semibold pt-4">{children}</h3>;
 }
 
 function Paragraph({ children }: { children: ReactNode }) {
-  return <p className="text-lg pb-2">{children}</p>;
+  return <p className="text-lg py-2">{children}</p>;
 }
 
 function Anchor(props: AnchorHTMLAttributes<HTMLAnchorElement>) {
@@ -68,6 +72,10 @@ function UnorderedList({ ...props }) {
   return <ul className="text-lg" {...props} />;
 }
 
+function Blockquote({ ...props }) {
+  return <blockquote className="my-4 pl-2 *:py-1 border-l-4 border-l-zinc-500" {...props} />
+}
+
 function Callout({
   emoji,
   message,
@@ -90,7 +98,7 @@ function Callout({
       }
     >
       <div className="flex w-4 mr-4 items-center">{emoji}</div>
-      <p className="text-lg">{message}</p>
+      <p className="text-xl">{message}</p>
     </div>
   );
 }
@@ -122,11 +130,20 @@ const components = {
   a: Anchor,
   ol: OrderedList,
   ul: UnorderedList,
+  blockquote: Blockquote,
   Callout: Callout,
   hr: HorizontalLine,
   Image: CustomImage,
 } as MDXRemoteProps["components"];
 
 export async function Mdx({ content }: { content: string }) {
-  return <MDXRemote source={content} components={components} />;
+  const mdxOptions = {
+    mdxOptions: {
+      remarkPlugins: [remarkGfm, remarkMath],
+      rehypePlugins: [rehypeHighlight, rehypeKatex],
+    },
+  };
+
+  // @ts-expect-error
+  return <MDXRemote source={content} components={components} options={mdxOptions} />;
 }
