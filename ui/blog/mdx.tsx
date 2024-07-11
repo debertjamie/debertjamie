@@ -65,15 +65,20 @@ function Anchor(props: AnchorHTMLAttributes<HTMLAnchorElement>) {
 }
 
 function OrderedList({ ...props }) {
-  return <ol className="text-lg ol-counter" {...props} />;
+  return <ol className="text-lg ol-counter my-2" {...props} />;
 }
 
 function UnorderedList({ ...props }) {
-  return <ul className="text-lg" {...props} />;
+  return <ul className="text-lg my-2" {...props} />;
 }
 
 function Blockquote({ ...props }) {
-  return <blockquote className="my-4 pl-2 *:py-1 border-l-4 border-l-zinc-500" {...props} />
+  return (
+    <blockquote
+      className="my-4 pl-2 *:py-1 border-l-4 border-l-zinc-500"
+      {...props}
+    />
+  );
 }
 
 function Callout({
@@ -98,7 +103,7 @@ function Callout({
       }
     >
       <div className="flex w-4 mr-4 items-center">{emoji}</div>
-      <p className="text-xl">{message}</p>
+      <p className="text-lg">{message}</p>
     </div>
   );
 }
@@ -116,7 +121,7 @@ function CustomImage(props: ImageProps) {
         height={0}
         sizes="100%"
         alt={alt}
-        className="w-full h-full rounded-xl my-4"
+        className="w-auto h-auto rounded-xl my-4 mx-auto"
         {...rest}
       />
     </div>
