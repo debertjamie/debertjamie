@@ -35,7 +35,7 @@ export function GuestbookForm({ session }: { session: Session | null }) {
     if (inputEl.current.value.trim().length === 0) {
       setForm({
         state: Form.Error,
-        message: "An error occured. Please try again later.",
+        message: "Type in a message!",
       });
       return;
     }
@@ -62,20 +62,20 @@ export function GuestbookForm({ session }: { session: Session | null }) {
     inputEl.current.value = "";
     setForm({
       state: Form.Success,
-      message: "Hey, thanks for leaving a comment 😄",
+      message: "Message sent!",
     });
 
     router.refresh();
-  };
+  }
 
   return (
     <>
       <div className="my-4 rounded-xl space-y-4 bg-zinc-300 dark:bg-zinc-900 p-6">
         {!session && (
-          <div className="flex flex-wrap gap-x-4">
+          <div className="flex flex-col flex-wrap gap-x-4">
             <button
               type="button"
-              className="px-4 py-2 bg-indigo-700 text-zinc-100 mb-4 rounded-lg"
+              className="px-4 py-2 bg-indigo-800 text-zinc-100 mb-4 rounded-lg w-fit"
               onClick={() => {
                 void signIn("discord");
               }}
@@ -83,29 +83,33 @@ export function GuestbookForm({ session }: { session: Session | null }) {
               Sign In With Discord
             </button>
             <p className="text-base font-semibold select-none">
-              Note: Your email and other confidentials will remain
-              private 🔒
+              Your email will remain private 🔒
             </p>
           </div>
         )}
         {session?.user && (
           <form className="space-y-2" onSubmit={(e) => leaveEntry(e)}>
             <p className="text-lg select-none">
-              Hi <span className="font-semibold">{session.user.name}</span>, be
-              sure to leave a comment 😄
+              Welcome, <span className="font-medium">{session.user.name}</span>{" "}
+              😄
             </p>
+            <p>Write your message, suggestions, inquiries, anything</p>
             <input
               ref={inputEl}
               aria-label="Your message"
-              placeholder="Hello World!"
+              placeholder="How's the mood today?"
               required
-              maxLength={100}
+              maxLength={300}
               type="text"
               disabled={form.state === Form.Loading}
-              className="mt-1 py-2 pl-2 block w-full rounded-lg focus:outline-none text-lg bg-zinc-100 dark:bg-zinc-950"
+              className="mt-1 py-2 px-2 block w-full rounded-lg focus:outline-none text-lg bg-zinc-100 dark:bg-zinc-950"
             />
             <div className="flex justify-end gap-x-6 font-semibold *:flex *:items-center *:justify-center *:rounded-md">
-              <button className="font-bold text-red-800 dark:text-red-500" type="button" onClick={() => signOut()}>
+              <button
+                className="font-bold text-red-800 dark:text-red-500"
+                type="button"
+                onClick={() => signOut()}
+              >
                 LOGOUT
               </button>
               <button
@@ -122,12 +126,9 @@ export function GuestbookForm({ session }: { session: Session | null }) {
             <p className="text-red-800 dark:text-red-500">{form.message!}</p>
           )}
           {form.state === Form.Success && (
-            <>
-              <p className="text-green-700 dark:text-green-400">
-                {form.message!}
-              </p>
-              <p>You can delete it if you want to</p>
-            </>
+            <p className="text-green-700 dark:text-green-400">
+              {form.message!}
+            </p>
           )}
         </div>
       </div>
