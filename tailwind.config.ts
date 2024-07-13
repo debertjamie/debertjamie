@@ -5,7 +5,7 @@ const config: Config = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./ui/**/*.{js,ts,jsx,tsx,mdx}",
-    "./wrapper/*.{js,ts,jsx,tsx,mdx}",
+    "./contents/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   darkMode: "selector",
   theme: {
