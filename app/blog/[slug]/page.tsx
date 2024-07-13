@@ -48,7 +48,7 @@ export default function Page({
   const ert = Math.ceil(wordlength / 200);
 
   return (
-    <main className="space-y-16 mt-8 sm:mt-16 text-xl">
+    <main className="space-y-16 -mt-12 sm:-mt-10 text-xl">
       <script
         type="application/ld+json"
         suppressHydrationWarning={true}

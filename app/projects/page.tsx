@@ -4,7 +4,7 @@ import { Suspense } from "react";
 
 export default function Projects() {
   return (
-    <main className="space-y-16 mt-8 sm:mt-28 text-xl">
+    <main className="space-y-16 mt-8 sm:mt-18 text-xl">
       <div className="space-y-2">
         <h1 className="text-5xl font-bold">Projects</h1>
         <p className="text-lg">

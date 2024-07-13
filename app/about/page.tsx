@@ -6,7 +6,7 @@ import { QuoteIcon } from "@/ui/icons";
 
 export default function About() {
   return (
-    <main className="space-y-16 mt-8 sm:mt-28 text-lg">
+    <main className="space-y-16 mt-8 sm:mt-18 text-lg">
       <h1 className="text-5xl font-bold">About Me</h1>
       <section className="lg:flex lg:flex-row-reverse lg:gap-x-8">
         <Image

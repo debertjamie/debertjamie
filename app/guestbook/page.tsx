@@ -55,7 +55,7 @@ async function GuestbookEntries() {
 
 export default function Guestbook() {
   return (
-    <main className="space-y-16 mt-8 sm:mt-28 text-lg">
+    <main className="space-y-16 mt-8 sm:mt-18 text-lg">
       <div className="space-y-2">
         <h1 className="text-5xl font-bold">Guestbook</h1>
         <p>Sign your name in here and get... your name in here?</p>

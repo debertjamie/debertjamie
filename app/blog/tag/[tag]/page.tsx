@@ -52,7 +52,7 @@ export default function Tags({ params }: { readonly params: { tag: string } }) {
   }
 
   return (
-    <main className="space-y-16 mt-8 sm:mt-28 text-xl">
+    <main className="space-y-16 mt-8 sm:mt-18 text-xl">
       {blog.length ? (
         <>
           <h1 className="text-5xl font-bold">

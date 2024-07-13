@@ -7,7 +7,7 @@ import { Time } from "@/ui/components";
 
 export default function More() {
   return (
-    <main className="space-y-16 mt-8 sm:mt-28 text-xl">
+    <main className="space-y-16 mt-8 sm:mt-18 text-xl">
       <h1 className="text-5xl font-bold">Statistics And More</h1>
       <section className="bg-neutral-200 dark:bg-neutral-900 rounded-xl px-4 py-2 w-72 mx-auto space-y-2">
         <p className="text-xl flex justify-between">

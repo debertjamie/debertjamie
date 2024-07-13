@@ -4,7 +4,7 @@ import { Columns } from "@/ui/blog";
 
 export default function Column() {
   return (
-    <main className="space-y-16 mt-8 sm:mt-28 text-xl">
+    <main className="space-y-16 mt-8 sm:mt-18 text-xl">
       <section>
         <h1 className="text-5xl font-bold">Article Column</h1>
         <h2>The column for my main posts</h2>
