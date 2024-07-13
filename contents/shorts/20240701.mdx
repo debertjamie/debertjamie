@@ -1,0 +1,23 @@
+---
+title: "Port Forwarding in VSCode"
+excerpt: "Accessing your localhost website from anywhere"
+type: "Shorts"
+published: "2024-07-01"
+---
+
+<img src="/blogs/port.png" alt="Port forwarding in Visual Studio Code" className="xs:float-left my-2 mr-4" />
+
+<Callout emoji="⚠️" type="warn" message="Port forwarding may face security risks and are best recommended only for ad-hoc testing and development." />
+
+Visual Studio Code has a built-in support for port forwarding via Microsoft Dev Tunnels (does not require downloading extensions), which can make the service accessible to other people over the internet. By default, tunnels are private and only accessible to the creator (requires sign-in with the associated Github account), but can be changed to public.
+
+## Using Port Forwarding
+
+<img src="/blogs/forward-port.png" alt="Forwarding a port" className="xs:float-right ml-4" />
+
+1. Run a service in the local machine 
+2. Navigate to the **Ports** view in the Panel
+3. Select **Forward a Port**, and enter the port (i.e. 3000)
+4. Wait for port forwarding system to start and the **Ports** view will show the forwarded address
+
+<Callout emoji="ℹ️" message="Sign in to Github is required if you have not logged in" />
