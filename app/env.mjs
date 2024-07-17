@@ -7,6 +7,8 @@ export const dbUrl = process.env.DB_URL;
 // AUTHENTICATION
 export const discordId = process.env.DISCORD_CLIENT_ID;
 export const discordSecret = process.env.DISCORD_CLIENT_SECRET;
+export const googleId = process.env.GOOGLE_CLIENT_ID;
+export const googleSecret = process.env.GOOGLE_CLIENT_SECRET;
 
 // ADMIN EMAIL(S)
 const email = process.env.ADMIN_EMAIL;
