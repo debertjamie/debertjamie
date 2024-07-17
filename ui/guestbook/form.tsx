@@ -72,16 +72,27 @@ export function GuestbookForm({ session }: { session: Session | null }) {
     <>
       <div className="my-4 rounded-xl space-y-4 bg-zinc-300 dark:bg-zinc-900 p-6">
         {!session && (
-          <div className="flex flex-col flex-wrap gap-x-4">
-            <button
-              type="button"
-              className="px-4 py-2 bg-indigo-800 text-zinc-100 mb-4 rounded-lg w-fit"
-              onClick={() => {
-                void signIn("discord");
-              }}
-            >
-              Sign In With Discord
-            </button>
+          <div className="flex flex-col">
+            <div className="flex flex-wrap gap-x-4">
+              <button
+                type="button"
+                className="px-2 py-1 bg-indigo-700 hover:bg-indigo-800 duration-300 text-zinc-100 mb-4 rounded-lg w-fit"
+                onClick={() => {
+                  void signIn("discord");
+                }}
+              >
+                Sign in with Discord
+              </button>
+              <button
+                type="button"
+                className="px-2 py-1 bg-green-700 hover:bg-green-800 duration-300 text-zinc-100 mb-4 rounded-lg w-fit"
+                onClick={() => {
+                  void signIn("google");
+                }}
+              >
+                Sign in with Google
+              </button>
+            </div>
             <p className="text-base font-semibold select-none">
               Your email will remain private 🔒
             </p>
