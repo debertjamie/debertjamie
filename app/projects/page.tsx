@@ -1,23 +1,17 @@
-import { getProjects } from "@/lib/mdx";
 import { Grid } from "@/ui/projects";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
 export default function Projects() {
-  let projects = getProjects();
-  projects = [
-    ...projects.filter((p) => p.pinned),
-    ...projects.filter((p) => !p.pinned),
-  ];
   return (
-    <main className="space-y-8">
+    <main className="space-y-16 mt-8 sm:mt-18 text-xl">
       <div className="space-y-2">
-        <h1 className="text-4xl font-bold">Projects</h1>
+        <h1 className="text-5xl font-bold">Projects</h1>
         <p className="text-lg">
-          List of projects I created, some are open source too :o
+          A list of projects I created
         </p>
       </div>
-      <Suspense fallback={<p className="text-lg">Finding projects...</p>}>
+      <Suspense fallback={<p>Loading...</p>}>
         <Grid />
       </Suspense>
     </main>
@@ -25,7 +19,7 @@ export default function Projects() {
 }
 
 const title = "Projects";
-const description = "List of projects I created, some are open source too :o";
+const description = "A list of projects I created";
 
 export const metadata: Metadata = {
   title,

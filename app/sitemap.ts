@@ -1,28 +1,28 @@
-import { getBlogs, getProjects } from "@/lib/mdx";
+import { Column, getBlogs, Shorts } from "@/lib/blog";
 import { MetadataRoute } from "next";
 import { publicUrl } from "./env.mjs";
 
 export default function Sitemap(): MetadataRoute.Sitemap {
-  const blogs: MetadataRoute.Sitemap = getBlogs().map((blog) => ({
-    url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}blog/${blog.slug}`,
-    lastModified: blog.publishedDate,
-    changeFrequency: blog.draft ? "weekly" : "never",
-    priority: 0.8,
-  }));
+  const blogs: MetadataRoute.Sitemap = (getBlogs()
+    .filter((blog) => "slug" in blog) as (Column | Shorts)[])
+    .map((blog) => ({
+      url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}blog/${blog.slug}`,
+      lastModified: "updated" in blog ? blog.updated : blog.published,
+      changeFrequency: "draft" in blog && blog.draft ? "weekly" : "never",
+      priority: 0.8,
+    }));
 
-  const projects: MetadataRoute.Sitemap = getProjects().map((data) => ({
-    url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}projects/${data.slug}`,
-    lastModified: data.publishedDate,
-    changeFrequency: "never",
-    priority: 0.8,
-  }));
-
-  const otherRoutes: MetadataRoute.Sitemap = ["", "blog", "projects", "guestbook"].map((route) => ({
+  const otherRoutes: MetadataRoute.Sitemap = [
+    "",
+    "blog",
+    "projects",
+    "guestbook",
+  ].map((route) => ({
     url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}${route}`,
     lastModified: new Date().toISOString().split("T")[0],
     changeFrequency: "monthly",
     priority: 1,
   }));
 
-  return [...otherRoutes, ...blogs, ...projects];
+  return [...otherRoutes, ...blogs];
 }

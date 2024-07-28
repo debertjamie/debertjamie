@@ -5,4 +5,4 @@ import { dbUrl } from "@/app/env.mjs";
 import * as schema from "./schema";
 
 const sql = neon(dbUrl!);
-export const db = drizzle(sql);
+export const db = drizzle(sql, { schema });

@@ -3,17 +3,18 @@ import "@/styles/globals.css";
 import { Footer } from "@/ui/footer";
 import { Header } from "@/ui/header";
 import { inter } from "@/ui/fonts";
-import { ThemedHTML } from "@/ui/header";
-import { publicUrl } from "./env.mjs"
+import { ThemedHTML } from "@/ui/components";
+import { publicUrl } from "./env.mjs";
 
-const title = "Debert Jamie";
+// Default metadata
+const title = "Debert Jamie Chanderson";
 const description = "Heya 👋😀 I'm Debert Jamie";
 
 export const metadata: Metadata = {
   metadataBase: new URL(publicUrl),
   authors: [{ name: "Debert Jamie Chanderson" }],
   title: {
-    default: "Debert Jamie",
+    default: title,
     template: "%s | Debert Jamie",
   },
   description,
@@ -52,10 +53,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ECFEFF" },
-    { media: "(prefers-color-scheme: dark)", color: "#09090B" },
-  ],
+  themeColor: "#0369A1",
 };
 
 export default function RootLayout({
@@ -65,12 +63,14 @@ export default function RootLayout({
 }>) {
   return (
     <ThemedHTML>
-      <body className="mx-auto max-w-3xl bg-cyan-50 dark:bg-zinc-950 text-zinc-950 dark:text-cyan-50 selection:bg-violet-950 selection:text-cyan-50">
+      <body className="mx-auto max-w-5xl bg-zinc-100 dark:bg-zinc-950 text-zinc-950 dark:text-zinc-100 selection:bg-violet-950 selection:text-zinc-100">
         <div
-          className={inter.className + " mt-8 mx-4 flex flex-col min-h-screen"}
+          className={`${inter.className} mt-8 mx-4 flex flex-col`}
         >
           <Header />
-          <div className="mt-2 mb-8">{children}</div>
+          <div className="mt-2 mb-8 min-h-screen">
+            {children}
+          </div>
           <Footer />
         </div>
       </body>

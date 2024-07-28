@@ -39,7 +39,7 @@ export function Lanyard() {
   }, []);
 
   return (
-    <div className="py-1 px-2 rounded-lg bg-indigo-600 text-cyan-50 flex flex-col gap-y-2 justify-center">
+    <div className="py-1 px-2 rounded-lg bg-indigo-600 text-zinc-100 flex flex-col gap-y-2 justify-center">
       <div className="flex gap-x-4 justify-between items-center">
         <div className="flex gap-4 items-center">
           {lanyard?.discord_user.avatar ? (

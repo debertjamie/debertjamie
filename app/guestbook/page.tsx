@@ -5,6 +5,7 @@ import { GuestbookEntry, GuestbookForm } from "@/ui/guestbook";
 import { desc } from "drizzle-orm";
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { adminEmail } from "@/app/env.mjs";
 
 async function getGuestbook() {
   const data = await db
@@ -33,6 +34,11 @@ async function GuestbookFormWrapper() {
 async function GuestbookEntries() {
   const [entries, session] = await Promise.all([getGuestbook(), auth()]);
 
+  const isAdmin = (email: string) =>
+    adminEmail instanceof Array
+      ? adminEmail.includes(email)
+      : adminEmail == email;
+
   return (
     <div className="mt-4 space-y-8">
       {entries?.map((entry) => (
@@ -40,6 +46,7 @@ async function GuestbookEntries() {
           key={entry.id}
           entry={entry}
           session={session}
+          admin={isAdmin(entry.email)}
         />
       ))}
     </div>
@@ -48,14 +55,10 @@ async function GuestbookEntries() {
 
 export default function Guestbook() {
   return (
-    <main className="space-y-8">
+    <main className="space-y-16 mt-8 sm:mt-18 text-lg">
       <div className="space-y-2">
-        <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-5xl">
-          Guestbook
-        </h1>
-        <p className="text-lg">
-          Sign your name in here and get... your name in here?
-        </p>
+        <h1 className="text-5xl font-bold">Guestbook</h1>
+        <p>Sign your name in here and get... your name in here?</p>
       </div>
       <Suspense>
         <GuestbookFormWrapper />

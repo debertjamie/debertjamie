@@ -7,9 +7,14 @@
   background: transparent;
 }
 
+body.dropdown-active {
+  overflow: hidden;
+}
+
 .ol-counter {
   list-style-type: none;
   counter-reset: item;
+  padding-left: 3rem;
 }
 .ol-counter li:before {
   content: counter(item);
@@ -25,12 +30,17 @@
   height: 1.2rem;
   width: 1.8rem;
   box-sizing: border-box;
-  margin-right: 20px;
+  margin-right: 1rem;
+  margin-left: -2.8rem;
   transform: translateY(-3px)
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

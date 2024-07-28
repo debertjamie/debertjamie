@@ -1,44 +1,29 @@
 import Link from "next/link";
 import { publicUrl } from "@/app/env.mjs";
-import { getBlogs, formatDate } from "@/lib/mdx";
-import { Card, Mdx } from "@/ui/blog";
-import type { Metadata } from "next/types";
-import type { Blog } from "@/lib/mdx";
-
-const language: Record<Blog["language"], string> = {
-  EN: "Language: English",
-  ZH: "博客语言：中文",
-};
-
-const draft: Record<Blog["language"], string> = {
-  EN: "This blog post is still a draft and may subject to change",
-  ZH: "本博文仍是草稿，可能会有改动",
-};
+import type { Metadata } from "next";
+import { Column, formatDate, getBlogs, Shorts } from "@/lib/blog";
+import { notFound } from "next/navigation";
+import { Mdx } from "@/ui/blog";
 
 export function generateMetadata({
   params,
 }: {
   readonly params: { slug: string };
 }): Metadata {
-  const blog = getBlogs().find((blog) => blog.slug === params.slug);
-  if (!blog) return {};
-
-  const locale: Record<Blog["language"], string> = {
-    EN: "en-US",
-    ZH: "zh-CN",
-  };
+  const blog = (getBlogs() as (Column | Shorts)[]).find(
+    (blog) => blog.slug === params.slug
+  );
+  if (!blog) return notFound();
 
   return {
     title: blog.title,
     description: blog.excerpt,
-    keywords: blog.tags,
     openGraph: {
       title: blog.title,
       description: blog.excerpt,
       type: "article",
-      publishedTime: blog.publishedDate,
+      publishedTime: blog.published,
       url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}blog/${blog.slug}`,
-      locale: locale[blog.language],
     },
     twitter: {
       title: blog.title,
@@ -54,18 +39,13 @@ export default function Page({
 }: {
   readonly params: { slug: string };
 }) {
-  const blog = getBlogs().find((blog) => blog.slug === params.slug);
-  if (!blog) return undefined;
-
-  const moreBlogs = getBlogs()
-    .filter((blog) => blog.slug !== params.slug)
-    .splice(0, 2);
-
-  const wordlength = blog.content.trim().split(/\s+/).length;
-  const ert = Math.ceil(wordlength / 200);
+  const blog = (getBlogs() as (Column | Shorts)[]).find(
+    (blog) => blog.slug === params.slug
+  );
+  if (!blog) return notFound();
 
   return (
-    <main className="space-y-8">
+    <main className="space-y-16 -mt-12 sm:-mt-10 text-xl">
       <script
         type="application/ld+json"
         suppressHydrationWarning={true}
@@ -74,8 +54,11 @@ export default function Page({
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             headline: blog.title,
-            datePublished: blog.publishedDate,
-            dateModified: blog.publishedDate,
+            datePublished: blog.published,
+            dateModified:
+              "updated" in blog && !!blog.updated
+                ? blog.updated
+                : blog.published,
             description: blog.excerpt,
             url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}blog/${blog.slug}`,
             author: {
@@ -85,50 +68,31 @@ export default function Page({
           }),
         }}
       />
-      <h1 className="text-3xl md:text-5xl font-bold">{blog.title}</h1>
-      <div className="space-y-4 border-b-2 border-b-zinc-950 dark:border-b-cyan-50 pb-2">
-        {blog.draft ? (
-          <h2 className="text-lg md:text-2xl font-semibold">
-            ⚠️ {draft[blog.language]}
-          </h2>
-        ) : (
-          <></>
+      <div className="space-y-2 border-b-2 border-b-zinc-950 dark:border-b-zinc-100 pb-2">
+        <h1 className="text-3xl md:text-5xl font-bold">{blog.title}</h1>
+        <p className="text-lg">
+          Published at {formatDate(blog.published)}
+          {"updated" in blog &&
+            !!blog.updated &&
+            ` (Updated at ${formatDate(blog.updated)})`}
+        </p>
+        <div className="flex flex-wrap gap-x-4 text-lg *:font-semibold">
+          {"tags" in blog &&
+            blog.tags.split(",").map((t) => (
+              <Link href={`/blog/tag/${t}`} key={t} className="hover:underline text-cyan-600 dark:text-cyan-500">
+                #{t}
+              </Link>
+            ))}
+        </div>
+      </div>
+      <article className="tracking-wider">
+        {"draft" in blog && blog.draft && (
+          <div className="bg-zinc-300 dark:bg-zinc-800 px-2 py-1 border-l-2 border-l-yellow-500 rounded-r-lg w-fit text-lg font-semibold">
+            ⚠️ This article is a work in progress
+          </div>
         )}
-        <h2 className="text-2xl">{blog.excerpt}</h2>
-        <div className="flex justify-between flex-wrap gap-x-2 text-lg">
-          <span>{language[blog.language]}</span>
-          <span>ERT: {ert} min</span>
-          <span>
-            {formatDate(
-              blog.date,
-              blog.language === "ZH" ? "zh-CN" : undefined
-            )}
-          </span>
-        </div>
-        <div className="flex flex-wrap gap-x-4 text-lg *:bg-emerald-900 *:text-cyan-50 *:px-2 *:py-1 *:rounded-lg *:font-semibold">
-          {blog.tags.map((t) => (
-            <Link
-              href={`/blog?tag=${encodeURIComponent(t.toLowerCase())}`}
-              key={t}
-            >
-              {t}
-            </Link>
-          ))}
-        </div>
-      </div>
-      <div className="tracking-wider">
         <Mdx content={blog.content} />
-      </div>
-      <div className="space-y-4">
-        <h3 className="text-xl font-semibold">Recent blogs:</h3>
-        <div className=" space-y-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:space-y-0">
-          {moreBlogs.map((blog) => (
-            <Link href={`/blog/${blog.slug}`} key={blog.slug} className="block">
-              <Card blog={blog} minimal />
-            </Link>
-          ))}
-        </div>
-      </div>
+      </article>
     </main>
   );
 }
