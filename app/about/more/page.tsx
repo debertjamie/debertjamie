@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Movies, Spotify, Wakatime } from "@/ui/about";
-import { GameIcon, SteamIcon } from "@/ui/icons";
+import { GameIcon, SteamIcon, XboxIcon } from "@/ui/icons";
 import { Time } from "@/ui/components";
 
 export default function More() {
@@ -45,12 +45,11 @@ export default function More() {
         <Spotify />
       </section>
       <section className="text-xl space-y-4">
-        <h2 className="font-semibold -mb-4">Games?</h2>
+        <h2 className="font-semibold -mb-4">Gaming and Stuff</h2>
         <p>
-          Currently I rarely play any games, especially PC games. I usually
-          spend most of my time in coding and listening to music, or just going
-          out and living life. I might start playing some games soon, but in the
-          meantime do enjoy the almost-empty Steam profile I have.
+          I infrequently play any games, especially PC games. I mostly play
+          games like Minecraft or Call of Duty when I'm bored for a while.
+          Currently planning on trying Pico Park and Lethal Company.
         </p>
         <div className="flex flex-wrap gap-4">
           <Link
@@ -61,6 +60,15 @@ export default function More() {
           >
             <SteamIcon className="inline w-8 mr-2 -mt-1" />
             Debert#6913
+          </Link>
+          <Link
+            href="https://www.xbox.com/play/user/DebertJamie5386"
+            target="_blank"
+            rel="norefferer noopener"
+            className="block text-2xl rounded-lg px-2 py-1 bg-green-900 text-zinc-100 w-fit"
+          >
+            <XboxIcon className="inline w-8 mr-2 -mt-1" />
+            DebertJamie#5386
           </Link>
           <div className="block text-2xl rounded-lg px-2 py-1 bg-gray-800 text-zinc-100 w-fit">
             <GameIcon className="inline w-8 mr-2 -mt-1" />
