@@ -44,9 +44,6 @@ export default function Page({
   );
   if (!blog) return notFound();
 
-  const wordlength = blog.content.trim().split(/\s+/).length;
-  const ert = Math.ceil(wordlength / 200);
-
   return (
     <main className="space-y-16 -mt-12 sm:-mt-10 text-xl">
       <script
@@ -73,33 +70,27 @@ export default function Page({
       />
       <div className="space-y-2 border-b-2 border-b-zinc-950 dark:border-b-zinc-100 pb-2">
         <h1 className="text-3xl md:text-5xl font-bold">{blog.title}</h1>
-        {"draft" in blog && blog.draft && (
-          <h2 className="text-lg md:text-2xl font-semibold">
-            ⚠️ This Column is a work in progress
-          </h2>
-        )}
-        <h2 className="text-2xl">{blog.excerpt}</h2>
-        <div
-          className={`flex ${"updated" in blog && !!blog.updated ? "flex-col" : "flex-wrap justify-between"}`}
-        >
-          <p className="text-lg">Estimated Reading Time: {ert} min</p>
-          <div className="flex justify-between flex-wrap gap-x-2 text-lg">
-            <p>Published at {formatDate(blog.published)}</p>
-            {"updated" in blog && !!blog.updated && (
-              <p>Updated at {formatDate(blog.updated)}</p>
-            )}
-          </div>
-        </div>
+        <p className="text-lg">
+          Published at {formatDate(blog.published)}
+          {"updated" in blog &&
+            !!blog.updated &&
+            ` (Updated at ${formatDate(blog.updated)})`}
+        </p>
         <div className="flex flex-wrap gap-x-4 text-lg *:font-semibold">
           {"tags" in blog &&
             blog.tags.split(",").map((t) => (
-              <Link href={`/blog/tag/${t}`} key={t} className="hover:underline">
+              <Link href={`/blog/tag/${t}`} key={t} className="hover:underline text-cyan-600 dark:text-cyan-500">
                 #{t}
               </Link>
             ))}
         </div>
       </div>
       <article className="tracking-wider">
+        {"draft" in blog && blog.draft && (
+          <div className="bg-zinc-300 dark:bg-zinc-800 px-2 py-1 border-l-2 border-l-yellow-500 rounded-r-lg w-fit text-lg font-semibold">
+            ⚠️ This article is a work in progress
+          </div>
+        )}
         <Mdx content={blog.content} />
       </article>
     </main>
