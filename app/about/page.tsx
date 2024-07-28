@@ -23,31 +23,41 @@ export default function About() {
             Hello! I'm Debert Jamie Chanderson, also known as{" "}
             <span className="font-thin">陈宥维</span> /{" "}
             <span className="font-thin">陳宥維</span> (chen2 you4 wei2). I'm a
-            high school graduate from Indonesia currently living in North
-            Sumatra. I learn about coding during the pandemic, where I study
-            JavaScript and also Pascal. I'm currently preparing for the start of
-            university by autumn.
+            high school graduate from Indonesia currently living in the Special
+            Region of Yogyakarta. I learn about coding during the pandemic,
+            where I study JavaScript and also Pascal. I'm currently majoring
+            Information Technology in the{" "}
+            <Link
+              href="https://ugm.ac.id"
+              target="_blank"
+              rel="norefferer noopener"
+              className="text-cyan-600 dark:text-cyan-500"
+            >
+              University of Gadjah Mada
+            </Link>
+            , Yogyakarta.
           </p>
           <p>
             I mainly code in TypeScript, but I also use other languages like
             Python and C++. Mostly using React for frontend web development but
-            currently learning Astro and Svelte. Right now I'm mostly focused on
-            honing my web development skills.
+            currently learning Astro and Svelte. Right now I'm mostly focusing
+            on my freshman days in university and rarely does any coding (unless
+            bored or got nothing to do, I guess)
           </p>
           <p>
-            I mostly spend my free time coding and learning about new stuff in
-            tech, though I paused coding a while due to exam preparations at the
-            start of 2024. Other than coding I also listen to music (mostly
-            Chinese/Taiwanese songs and English), like{" "}
-            <span className="font-medium">We Are Young</span>,{" "}
-            <span className="font-thin">若月亮没来</span> and{" "}
-            <span className="font-thin">如果可以</span>.
+            Sometimes I like listening to music while working on my code or
+            something else. I mostly listen to English and Chinese/Taiwanese
+            songs like <span className="font-medium">We Are Young</span>,{" "}
+            <span className="font-medium">Golden Hour</span>,{" "}
+            <span className="font-thin">晚夜微雨问海棠</span>,{" "}
+            <span className="font-thin">起风了</span> etc.
           </p>
           <p>
             Other than tech-related bits and bobs, I find photography and human
             psychology interesting. I also enjoy gardening, hiking and cycling
             from time to time. Sometimes I like to watch food shows in TV
-            channels or sitcoms like South Park*
+            channels or sitcoms like South Park* or play games like Minecraft
+            and Call Of Duty.
             <br />
             <span className="text-base bg-yellow-500 text-zinc-950 font-semibold px-1">
               *Viewer discretion adviced - I warned you
