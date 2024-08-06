@@ -45,12 +45,7 @@ export default function More() {
         <Spotify />
       </section>
       <section className="text-xl space-y-4">
-        <h2 className="font-semibold -mb-4">Gaming and Stuff</h2>
-        <p>
-          I infrequently play any games, especially PC games. I mostly play
-          games like Minecraft or Call of Duty when I'm bored for a while.
-          Currently planning on trying Pico Park and Lethal Company.
-        </p>
+        <h2 className="font-semibold -mb-4">Games</h2>
         <div className="flex flex-wrap gap-4">
           <Link
             href="https://steamcommunity.com/id/debertjamie/"
@@ -74,13 +69,6 @@ export default function More() {
             <GameIcon className="inline w-8 mr-2 -mt-1" />
             Soon?
           </div>
-        </div>
-      </section>
-      <section>
-        <h2 className="font-semibold">Special Thanks</h2>
-        <div className="grid xs:grid-cols-2 md:grid-cols-3 gap-2">
-          <p>Elvin Freddrick</p>
-          <p>Fernando Putra</p>
         </div>
       </section>
     </main>

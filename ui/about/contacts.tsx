@@ -21,7 +21,7 @@ function SocialLink({
 
 export function Contacts() {
   return (
-    <div className="grid xs:grid-cols-2 md:grid-cols-3 mt-6 gap-2 text-xl *:grid *:gap-y-2 *:h-fit">
+    <div className="grid xs:grid-cols-2 mt-6 gap-2 text-xl *:grid *:gap-y-2 *:h-fit">
       <div>
         <p>
           LinkedIn:{" "}
@@ -43,21 +43,7 @@ export function Contacts() {
       <div>
         <p>Discord: debert_6913</p>
         <p>Instagram: @debert.jc</p>
-        <p>
-          Reddit:{" "}
-          <SocialLink href="https://reddit.com/user/Glitched6913/">
-            u/Gitched6913
-          </SocialLink>
-        </p>
-      </div>
-      <div>
         <p>微信: debertjamie</p>
-        <p>
-          小红书:{" "}
-          <SocialLink href="https://xiaohongshu.com/user/profile/65a6b06e000000000803046f">
-            Debert Jamie
-          </SocialLink>
-        </p>
       </div>
     </div>
   );
