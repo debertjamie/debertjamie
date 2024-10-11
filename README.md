@@ -4,15 +4,12 @@
 
 Welcome to my Github profile 😄
 
-I'm Debert Jamie, a student from **Indonesia** 🇮🇩, currently living in **Medan**
+I'm Debert Jamie, an Information Engineering undergraduate at Gadjah Mada University in Yogyakarta, Indonesia.
 
 [![LinkedIn: debertjamie](https://img.shields.io/badge/debertjamie-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/debertjamie)
 [![GitHub: debertjamie](https://img.shields.io/badge/debertjamie-%2312100E.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/debertjamie)
-[![Outlook: debertjamie@outlook.com](https://img.shields.io/badge/debertjamie%40outlook.com-%23249EE4.svg?&style=for-the-badge&logo=microsoft%20outlook&logoColor=white)](mailto:debertjamie@outlook.com)
 [![Twitter: debertjamie](https://img.shields.io/badge/debertjamie-%2314171A.svg?&style=for-the-badge&logo=x&logoColor=white)](https://twitter.com/debertjamie)
-
-I'm mostly active on [discord](https://discordapp.com/users/755773452756975646), shoot me a
-friend request and let's chat! 📲
+[![discord: debert_6913](https://img.shields.io/badge/debert_6913-%235865F2.svg?&style=for-the-badge&logo=discord&logoColor=white)](https://discordapp.com/users/755773452756975646)
 
 ## Tech I Mess Around With
 
