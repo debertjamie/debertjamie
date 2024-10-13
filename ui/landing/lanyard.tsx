@@ -27,7 +27,7 @@ export function Lanyard() {
     socket: true,
   });
   const otherActivities = lanyard?.activities.filter(
-    (activity) => !lanyard.listening_to_spotify && activity.type !== 4
+    (activity) => activity.name !== "Spotify" && activity.type !== 4
   );
 
   const [now, setNow] = React.useState(new Date());
