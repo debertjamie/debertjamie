@@ -1,15 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useLanyard } from "react-use-lanyard";
+import {useLanyard} from "react-use-lanyard";
 import React from "react";
-import { formatDistance } from "date-fns";
+import {formatDistance} from "date-fns";
 
-const colors: Record<string, string> = {
-  online: "bg-green-500",
-  idle: "bg-amber-500",
-  dnd: "bg-red-600",
-  offline: "bg-gray-400",
+const status: Record<string, Record<string, string>> = {
+  online: {style: "bg-green-500", text: "Active"},
+  idle: {style: "bg-amber-500", text: "Idling"},
+  dnd: {style: "bg-red-600", text: "Do Not Disturb"},
+  offline: {style: "bg-gray-400", text: "Away"},
 };
 
 const activityTypes = [
@@ -22,12 +22,12 @@ const activityTypes = [
 ];
 
 export function Lanyard() {
-  const { status: lanyard } = useLanyard({
+  const {status: lanyard} = useLanyard({
     userId: "755773452756975646",
     socket: true,
   });
   const otherActivities = lanyard?.activities.filter(
-    (activity) => activity.type !== 2 && activity.type !== 4
+    (activity) => !lanyard.listening_to_spotify && activity.type !== 4
   );
 
   const [now, setNow] = React.useState(new Date());
@@ -39,63 +39,63 @@ export function Lanyard() {
   }, []);
 
   return (
-    <div className="py-1 px-2 rounded-lg bg-indigo-600 text-zinc-100 flex flex-col gap-y-2 justify-center">
-      <div className="flex gap-x-4 justify-between items-center">
-        <div className="flex gap-4 items-center">
-          {lanyard?.discord_user.avatar ? (
-            <div className="w-12 h-12 md:w-16 md:h-16 relative">
-              <Image
-                src={
-                  "https://cdn.discordapp.com/avatars/755773452756975646/" +
-                  lanyard.discord_user.avatar +
-                  "." +
-                  (lanyard.discord_user.avatar.startsWith("a_")
-                    ? "gif"
-                    : "png") +
-                  "?size=256"
-                }
-                alt="Discord profile picture"
-                width={0}
-                height={0}
-                sizes="100%"
-                priority={true}
-                className="rounded-full w-12 h-12 md:w-16 md:h-16"
-              />
-              <div
-                className={`absolute bottom-0.5 right-0.5 w-4 h-4 md:w-4 md:h-4 rounded-full ${
-                  colors[lanyard?.discord_status]
-                }`}
-              />
-            </div>
-          ) : (
-            <></>
-          )}
-          {lanyard ? (
-            <div className="leading-tight flex flex-col justify-between">
-              {lanyard.discord_user.global_name ? (
-                <>
+    <div className="p-2 rounded-xl bg-indigo-600 text-zinc-100 h-fit">
+      <div className="flex gap-x-4 mb-4">
+        {lanyard?.discord_user.avatar ? (
+          <div className="relative">
+            <Image
+              src={
+                "https://cdn.discordapp.com/avatars/755773452756975646/" +
+                lanyard.discord_user.avatar +
+                "." +
+                (lanyard.discord_user.avatar.startsWith("a_")
+                  ? "gif"
+                  : "png") +
+                "?size=256"
+              }
+              alt="Discord profile picture"
+              width={0}
+              height={0}
+              sizes="100%"
+              priority={true}
+              className="rounded-lg w-12 h-12 md:w-20 md:h-20"
+            />
+            <div
+              className={`absolute bottom-[0.6875rem] -right-[2.125rem] w-4 h-4 md:w-4 md:h-4 rounded-full ${
+                status[lanyard?.discord_status]["style"]
+              }`}
+            />
+          </div>
+        ) : (
+          <></>
+        )}
+        {lanyard ? (
+          <div className="flex flex-col justify-center">
+            {lanyard.discord_user.global_name ? (
+              <>
+                <div>
                   <p className="font-semibold text-lg">
                     {lanyard.discord_user.global_name}
                   </p>
-                  <p className="text-base">{lanyard.discord_user.username}</p>
-                </>
-              ) : (
-                <p className="font-semibold text-lg">
-                  {lanyard.discord_user.username}
-                </p>
-              )}
-            </div>
-          ) : (
-            <p className="text-lg">Loading Discord profile</p>
-          )}
-        </div>
+                  <p className="text-base -mt-2">{lanyard.discord_user.username}</p>
+                </div>
+                <p className="text-base ml-6">{status[lanyard?.discord_status]["text"]}</p>
+              </>
+            ) : (
+              <p className="font-semibold text-lg">
+                {lanyard.discord_user.username}
+              </p>
+            )}
+          </div>
+        ) : <p className="text-lg">Loading Discord profile</p>}
       </div>
-      {!!otherActivities?.length && (
+
+      {!!otherActivities?.length ? (
         <div className="space-y-2">
           {otherActivities.map((act) => (
             <div
               key={act.application_id}
-              className="leading-tight text-base ml-2"
+              className="leading-tight text-base"
             >
               <p>
                 {activityTypes[act.type]}{" "}
@@ -103,12 +103,13 @@ export function Lanyard() {
               </p>
               {act.details && <p className="tracking-tight">{act.details}</p>}
               <p className="text-sm font-semibold">
-                {formatDistance(now, act.timestamps?.start ?? act.created_at)}{" "}
-                elapsed
+                {act.type !== 2 ? `${formatDistance(now, act.timestamps?.start ?? act.created_at)} elapsed` : `${act.state}`}
               </p>
             </div>
           ))}
         </div>
+      ) : (
+        <></>
       )}
     </div>
   );
