@@ -28,6 +28,12 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "yt3.googleusercontent.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "m.media-amazon.com",
         port: "",
         pathname: "/**",
