@@ -10,9 +10,7 @@ export function Connect() {
         <div className="md:col-span-2">
           <p>
             Feel free to reach out to me in my socials, I'll gladly help as much as I can 😄. Currently I'm mostly
-            active on Discord but you can look up my other socials in{" "}
-            <Link href="/socials" className="font-semibold text-cyan-600 dark:text-cyan-500">here</Link> or
-            write me an email below.
+            active on Discord but you can also write me an email below.
           </p>
           <EmailForm/>
         </div>
