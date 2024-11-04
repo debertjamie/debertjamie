@@ -28,7 +28,6 @@ export function Header() {
             <Menu name="Blog" path="/blog" />
             <Menu name="Projects" path="/projects" />
             <Menu name="Guestbook" path="/guestbook" />
-            <Link href="mailto:debertjamiechanderson@mail.ugm.ac.id">Email</Link>
             <ToggleTheme />
           </div>
         </div>
