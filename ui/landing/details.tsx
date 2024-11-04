@@ -40,7 +40,7 @@ export function Details() {
           <Link
             href="https://github.com/debertjamie"
             target="_blank"
-            rel="norefferer noopener"
+            rel="noreferrer noopener"
             className="block relative h-40 text-zinc-100 rounded-lg overflow-hidden px-2 py-1 hover:scale-95 duration-300"
           >
                         <span
@@ -71,7 +71,7 @@ export function Details() {
           <Link
             href="https://linked.com/in/debertjamie"
             target="_blank"
-            rel="norefferer noopener"
+            rel="noreferrer noopener"
             className="block relative h-40 text-zinc-100 rounded-lg overflow-hidden px-2 py-1 hover:scale-95 duration-300"
           >
             <span

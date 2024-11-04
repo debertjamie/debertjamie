@@ -5,7 +5,7 @@ const randomFacts = [{
   content: (
     <p>One of my favourite books is "<Link
       href="https://www.popularonline.com.my/cnsimplified/catalog/product/view/_ignore_category/1/id/110199/s/9789674143572/?did=8"
-      target="_blank" rel="norefferer noopener"
+      target="_blank" rel="noreferrer noopener"
       className="text-sky-700 dark:text-sky-400">烂鬼熊猫搞烂GAG 2</Link>" by 大田.
     </p>
   ),

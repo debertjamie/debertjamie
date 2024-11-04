@@ -5,7 +5,7 @@ export function SpotifyProfile() {
   return (
     <Link href="https://open.spotify.com/user/31cquejvozvwhwj6vv3snek5asfu"
           target="_blank"
-          rel="norefferer noopener"
+          rel="noreferrer noopener"
           className="block text-lg flex gap-x-4 items-center rounded-lg px-4 py-2 bg-green-500 dark:bg-green-600 w-fit"
     >
       <Image
@@ -28,7 +28,7 @@ export function YoutubeMusicProfile() {
   return (
     <Link href="https://music.youtube.com/channel/UCUAvn5kqbBvABRPd7XeoFRA"
           target="_blank"
-          rel="norefferer noopener"
+          rel="noreferrer noopener"
           className="block text-lg flex gap-x-4 items-center rounded-lg px-4 py-2 bg-red-600 w-fit"
     >
       <Image

@@ -26,7 +26,7 @@ export function Games() {
         <Link
           href="https://steamcommunity.com/id/debertjamie/"
           target="_blank"
-          rel="norefferer noopener"
+          rel="noreferrer noopener"
           className="block rounded-lg px-2 py-1 bg-blue-950 text-zinc-100 w-fit"
         >
           <SteamIcon className="inline w-8 mr-2"/>
@@ -35,7 +35,7 @@ export function Games() {
         <Link
           href="https://www.xbox.com/play/user/DebertJamie5386"
           target="_blank"
-          rel="norefferer noopener"
+          rel="noreferrer noopener"
           className="block rounded-lg px-2 py-1 bg-green-900 text-zinc-100 w-fit"
         >
           <XboxIcon className="inline w-8 mr-2"/>

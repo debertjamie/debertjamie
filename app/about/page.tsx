@@ -25,7 +25,7 @@ export default function About() {
             <Link
               href="https://ugm.ac.id"
               target="_blank"
-              rel="norefferer noopener"
+              rel="noreferrer noopener"
               className="text-cyan-600 dark:text-cyan-500 font-semibold"
             >
               Gadjah Mada University

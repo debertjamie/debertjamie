@@ -23,7 +23,7 @@ export function Spotify() {
         <Link
           href={data.songUrl}
           target="_blank"
-          rel="norefferer noopener"
+          rel="noreferrer noopener"
           className="block mx-auto relative w-80 h-80 text-zinc-100 rounded-lg overflow-hidden px-2 py-1"
         >
           <span
