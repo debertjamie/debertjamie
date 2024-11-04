@@ -1,4 +1,5 @@
 export * from "./theme";
+export * from "./logo";
 
 export * from "./lang";
 export * from "./arrow";
