@@ -19,3 +19,22 @@ export const getWakatimeData = cache(
   [],
   { revalidate: 3600 },
 );
+
+export const getWakatimeWeeklyData = cache(
+  async () => {
+    const token = wakatimeKey!;
+    const headers = {
+      Authorization: `Basic ${Buffer.from(token).toString("base64")}`,
+    };
+    const response = await fetch(
+      "https://wakatime.com/api/v1/users/current/stats/last_7_days",
+      {
+        headers: headers,
+      },
+    );
+    const data = await response.json();
+    return data.data;
+  },
+  [],
+  { revalidate: 3600 },
+);
