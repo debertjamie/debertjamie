@@ -9,13 +9,13 @@ export function generateMetadata({
   readonly params: { tag: string };
 }): Metadata {
   const blog = (getBlogs("column") as Column[]).filter((c) =>
-    c.tags.split(",").includes(params.tag.toLowerCase())
+    c.tags.split(",").includes(decodeURI(params.tag).toLowerCase())
   );
 
   const title = blog.length
-    ? `Articles with "${params.tag.toLowerCase()}" Tag`
-    : `Unknown Tag: ${params.tag.toLowerCase()}`;
-  const description = `List of Articles with the "${params.tag.toLowerCase()}" tag`;
+    ? `Articles tagged with with "#${decodeURI(params.tag).toLowerCase()}"`
+    : `Unknown Tag: ${decodeURI(params.tag).toLowerCase()}`;
+  const description = `List of Article(s) I wrote with the "${decodeURI(params.tag).toLowerCase()}" tag`;
 
   return {
     title,
@@ -23,7 +23,7 @@ export function generateMetadata({
     openGraph: {
       title: title,
       description: description,
-      url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}blog/tag-${params.tag.toLowerCase()}`,
+      url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}blog/tag/${params.tag.toLowerCase()}`,
     },
     twitter: {
       title: title,
@@ -36,7 +36,7 @@ export function generateMetadata({
 
 export default function Tags({ params }: { readonly params: { tag: string } }) {
   const blog = (getBlogs("column") as Column[]).filter((c) =>
-    c.tags.split(",").includes(params.tag.toLowerCase())
+    c.tags.split(",").includes(decodeURI(params.tag).toLowerCase())
   );
   const even = [];
   const odd = [];
@@ -56,8 +56,7 @@ export default function Tags({ params }: { readonly params: { tag: string } }) {
       {blog.length ? (
         <>
           <h1 className="text-5xl font-bold">
-            Columns Tagged With{" "}
-            <span className="font-medium">{params.tag}</span>
+            #{decodeURI(params.tag)}
           </h1>
           <section>
             <div className="hidden md:grid grid-cols-2 gap-4">
@@ -72,13 +71,12 @@ export default function Tags({ params }: { readonly params: { tag: string } }) {
                       {c.tags.split(",").map((t, i) => (
                         <span key={t}>
                           {i > 0 ? " " : ""}
-                          <Link href={`/blog/tag/${t}`}>#{t}</Link>
+                          #{t}
                         </span>
                       ))}
-                      {c.pinned && <span> #pinned</span>}
                     </p>
                     <p className="text-2xl font-medium group-hover:font-semibold duration-300">
-                      {c.title}
+                      {c.pinned && "📌 "}{c.title}
                     </p>
                     <p>{c.excerpt}</p>
                     <p className="text-base">{formatDate(c.published)}</p>
@@ -139,7 +137,7 @@ export default function Tags({ params }: { readonly params: { tag: string } }) {
       ) : (
         <>
           <h1 className="text-5xl font-bold">
-            Unknown Tag: <span className="font-medium">{params.tag}</span>
+            Unknown Tag: <span className="font-medium">{decodeURI(params.tag)}</span>
           </h1>
           <div>
             <p className="text-2xl">The requested tag does not exist... yet</p>

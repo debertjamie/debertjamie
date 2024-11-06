@@ -88,7 +88,7 @@ export default function Page({
       <article className="tracking-wider">
         {"draft" in blog && blog.draft && (
           <div className="bg-zinc-300 dark:bg-zinc-800 px-2 py-1 border-l-2 border-l-yellow-500 rounded-r-lg w-fit text-lg font-semibold">
-            ⚠️ This article is a work in progress
+            ⚠️ This article is a work in progress, information contained in here may not be valid
           </div>
         )}
         <Mdx content={blog.content} />

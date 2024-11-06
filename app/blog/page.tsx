@@ -1,39 +1,25 @@
-import { Blogs, Pinned, Short } from "@/ui/blog";
-import type { Metadata } from "next";
-import { Suspense } from "react";
-import Link from "next/link";
+import {Blogs, Pinned, Short} from "@/ui/blog";
+import type {Metadata} from "next";
+import {Suspense} from "react";
 
 export default function Blog() {
   return (
     <main className="space-y-16 mt-8 sm:mt-18 text-xl">
       <div className="space-y-2">
         <h1 className="text-5xl font-bold">Debert Jamie's Blogpage</h1>
-        <p className="text-lg">
-          A collection of thoughts poured into readable forms
-        </p>
-        <p className="flex flex-wrap gap-4">
-          <Link
-            href="/blog/column"
-            className="block px-2 py-1 rounded-lg text-cyan-600 dark:text-cyan-500 bg-zinc-950/10 dark:bg-zinc-100/10 hover:font-semibold duration-300"
-          >
-            Article Column
-          </Link>
-          <Link
-            href="/blog/shorts"
-            className="block px-2 py-1 rounded-lg text-cyan-600 dark:text-cyan-500 bg-zinc-950/10 dark:bg-zinc-100/10 hover:font-semibold duration-300"
-          >
-            Shorter Articles
-          </Link>
+        <p className="text-xl">
+          A collection of random thoughts and ideas that I have in my mind. I didn't really write a lot, but some of
+          these are probably worth sharing.
         </p>
       </div>
       <div className="grid lg:grid-cols-[40rem_auto] gap-x-4">
-        <Suspense fallback={<p>Loading...</p>}>
-          <Blogs />
+        <Suspense fallback={<ListFallback/>}>
+          <Blogs/>
         </Suspense>
         <div className="hidden lg:block space-y-4">
-          <Suspense fallback={<p>Loading...</p>}>
-            <Short />
-            <Pinned />
+          <Suspense fallback={<FeaturedFallback/>}>
+            <Short/>
+            <Pinned/>
           </Suspense>
         </div>
       </div>
@@ -41,9 +27,38 @@ export default function Blog() {
   );
 }
 
+function FeaturedFallback() {
+  return (
+    <div className="space-y-4">
+      <div className="h-fit border border-zinc-500 px-4 py-2 rounded-xl text-xl space-y-2">
+        <div className="h-8 bg-zinc-950 dark:bg-zinc-100 animate-pulse rounded-lg"/>
+        <div className="h-8 bg-zinc-950 dark:bg-zinc-100 animate-pulse rounded-lg"/>
+        <div className="h-8 bg-zinc-950 dark:bg-zinc-100 animate-pulse rounded-lg"/>
+      </div>
+      <div className="h-fit border border-zinc-500 px-4 py-2 rounded-xl text-xl space-y-2">
+        <div className="h-8 bg-zinc-950 dark:bg-zinc-100 animate-pulse rounded-lg"/>
+        <div className="h-8 bg-zinc-950 dark:bg-zinc-100 animate-pulse rounded-lg"/>
+        <div className="h-8 bg-zinc-950 dark:bg-zinc-100 animate-pulse rounded-lg"/>
+      </div>
+    </div>
+  )
+}
+
+function ListFallback() {
+  return (
+    <div className="border h-fit border-zinc-500 px-4 py-2 rounded-xl text-xl space-y-4">
+      <div className="h-8 bg-zinc-950 dark:bg-zinc-100 animate-pulse rounded-lg"/>
+      <div className="h-8 bg-zinc-950 dark:bg-zinc-100 animate-pulse rounded-lg"/>
+      <div className="h-8 bg-zinc-950 dark:bg-zinc-100 animate-pulse rounded-lg"/>
+      <div className="h-8 bg-zinc-950 dark:bg-zinc-100 animate-pulse rounded-lg"/>
+      <div className="h-8 bg-zinc-950 dark:bg-zinc-100 animate-pulse rounded-lg"/>
+    </div>
+  )
+}
+
 const title = "Blog";
 const description =
-  "Here is where the random thoughts inside my mind are poured into human language";
+  "A collection of random thoughts and ideas that I have in my mind. I didn't really write a lot, but some of these are probably worth sharing.";
 
 export const metadata: Metadata = {
   title,
