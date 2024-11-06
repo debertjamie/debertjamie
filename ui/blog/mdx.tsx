@@ -54,7 +54,7 @@ function Anchor(props: AnchorHTMLAttributes<HTMLAnchorElement>) {
       <Link
         href={href}
         target="_blank"
-        rel="norefferer noopener"
+        rel="noreferrer noopener"
         className="text-sky-700 dark:text-sky-400"
         {...props}
       >
