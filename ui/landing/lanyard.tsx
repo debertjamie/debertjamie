@@ -40,9 +40,9 @@ export function Lanyard() {
 
   return (
     <div className="p-2 rounded-xl bg-indigo-600 text-zinc-100 h-fit">
-      <div className="flex gap-x-4 mb-4">
-        {lanyard?.discord_user.avatar ? (
-          <div className="relative">
+      <div className="flex gap-x-4">
+        {lanyard?.discord_user.avatar && (
+          <div>
             <Image
               src={
                 "https://cdn.discordapp.com/avatars/755773452756975646/" +
@@ -60,38 +60,36 @@ export function Lanyard() {
               priority={true}
               className="rounded-lg w-12 h-12 md:w-20 md:h-20"
             />
-            <div
-              className={`absolute bottom-[0.6875rem] -right-[2.125rem] w-4 h-4 md:w-4 md:h-4 rounded-full ${
-                status[lanyard?.discord_status]["style"]
-              }`}
-            />
           </div>
-        ) : (
-          <></>
         )}
         {lanyard ? (
           <div className="flex flex-col justify-center">
             {lanyard.discord_user.global_name ? (
-              <>
-                <div>
-                  <p className="font-semibold text-lg">
-                    {lanyard.discord_user.global_name}
-                  </p>
-                  <p className="text-base -mt-2">{lanyard.discord_user.username}</p>
-                </div>
-                <p className="text-base ml-6">{status[lanyard?.discord_status]["text"]}</p>
-              </>
+              <div>
+                <p className="font-semibold text-lg">
+                  {lanyard.discord_user.global_name}
+                </p>
+                <p className="text-base -mt-2">{lanyard.discord_user.username}</p>
+              </div>
             ) : (
               <p className="font-semibold text-lg">
                 {lanyard.discord_user.username}
               </p>
             )}
+            <div className="flex gap-x-2 items-center">
+              <div
+                className={`w-4 h-4 rounded-full ${
+                  status[lanyard?.discord_status]["style"]
+                }`}
+              />
+              <p className="text-base">{status[lanyard?.discord_status]["text"]}</p>
+            </div>
           </div>
         ) : <p className="text-lg">Loading Discord profile</p>}
       </div>
 
-      {!!otherActivities?.length ? (
-        <div className="space-y-2">
+      {!!otherActivities?.length && (
+        <div className="space-y-2 mt-4">
           {otherActivities.map((act) => (
             <div
               key={act.application_id}
@@ -108,8 +106,6 @@ export function Lanyard() {
             </div>
           ))}
         </div>
-      ) : (
-        <></>
       )}
     </div>
   );
