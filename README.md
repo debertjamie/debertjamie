@@ -4,7 +4,7 @@
 
 Welcome to my Github profile 😄
 
-I'm Debert Jamie, an Information Engineering undergraduate at Gadjah Mada University in Yogyakarta, Indonesia.
+I'm Debert Jamie, an Information Engineering undergraduate at Gadjah Mada University currently in my freshman years.
 
 [![LinkedIn: debertjamie](https://img.shields.io/badge/debertjamie-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/debertjamie)
 [![GitHub: debertjamie](https://img.shields.io/badge/debertjamie-%2312100E.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/debertjamie)
