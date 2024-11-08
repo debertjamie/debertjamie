@@ -1,7 +1,7 @@
 import Link from "next/link";
-import type { Project } from "@/lib/project";
+import type {Project} from "@/lib/project";
 
-export function Card({ project }: { project: Project }) {
+export function Card({project}: { project: Project }) {
   return (
     <div
       className={
@@ -12,30 +12,32 @@ export function Card({ project }: { project: Project }) {
       }
     >
       <div>
-        <Link
+        {project.link ? (<Link
           target="_blank"
-          rel="norefferer noopener"
+          rel="noreferrer noopener"
           href={project.link}
           className="block text-2xl font-medium hover:font-semibold duration-300"
         >
           {project.title}
-        </Link>
+        </Link>) : (<h2
+          className="block text-2xl font-medium hover:font-semibold duration-300"
+        >
+          {project.title}
+        </h2>)}
         <p className="text-lg">{project.excerpt}</p>
       </div>
       {(project.pinned || project.oss) && (
         <div className="flex flex-wrap justify-between gap-x-4 text-base font-semibold">
           <p>{project.pinned ? "FEATURED" : ""}</p>
-          {project.oss ? (
+          {project.oss && (
             <Link
               href={project.oss}
               target="_blank"
-              rel="norefferer noopener"
+              rel="noreferrer noopener"
               className="hover:underline"
             >
               OPEN SOURCE -&gt;
             </Link>
-          ) : (
-            <></>
           )}
         </div>
       )}
