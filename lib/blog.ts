@@ -10,6 +10,7 @@ export interface Column {
   updated?: string;
   draft?: boolean;
   pinned?: boolean;
+  language?: string;
   slug: string;
   content: string;
 }
