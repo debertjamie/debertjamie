@@ -1,3 +1,4 @@
+import {ReactNode} from "react";
 import type { Metadata, Viewport } from "next";
 import "@/styles/globals.css";
 import { Footer } from "@/ui/footer";
@@ -59,7 +60,7 @@ export const viewport: Viewport = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <ThemedHTML>

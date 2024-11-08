@@ -8,10 +8,11 @@ export function Head() {
     <section className="space-y-16">
       <div className="space-y-14">
         <h1 className="text-4xl sm:text-6xl font-bold">
-          <Typewriter cursor words={["Debert Jamie Chanderson 陈宥维"]} />
+          <p className="text-lg font-normal">Hello, I'm</p>
+          <Typewriter cursor words={["Debert Jamie Chanderson"]} />
         </h1>
         <h2 className="text-3xl">
-          Tech enthusiast, Math worm, Nature admirer
+          Information engineering undergraduate at Gadjah Mada University
         </h2>
       </div>
       <div className="text-xl">

@@ -1,13 +1,8 @@
 import { getProjects } from "@/lib/project";
 import { Card } from "@/ui/projects";
-import Link from "next/link";
 
 export function Grid() {
-  let projects = getProjects();
-  projects = [
-    ...projects.filter((p) => p.pinned),
-    ...projects.filter((p) => !p.pinned),
-  ];
+  let projects = getProjects().filter((p) => !p.pinned);
   const even = [];
   const odd = [];
 
@@ -20,7 +15,8 @@ export function Grid() {
   }
 
   return (
-    <>
+    <div>
+      <h2 className="font-semibold text-2xl mb-4">Other Projects</h2>
       <section className="hidden md:grid grid-cols-2 gap-4">
         <div className="flex flex-col gap-4">
           {even.map((project) => (
@@ -44,6 +40,6 @@ export function Grid() {
           </div>
         ))}
       </section>
-    </>
+    </div>
   );
 }

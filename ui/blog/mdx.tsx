@@ -24,7 +24,7 @@ function Heading2({ children }: { children: ReactNode }) {
   return (
     <Link
       href={`#${h2slug}`}
-      className="block text-2xl font-semibold pt-6 w-fit before:content-['#'] before:-ml-6 before:mr-2 before:opacity-0 hover:before:opacity-70 before:duration-200"
+      className="block text-2xl font-semibold w-fit before:content-['#'] before:-ml-6 before:mr-2 before:opacity-0 hover:before:opacity-70 before:duration-200"
     >
       <h2 id={h2slug} className="inline">
         {children}
@@ -54,7 +54,7 @@ function Anchor(props: AnchorHTMLAttributes<HTMLAnchorElement>) {
       <Link
         href={href}
         target="_blank"
-        rel="norefferer noopener"
+        rel="noreferrer noopener"
         className="text-sky-700 dark:text-sky-400"
         {...props}
       >
@@ -109,7 +109,7 @@ function Callout({
 }
 
 function HorizontalLine() {
-  return <hr className="my-4" />;
+  return <hr className="my-8" />;
 }
 
 function CustomImage(props: ImageProps) {
@@ -137,7 +137,7 @@ const components = {
   ul: UnorderedList,
   blockquote: Blockquote,
   Callout: Callout,
-  hr: HorizontalLine,
+  HorizontalLine: HorizontalLine,
   Image: CustomImage,
 } as MDXRemoteProps["components"];
 

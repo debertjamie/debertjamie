@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import {useState, useEffect, useRef} from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MobileToggleTheme } from ".";
@@ -20,14 +20,15 @@ export function Menu({ name, path, ...props }: { name: string; path: string } & 
 }
 
 export function HamburgerMenu() {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [wasOpen, setWasOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
     document.body.classList.toggle("dropdown-active");
   };
 
-  const dropdownRef = React.useRef<HTMLElement>(null);
+  const dropdownRef = useRef<HTMLElement>(null);
   function handleClickOutside(event: MouseEvent) {
     if (
       dropdownRef.current &&
@@ -38,10 +39,16 @@ export function HamburgerMenu() {
     }
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => setWasOpen(isOpen), 150);
+  }, [isOpen]);
+
+  const hamburgerClass = "absolute text-xl *:block -ml-5 -mt-4 pt-12 space-y-4 w-56 bg-zinc-200 dark:bg-zinc-900 rounded-xl py-2 px-4";
 
   return (
     <nav
@@ -49,7 +56,7 @@ export function HamburgerMenu() {
       className="relative dropdown flex w-fit rounded-xl py-2 px-4 shadow-md dark:shadow-zinc-800 bg-zinc-100 dark:bg-zinc-950 border border-zinc-400 dark:border-zinc-600"
     >
       <div
-        className="flex flex-col justify-between h-5 w-5 cursor-pointer *:h-1 *:bg-zinc-950 *:dark:bg-zinc-100 *:transition *:ease-in-out *:duration-100"
+        className="flex flex-col z-30 justify-between h-5 w-5 cursor-pointer *:h-1 *:bg-zinc-950 *:dark:bg-zinc-100 *:transition *:ease-in-out *:duration-100"
         onClick={toggleMenu}
       >
         <span
@@ -75,11 +82,11 @@ export function HamburgerMenu() {
         />
       </div>
       <div
-        className={
-          isOpen
-            ? "dropdown-content animate-fade-down absolute text-xl *:block -ml-4 mt-7 space-y-4 w-56 bg-zinc-200 dark:bg-zinc-900 rounded-xl py-2 px-4"
-            : "hidden"
-        }
+        className={`
+          ${isOpen
+            ? `animate-fade-down ${hamburgerClass}`
+            : wasOpen ? `animate-fade-up ${hamburgerClass}` : "hidden"} 
+        `}
       >
         <Menu name="Home" path="/" onClick={toggleMenu} />
         <Menu name="About" path="/about" onClick={toggleMenu} />

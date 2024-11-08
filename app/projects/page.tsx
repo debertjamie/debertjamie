@@ -1,18 +1,19 @@
-import { Grid } from "@/ui/projects";
-import type { Metadata } from "next";
-import { Suspense } from "react";
+import {Featured, Grid} from "@/ui/projects";
+import type {Metadata} from "next";
+import {Suspense} from "react";
 
 export default function Projects() {
   return (
     <main className="space-y-16 mt-8 sm:mt-18 text-xl">
       <div className="space-y-2">
         <h1 className="text-5xl font-bold">Projects</h1>
-        <p className="text-lg">
-          A list of projects I created
+        <p className="text-xl">
+          Some programming-related projects I created or contributed in, both private and open source.
         </p>
       </div>
-      <Suspense fallback={<p>Loading...</p>}>
-        <Grid />
+      <Suspense fallback={<p className="text-2xl">Loading projects...</p>}>
+        <Featured/>
+        <Grid/>
       </Suspense>
     </main>
   );

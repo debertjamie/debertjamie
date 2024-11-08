@@ -7,18 +7,9 @@ export interface Project {
   excerpt: string;
   date: string;
   tags: string;
-  link: string;
-  oss: string;
+  link?: string;
+  oss?: string;
   pinned?: boolean
-}
-
-export function formatDate(date: string) {
-  const formatter = new Intl.DateTimeFormat("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-  return formatter.format(new Date(date));
 }
 
 export function getProjects() {

@@ -26,3 +26,6 @@ export const spotifyToken = process.env.SPOTIFY_REFRESH_TOKEN;
 
 // WAKATIME
 export const wakatimeKey = process.env.WAKATIME_KEY;
+
+// EMAIL FORM API KEY
+export const emailApiKey = process.env.EMAIL_API_KEY;
