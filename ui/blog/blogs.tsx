@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { getBlogs, formatDate } from "@/lib/blog";
 import { DoubleArrowIcon } from "../icons";
 
