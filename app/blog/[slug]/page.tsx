@@ -1,13 +1,14 @@
 import Link from "next/link";
-import { publicUrl } from "@/app/env.mjs";
-import type { Metadata } from "next";
-import { Column, formatDate, getBlogs, Shorts } from "@/lib/blog";
-import { notFound } from "next/navigation";
-import { Mdx } from "@/ui/blog";
+import {publicUrl} from "@/app/env.mjs";
+import type {Metadata} from "next";
+import {Column, formatDate, getBlogs, Shorts} from "@/lib/blog";
+import {notFound} from "next/navigation";
+import {Mdx} from "@/ui/blog";
+import {CalendarIcon, GlobeIcon} from "@/ui/icons";
 
 export function generateMetadata({
-  params,
-}: {
+                                   params,
+                                 }: {
   readonly params: { slug: string };
 }): Metadata {
   const blog = (getBlogs() as (Column | Shorts)[]).find(
@@ -35,8 +36,8 @@ export function generateMetadata({
 }
 
 export default function Page({
-  params,
-}: {
+                               params,
+                             }: {
   readonly params: { slug: string };
 }) {
   const blog = (getBlogs() as (Column | Shorts)[]).find(
@@ -45,7 +46,7 @@ export default function Page({
   if (!blog) return notFound();
 
   return (
-    <main className="space-y-16 -mt-12 sm:-mt-10 text-xl">
+    <main className="space-y-8 mt-16 text-xl">
       <script
         type="application/ld+json"
         suppressHydrationWarning={true}
@@ -69,13 +70,8 @@ export default function Page({
         }}
       />
       <div className="space-y-2 border-b-2 border-b-zinc-950 dark:border-b-zinc-100 pb-2">
-        <h1 className="text-3xl md:text-5xl font-bold">{blog.title}</h1>
-        <p className="text-lg">
-          Published at {formatDate(blog.published)}
-          {"updated" in blog &&
-            !!blog.updated &&
-            ` (Updated at ${formatDate(blog.updated)})`}
-        </p>
+        <h1 className="text-3xl font-bold">{blog.title}</h1>
+        <p className="text-lg">{blog.excerpt}</p>
         <div className="flex flex-wrap gap-x-4 text-lg *:font-semibold">
           {"tags" in blog &&
             blog.tags.split(",").map((t) => (
@@ -85,14 +81,32 @@ export default function Page({
             ))}
         </div>
       </div>
-      <article className="tracking-wider">
+      <div className="tracking-wider">
+        <div className="flex flex-wrap gap-x-24 gap-y-2 text-lg">
+          <p>
+            <CalendarIcon className="inline mr-2 w-8"/>
+            {formatDate(blog.published)}
+            {"updated" in blog &&
+              !!blog.updated &&
+              ` (Updated at ${formatDate(blog.updated)})`}
+          </p>
+          {"language" in blog && (
+            <p>
+              <GlobeIcon className="inline mr-2 w-8"/>
+              {blog.language}
+            </p>
+          )}
+        </div>
         {"draft" in blog && blog.draft && (
-          <div className="bg-zinc-300 dark:bg-zinc-800 px-2 py-1 border-l-2 border-l-yellow-500 rounded-r-lg w-fit text-lg font-semibold">
+          <div
+            className="bg-zinc-300 mt-4 dark:bg-zinc-800 px-2 py-1 border-l-2 border-l-yellow-500 rounded-r-lg w-fit text-lg font-semibold">
             ⚠️ This article is a work in progress, information contained in here may not be valid
           </div>
         )}
-        <Mdx content={blog.content} />
-      </article>
+        <article className="border-l mt-8 pl-8">
+          <Mdx content={blog.content}/>
+        </article>
+      </div>
     </main>
   );
 }
