@@ -9,7 +9,8 @@ I'm Debert Jamie, an Information Engineering undergraduate at Gadjah Mada Univer
 [![LinkedIn: debertjamie](https://img.shields.io/badge/debertjamie-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/debertjamie)
 [![GitHub: debertjamie](https://img.shields.io/badge/debertjamie-%2312100E.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/debertjamie)
 [![Twitter: debertjamie](https://img.shields.io/badge/debertjamie-%2314171A.svg?&style=for-the-badge&logo=x&logoColor=white)](https://twitter.com/debertjamie)
-[![discord: debert_6913](https://img.shields.io/badge/debert_6913-%235865F2.svg?&style=for-the-badge&logo=discord&logoColor=white)](https://discordapp.com/users/755773452756975646)
+[![discord: debert_6913](https://img.shields.io/badge/debert__6913-%235865F2.svg?&style=for-the-badge&logo=discord&logoColor=white)](https://discordapp.com/users/755773452756975646)
+[![email: debertchanderson@gmail.com](https://img.shields.io/badge/email-%233E65CF.svg?&style=for-the-badge&logo=gmail&logoColor=white)](mailto:debertchanderson@gmail.com)
 
 ## Tech I Mess Around With
 
