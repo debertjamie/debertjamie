@@ -1,6 +1,7 @@
 const timeline = [
+  {title: "SRD Division - Komatik UGM", time: "Nov 2024 - Current", details: "Member of Software Research Development Division in Information Technology and Communication Students Association (Komatik)"},
   {title: "Frontend Developer - FindIT! UGM", time: "Oct 2024 - Current"},
-  {title: "Backend Developer - Electoral Comission of KMTETI", time: "Sept 2024 - Current", details: "Build and maintain backend systems for the 2025 Chairman of the Electrical and Information Engineering Students Association (KMTETI) Election"},
+  {title: "Backend Developer - Electoral Comission of KMTETI", time: "Sept 2024 - Nov 2024", details: "Build and maintain backend systems for the 2025 Chairman of the Electrical and Information Engineering Students Association (KMTETI) Election"},
   {title: "Undergraduate Study at UGM", time: "2024 - Current", details: "Majoring in Information Engineering at Gadjah Mada University Yogyakarta"},
   {title: "Cinta Budaya High School Student Council - Main IT Coordinator", time: "Mar 2023 - Mar 2024", details: "Handle and coordinate the IT systems for school-held and student-held events reaching over 900 audiences"},
   {title: "Cinta Budaya High School English Club", time: "2022 - 2024", details: "Develop and enhance skills in argumentation, communication, persuasion and critical thinking abilities"},

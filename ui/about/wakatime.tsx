@@ -32,11 +32,11 @@ export async function Wakatime() {
       <div>
         <p>Best Day of the Week</p>
         <p className="text-2xl font-semibold">
-          {formatDate(weeklyData.best_day.date)} ({Math.floor(weeklyData.best_day.total_seconds / 3600)} hours {Math.floor((weeklyData.best_day.total_seconds % 3600) / 60)} minutes)
+          {weeklyData.best_day ? `${formatDate(weeklyData.best_day.date)} (${Math.floor((weeklyData.best_day.total_seconds) / 3600)} hours ${Math.floor(((weeklyData.best_day.total_seconds) % 3600) / 60)} minutes}` : "No data for this week"}
         </p>
       </div>
       <div>
-        <p>Average Time Coding for the Week</p>
+        <p>Average Time Coding</p>
         <p className="text-2xl font-semibold">
           {averageHours} hours {averageHours} minutes
         </p>
