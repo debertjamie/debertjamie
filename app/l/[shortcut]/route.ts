@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm";
+import {notFound} from "next/navigation";
 import { db } from "@/lib/db";
 import { shortcut } from "@/lib/db/schema";
-import {notFound} from "next/navigation";
 
 export async function GET(req: Request) {
   const text = req.url.split("/").pop();
