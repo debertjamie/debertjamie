@@ -21,4 +21,12 @@ export const guestbook = createTable("guestbook", {
     .notNull(),
 });
 
+export const shortcut = createTable("shortcut", {
+  url: varchar("url", { length: 256 }).notNull(),
+  shortcut: varchar("shortcut", { length: 50 })
+    .notNull()
+    .primaryKey(),
+});
+
 export type Guestbook = typeof guestbook.$inferSelect;
+export type Shortcut = typeof shortcut.$inferSelect;
