@@ -1,5 +1,5 @@
 // PUBLIC URL (DEV && PROD)
-export const publicUrl = `https://${process.env.NODE_ENV === "development" ? process.env.VERCEL_URL : process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+export const publicUrl = `https://${process.env.NODE_ENV === "development" ? process.env.VERCEL_URL : "debertjamie.com"}`;
 
 // DATABASE (POSTGRES)
 export const dbUrl = process.env.DB_URL;

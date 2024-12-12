@@ -14,6 +14,7 @@ export default function Sitemap(): MetadataRoute.Sitemap {
 
   const otherRoutes: MetadataRoute.Sitemap = [
     "",
+    "about",
     "blog",
     "projects",
     "guestbook",
