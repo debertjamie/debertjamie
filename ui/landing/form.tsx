@@ -1,6 +1,6 @@
 "use client";
 
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import type {ChangeEvent, FormEvent} from "react";
 
 enum Form {
@@ -32,6 +32,7 @@ export function EmailForm() {
   const [formData, setFormData] = useState<FormDataProps>(initialFormData);
   const [formErrors, setFormErrors] = useState<Partial<FormDataProps>>({});
   const [form, setForm] = useState<FormState>({state: Form.Initial});
+  const [placeholder, setPlaceholder] = useState<string>("");
 
   function randomPlaceholder() {
     const placeholders = [
@@ -88,6 +89,10 @@ export function EmailForm() {
 
   const disabledSubmit = Object.values(formErrors).some((err) => err);
 
+  useEffect(() => {
+    setPlaceholder(randomPlaceholder());
+  }, [])
+
   return (
     <form onSubmit={handleSubmit} className="text-lg mt-4 space-y-2">
       <div className="flex gap-x-4">
@@ -121,7 +126,7 @@ export function EmailForm() {
       />
       <textarea
         className="block w-full resize-none rounded-lg bg-zinc-200 dark:bg-zinc-900 focus:outline-none p-2"
-        placeholder={randomPlaceholder()}
+        placeholder={placeholder}
         name="message"
         value={formData.message}
         onChange={handleChange}
