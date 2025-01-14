@@ -33,6 +33,17 @@ export function EmailForm() {
   const [formErrors, setFormErrors] = useState<Partial<FormDataProps>>({});
   const [form, setForm] = useState<FormState>({state: Form.Initial});
 
+  function randomPlaceholder() {
+    const placeholders = [
+      "Hi there, I'd like to connect with you...",
+      "Hey Debert, I have a question about your work...",
+      "Let's do a collab!",
+      "Hey there, I have a project in mind...",
+      "I'd like to invite you to an event...",
+    ];
+    return placeholders[Math.floor(Math.random() * placeholders.length)];
+  }
+
   function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const {name, value} = e.target;
     setFormData({
@@ -110,7 +121,7 @@ export function EmailForm() {
       />
       <textarea
         className="block w-full resize-none rounded-lg bg-zinc-200 dark:bg-zinc-900 focus:outline-none p-2"
-        placeholder="Hi there, I'd like to connect with you..."
+        placeholder={randomPlaceholder()}
         name="message"
         value={formData.message}
         onChange={handleChange}
@@ -118,11 +129,11 @@ export function EmailForm() {
         required
       />
       <button
-        className="bg-zinc-500 text-zinc-50 dark:bg-zinc-400 dark:text-zinc-950 px-2 py-1 rounded-lg w-full hover:bg-zinc-900 hover:dark:bg-zinc-200 hover:scale-105 duration-200 delay-75"
+        className="bg-zinc-500 text-zinc-50 dark:bg-zinc-400 dark:text-zinc-950 px-2 py-1 rounded-lg w-full enabled:hover:bg-zinc-900 enabled:hover:dark:bg-zinc-200 enabled:hover:scale-105 duration-200 delay-75"
         type="submit"
         disabled={disabledSubmit}
       >
-        {form.state === Form.Loading ? "Sending..." : "Send Email"}
+        {form.state === Form.Loading ? "Sending..." : "Send"}
       </button>
       {form.state === Form.Error && (
         <p className="text-red-800 dark:text-red-500">An error occurred. Make sure all required fields are filled.</p>

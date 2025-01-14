@@ -7,6 +7,7 @@ import { inter } from "@/ui/fonts";
 import { ThemedHTML } from "@/ui/components";
 import { publicUrl } from "./env.mjs";
 
+
 // Default metadata
 const title = "Debert Jamie Chanderson";
 const description = "Heya 👋😀 I'm Debert Jamie";

@@ -6,6 +6,7 @@ export default function Home() {
     <main className="space-y-16 mt-8 sm:mt-20">
       <Head/>
       <div className="sm:py-24"/>
+      <p className="text-center text-2xl sm:text-4xl">"Explore, Experiment, Expand"</p>
       <Intro/>
       <Details/>
       <Activities/>
