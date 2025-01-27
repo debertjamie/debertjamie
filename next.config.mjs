@@ -34,6 +34,12 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "play-lh.googleusercontent.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "m.media-amazon.com",
         port: "",
         pathname: "/**",
