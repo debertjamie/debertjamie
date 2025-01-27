@@ -1,7 +1,7 @@
 "use client";
 
 import { Typewriter } from 'react-simple-typewriter'
-import { Time } from "../components";
+import {ExternalLink, Time} from "../components";
 
 export function Head() {
   return (
@@ -12,7 +12,8 @@ export function Head() {
           <Typewriter cursor words={["Debert Jamie Chanderson"]} />
         </h1>
         <h2 className="text-lg sm:text-3xl">
-          Information engineering undergraduate at Gadjah Mada University
+          Information engineering undergrad at{" "}
+          <ExternalLink href="https://ugm.ac.id/" className="text-blue-900">Universitas Gadjah Mada</ExternalLink>
         </h2>
       </div>
       <div className="text-xl">

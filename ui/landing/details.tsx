@@ -1,16 +1,14 @@
 import Link from "next/link";
-import {Lanyard} from ".";
 import Image from "next/image";
 import {CameraIcon, GithubIcon, LinkedinIcon} from "../icons";
 
 export function Details() {
   return (
-    <section className="space-y-4" id="menu">
+    <section className="space-y-4">
       <div className="pt-4 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
         <div className="flex flex-col sm:col-span-2 md:col-span-1">
-          <Link
-            href="#menu"
-            className="block relative h-40 text-zinc-100 rounded-lg overflow-hidden px-2 py-1 hover:scale-95 duration-300"
+          <div
+            className="cursor-pointer block relative h-40 text-zinc-100 rounded-lg overflow-hidden px-2 py-1 hover:scale-95 duration-300"
           >
             <span
               aria-hidden="true"
@@ -32,9 +30,9 @@ export function Details() {
             <CameraIcon className="w-6 pt-2"/>
             <div className="pt-16 text-right">
               <p>Photo Album</p>
-              <p className="text-base">Coming Soon...</p>
+              <p className="text-base">Stay Tuned</p>
             </div>
-          </Link>
+          </div>
         </div>
         <div className="flex flex-col">
           <Link
@@ -69,7 +67,7 @@ export function Details() {
         </div>
         <div className="flex flex-col">
           <Link
-            href="https://linked.com/in/debertjamie"
+            href="https://linkedin.com/in/debertjamie"
             target="_blank"
             rel="noreferrer noopener"
             className="block relative h-40 text-zinc-100 rounded-lg overflow-hidden px-2 py-1 hover:scale-95 duration-300"

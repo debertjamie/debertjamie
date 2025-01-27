@@ -44,7 +44,7 @@ export function Time({ simple = false }: { simple?: boolean }) {
 
   const isDay =
     new Date(now).getUTCHours() + 7 >= 5 &&
-    new Date(now).getUTCHours() + 7 < 19;
+    new Date(now).getUTCHours() + 7 < 21;
 
   return simple ? (
     <span suppressHydrationWarning>{formatSimpleTime.format(now)}</span>

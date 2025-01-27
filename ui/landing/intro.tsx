@@ -10,7 +10,7 @@ export function Intro() {
         working on school projects or personal side projects. You can check out
         my socials and feel free to connect with me on LinkedIn 😄
       </p>
-      <div className="grid sm:grid-cols-2 gap-y-4 gap-x-20">
+      <div className="grid sm:grid-cols-2 gap-y-4 gap-x-20 *:w-fit">
         <Link
           href="/about"
           className="inline-block text-cyan-600 dark:text-cyan-500 font-semibold group"
