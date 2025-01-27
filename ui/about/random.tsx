@@ -1,30 +1,35 @@
 import Link from "next/link";
+import {BookIcon, ComputerIcon} from "@/ui/icons";
 
 const randomFacts = [{
-  title: "Favourite Book",
+  title: "I have a favourite cartoon book",
   content: (
-    <p>One of my favourite books is "<Link
-      href="https://www.popularonline.com.my/cnsimplified/catalog/product/view/_ignore_category/1/id/110199/s/9789674143572/?did=8"
-      target="_blank" rel="noreferrer noopener"
-      className="text-sky-700 dark:text-sky-400">烂鬼熊猫搞烂GAG 2</Link>" by 大田.
+    <p>One of my favourite cartoon comic strip book is called "烂鬼熊猫搞烂GAG 2" by 大田. I still read it occasionally
+      when I'm bored or when I need some entertaining in my room.
     </p>
   ),
+  icon: BookIcon
 }, {
-  title: "Bored During COVID",
+  title: "<p>Hello World!</p>",
   content: (
     <p>
-      During COVID I learned programming and created a website out of boredom.
+      I first learned programming during the pandemic, and one of the first things I created was a simple personal
+      website. It was a fun experience and inspired me to learn more about web development.
     </p>
   ),
+  icon: ComputerIcon
 }];
 
 export function Random() {
-  const randomFact = randomFacts[Math.floor(Math.random() * randomFacts.length)];
   return (
-    <div
-      className="w-fit bg-stone-200 dark:bg-stone-800 px-4 py-2 rounded-r-xl border-l-4 border-l-blue-500 dark:border-l-blue-800">
-      <h3 className="text-xl font-semibold">{randomFact.title}</h3>
-      {randomFact.content}
+    <div className="grid md:grid-cols-2 text-xl gap-4 *:rounded-xl *:bg-indigo-100 dark:*:bg-indigo-950">
+      {randomFacts.map((f) => (
+        <div key={f.title} className="px-6 py-4">
+          <f.icon className="h-10 w-10 ml-2 mb-6"/>
+          <h3 className="font-semibold mb-2">{f.title}</h3>
+          {f.content}
+        </div>
+      ))}
     </div>
   )
 }
