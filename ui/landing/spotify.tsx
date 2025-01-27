@@ -16,7 +16,8 @@ interface NowPlaying {
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 export function Spotify() {
-  const {data} = useSWR<NowPlaying>("/api/now-playing", fetcher, {refreshInterval: 60000});
+  const {data} = useSWR<NowPlaying>("/api/now-playing", fetcher, {refreshInterval: 10000});
+
   return (
     <>
       {data?.isPlaying ? (
