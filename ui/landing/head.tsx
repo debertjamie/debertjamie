@@ -13,7 +13,7 @@ export function Head() {
         </h1>
         <h2 className="text-lg sm:text-3xl">
           Information engineering undergrad at{" "}
-          <ExternalLink href="https://ugm.ac.id/" className="text-blue-900">Universitas Gadjah Mada</ExternalLink>
+          <ExternalLink href="https://ugm.ac.id/">Universitas Gadjah Mada</ExternalLink>
         </h2>
       </div>
       <div className="text-xl">
