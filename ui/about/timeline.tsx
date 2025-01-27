@@ -1,16 +1,42 @@
+import Link from "next/link";
+import {ExternalLink} from "@/ui/components";
+
 const timeline = [
-  {title: "SRD Division - Komatik UGM", time: "Nov 2024 - Current", details: "Member of Software Research Development Division in Information Technology and Communication Students Association (Komatik)"},
-  {title: "Frontend Developer - FindIT! UGM", time: "Oct 2024 - Current"},
-  {title: "Backend Developer - Electoral Comission of KMTETI", time: "Sept 2024 - Nov 2024", details: "Build and maintain backend systems for the 2025 Chairman of the Electrical and Information Engineering Students Association (KMTETI) Election"},
-  {title: "Undergraduate Study at UGM", time: "2024 - Current", details: "Majoring in Information Engineering at Gadjah Mada University Yogyakarta"},
-  {title: "Cinta Budaya High School Student Council - Main IT Coordinator", time: "Mar 2023 - Mar 2024", details: "Handle and coordinate the IT systems for school-held and student-held events reaching over 900 audiences"},
-  {title: "Cinta Budaya High School English Club", time: "2022 - 2024", details: "Develop and enhance skills in argumentation, communication, persuasion and critical thinking abilities"},
+  {
+    title: "Managing Committee of Information Technology Division - KPUM UGM",
+    time: "Dec 2024 - Jan 2025",
+    details: "Managing committee of the IT Division in the 2024 Electoral Commission of UGM Students"
+  },
+  {
+    title: "SRD Division - Komatik UGM",
+    time: "Nov 2024 - Current",
+    details: "Member of Software Research Development Division in Information Technology and Communication Students Association (Komatik)"
+  },
+  {
+    title: "Web Developer - Find IT! UGM",
+    time: "Oct 2024 - Current",
+    details: "Part of the frontend development team in Find IT! UGM (Future Innovations and Discovery in IT)"
+  },
+  {
+    title: "Backend Developer - Electoral Commission of KMTETI",
+    time: "Sept 2024 - Nov 2024",
+    details: "Build and maintain backend systems for the 2025 Chairman of the Electrical and Information Engineering Students Association (KMTETI) Election"
+  },
+  {
+    title: "Main IT Coordinator - Cinta Budaya High School Student Council",
+    time: "Mar 2023 - Mar 2024",
+    details: "Handle and coordinate the IT systems for school-held and student-held events reaching over 900 audiences"
+  },
+  {
+    title: "Cinta Budaya High School English Club",
+    time: "2022 - 2024",
+    details: "Develop and enhance skills in argumentation, communication, persuasion and critical thinking abilities"
+  },
 ];
 
 export function Timeline() {
   return (
     <section className="text-xl">
-      <p className="md:text-center text-base -mb-8">And the journey continues...</p>
       <div className="relative max-w-6xl mx-auto text-base">
         <div
           className="hidden md:block absolute top-0 bottom-0 left-1/2 w-0.5 bg-zinc-950 dark:bg-zinc-100 transform -translate-x-1/2"/>
@@ -39,6 +65,9 @@ export function Timeline() {
           </div>
         ))}
       </div>
+      <p>View more of my experiences on{" "}
+        <ExternalLink href="https://linkedin.com/in/debertjamie" arrowSize={5}>LinkedIn</ExternalLink>
+      </p>
     </section>
   )
 }
