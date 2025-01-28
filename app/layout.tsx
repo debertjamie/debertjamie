@@ -65,12 +65,10 @@ export default function RootLayout({
 }>) {
   return (
     <ThemedHTML>
-      <body className="mx-auto max-w-5xl bg-zinc-100 dark:bg-zinc-950 text-zinc-950 dark:text-zinc-100 selection:bg-violet-950 selection:text-zinc-100">
-        <div
-          className={`${inter.className} mt-8 mx-4 flex flex-col`}
-        >
+      <body className="bg-zinc-100 dark:bg-zinc-950 text-zinc-950 dark:text-zinc-100 selection:bg-violet-950 selection:text-zinc-100">
+        <div className={`${inter.className} mt-8 flex flex-col`}>
           <Header />
-          <div className="mt-2 mb-8 min-h-screen">
+          <div className="mt-2 px-4 mb-8 min-h-screen mx-auto max-w-5xl">
             {children}
           </div>
           <Footer />
