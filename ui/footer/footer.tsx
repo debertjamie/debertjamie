@@ -31,7 +31,7 @@ const links = [
 export function Footer() {
   const routes = [general, more, metadata];
   return (
-    <footer className="pb-1 md:pb-4 pt-4 px-6 dark:bg-zinc-800 space-y-4">
+    <footer className="pb-1 md:pb-4 pt-4 px-6 bg-zinc-300 dark:bg-zinc-800 space-y-4">
       <div className="mx-auto max-w-5xl">
         <div className="flex justify-center md:justify-between gap-x-24">
           <div className="w-96 flex flex-col items-center md:items-start">
