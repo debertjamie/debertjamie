@@ -10,10 +10,7 @@ export function Details() {
           <div
             className="cursor-pointer block relative h-40 text-zinc-100 rounded-lg overflow-hidden px-2 py-1 hover:scale-95 duration-300"
           >
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 -z-20"
-            >
+            <span aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
               <Image
                 src="https://images.unsplash.com/photo-1628839955995-7cd40e729232?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Scenery"
@@ -22,15 +19,14 @@ export function Details() {
                 sizes="100%"
                 className="absolute inset-0 h-full w-full rounded-lg object-cover object-center brightness-[0.7]"
               />
-              <span
-                aria-hidden="true"
-                className="absolute inset-0 bg-neutral-900/60"
-              ></span>
+              <span aria-hidden="true" className="absolute inset-0 bg-neutral-900/60"/>
             </span>
-            <CameraIcon className="w-6 pt-2"/>
-            <div className="pt-16 text-right">
-              <p>Photo Album</p>
-              <p className="text-base">Stay Tuned</p>
+            <div className="relative h-full">
+              <CameraIcon className="w-6 pt-2"/>
+              <div className="pt-16 text-right">
+                <p>Photo Album</p>
+                <p className="text-base">Stay Tuned</p>
+              </div>
             </div>
           </div>
         </div>
@@ -41,27 +37,23 @@ export function Details() {
             rel="noreferrer noopener"
             className="block relative h-40 text-zinc-100 rounded-lg overflow-hidden px-2 py-1 hover:scale-95 duration-300"
           >
-                        <span
-                          aria-hidden="true"
-                          className="pointer-events-none absolute inset-0 -z-20"
-                        >
-                            <Image
-                              src="https://images.unsplash.com/photo-1620428268482-cf1851a36764?q=80&w=1409&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                              alt="Astronaut"
-                              width={0}
-                              height={0}
-                              sizes="100%"
-                              className="absolute inset-0 h-full w-full rounded-lg object-cover object-center brightness-[0.7]"
-                            />
-                            <span
-                              aria-hidden="true"
-                              className="absolute inset-0 bg-neutral-900/60"
-                            ></span>
-                        </span>
-            <GithubIcon className="w-6 pt-2"/>
-            <div className="pt-16 text-right">
-              <p>Github Profile</p>
-              <p className="text-base">@debertjamie</p>
+            <span aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
+              <Image
+                src="https://images.unsplash.com/photo-1620428268482-cf1851a36764?q=80&w=1409&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Astronaut"
+                width={0}
+                height={0}
+                sizes="100%"
+                className="absolute inset-0 h-full w-full rounded-lg object-cover object-center brightness-[0.7]"
+              />
+              <span aria-hidden="true" className="absolute inset-0 bg-neutral-900/60"/>
+            </span>
+            <div className="relative h-full">
+              <GithubIcon className="w-6 pt-2"/>
+              <div className="pt-16 text-right">
+                <p>Github Profile</p>
+                <p className="text-base">@debertjamie</p>
+              </div>
             </div>
           </Link>
         </div>
@@ -72,10 +64,7 @@ export function Details() {
             rel="noreferrer noopener"
             className="block relative h-40 text-zinc-100 rounded-lg overflow-hidden px-2 py-1 hover:scale-95 duration-300"
           >
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 -z-20"
-            >
+            <span aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
               <Image
                 src="https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Work"
@@ -84,15 +73,14 @@ export function Details() {
                 sizes="100%"
                 className="absolute inset-0 h-full w-full rounded-lg object-cover object-center brightness-[0.7]"
               />
-              <span
-                aria-hidden="true"
-                className="absolute inset-0 bg-neutral-900/60"
-              />
+              <span aria-hidden="true" className="absolute inset-0 bg-neutral-900/60"/>
             </span>
-            <LinkedinIcon className="w-6 pt-2"/>
-            <div className="pt-16 text-right">
-              <p>in/debertjamie</p>
-              <p className="text-base">Connect with me</p>
+            <div className="relative h-full">
+              <LinkedinIcon className="w-6 pt-2"/>
+              <div className="pt-16 text-right">
+                <p>in/debertjamie</p>
+                <p className="text-base">Connect with me</p>
+              </div>
             </div>
           </Link>
         </div>

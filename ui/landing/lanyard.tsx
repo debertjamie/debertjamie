@@ -6,10 +6,10 @@ import React from "react";
 import {formatDistance} from "date-fns";
 
 const status: Record<string, Record<string, string>> = {
-  online: {style: "bg-green-500", text: "Active"},
-  idle: {style: "bg-amber-500", text: "Idling"},
+  online: {style: "bg-green-500", text: "Online"},
+  idle: {style: "bg-amber-500", text: "Idle"},
   dnd: {style: "bg-red-600", text: "Do Not Disturb"},
-  offline: {style: "bg-gray-400", text: "Away"},
+  offline: {style: "bg-gray-400", text: "Offline"},
 };
 
 const activityTypes = [
@@ -69,7 +69,7 @@ export function Lanyard() {
                 <p className="font-semibold text-lg">
                   {lanyard.discord_user.global_name}
                 </p>
-                <p className="text-base -mt-2">{lanyard.discord_user.username}</p>
+                <p className="text-base -mt-2 italic">{lanyard.discord_user.username}</p>
               </div>
             ) : (
               <p className="font-semibold text-lg">

@@ -8,17 +8,16 @@ export function Activities() {
         <div>
           <div className="text-justify space-y-3">
             <p>
-              I mostly spend my time studying and working on school or personal projects. Currently I'm
-              exploring more about backend development and system integrations. I also love to listen to
-              music and watch movies in my free time. Other than that, I use my time socializing with my
-              peers and friends.
+              I mostly spend my time studying and working on projects. Currently I'm exploring more about backend
+              development and also trying photography. I also love to listen to music and watch movies in my free time.
+              Other than that, I use my time socializing or going out.
             </p>
             <p>
-              In my free time I also play some music to get the mood going. You can check out my Spotify
+              In my free time I love to play some music to get the mood going. You can check out my Spotify
               profile below and my (currently inactive) Youtube Music profile as well.
             </p>
           </div>
-          <div className="flex flex-wrap gap-4 lg:mt-8">
+          <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-4 lg:mt-8">
             <SpotifyProfile/>
             <YoutubeMusicProfile/>
           </div>
