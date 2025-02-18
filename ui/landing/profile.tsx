@@ -6,7 +6,7 @@ export function SpotifyProfile() {
     <Link href="https://open.spotify.com/user/31cquejvozvwhwj6vv3snek5asfu"
           target="_blank"
           rel="noreferrer noopener"
-          className="block text-lg flex gap-x-4 items-center rounded-lg px-4 py-2 bg-green-500 dark:bg-green-600 w-fit"
+          className="text-lg flex gap-x-4 items-center rounded-lg px-4 py-2 bg-green-500 dark:bg-green-600 w-fit"
     >
       <Image
         src="https://i.scdn.co/image/ab6775700000ee853087460ae8b6c94f85cc5932"
@@ -18,7 +18,7 @@ export function SpotifyProfile() {
       />
       <div>
         <p className="font-semibold text-xl">Debert Jamie</p>
-        <p>SPOTIFY</p>
+        <p className="italic">Spotify</p>
       </div>
     </Link>
   )
@@ -29,7 +29,7 @@ export function YoutubeMusicProfile() {
     <Link href="https://music.youtube.com/channel/UCUAvn5kqbBvABRPd7XeoFRA"
           target="_blank"
           rel="noreferrer noopener"
-          className="block text-lg flex gap-x-4 items-center rounded-lg px-4 py-2 bg-red-600 w-fit"
+          className="text-lg flex gap-x-4 items-center rounded-lg px-4 py-2 bg-red-600 w-fit"
     >
       <Image
         src="https://yt3.googleusercontent.com/ytc/AIdro_kNVdbVAvCWMyJThxjciy6tgNVylvgSw-6VJdNBnw10fVM=w226-c-h226-k-c0x00ffffff-no-l90-rj"
@@ -41,7 +41,7 @@ export function YoutubeMusicProfile() {
       />
       <div>
         <p className="font-semibold text-xl">@DebertJamie2095</p>
-        <p>YOUTUBE MUSIC</p>
+        <p className="italic">Youtube Music</p>
       </div>
     </Link>
   )
