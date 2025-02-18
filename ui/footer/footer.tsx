@@ -31,8 +31,8 @@ const links = [
 export function Footer() {
   const routes = [general, more, metadata];
   return (
-    <footer className="pb-1 md:pb-4 pt-4 md:pt-12 px-6 bg-zinc-300 dark:bg-zinc-800 space-y-4">
-      <div className="mx-auto max-w-5xl">
+    <footer className="w-full h-60 flex items-center pb-1 md:pb-4 px-6 bg-zinc-300 dark:bg-zinc-800 space-y-4">
+      <div className="mx-auto max-w-5xl overflow-hidden">
         <div className="flex justify-center md:justify-between gap-x-24">
           <div className="w-96 flex flex-col items-center md:items-start">
             <DebertLogo className="mb-3"/>
@@ -45,6 +45,9 @@ export function Footer() {
                   {l.name}
                 </ExternalLink>
               ))}
+              <Link href="/community-wall" className="md:hidden block text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100">
+                COMMUNITY WALL
+              </Link>
             </div>
           </div>
           <div className="hidden md:flex gap-x-32 pr-6 *:flex *:flex-col *:gap-y-2">
