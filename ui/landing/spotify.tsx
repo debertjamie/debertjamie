@@ -2,52 +2,34 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import useSWR from "swr";
+import {NowPlaying} from "@/ui/landing/activities";
 
-interface NowPlaying {
-  album: string;
-  albumImageUrl: string;
-  artist: string;
-  isPlaying: boolean;
-  songUrl: string;
-  title: string;
-}
-
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
-
-export function Spotify() {
-  const {data} = useSWR<NowPlaying>("/api/now-playing", fetcher, {refreshInterval: 10000});
-
+export function Spotify({data}: {data?: NowPlaying}) {
   return (
-    <>
+    <div className="p-4 rounded-xl bg-neutral-900/90 w-fit">
       {data?.isPlaying ? (
         <Link
           href={data.songUrl}
           target="_blank"
           rel="noreferrer noopener"
-          className="block mx-auto relative w-80 h-80 text-zinc-100 rounded-lg overflow-hidden px-2 py-1"
+          className="block mx-auto text-neutral-100 rounded-lg"
         >
-          <span aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <span aria-hidden="true" className="pointer-events-none inset-0">
             <Image
               src={data.albumImageUrl}
               alt={data.album}
               width={0}
               height={0}
               sizes="100%"
-              className="absolute inset-0 h-full w-full rounded-lg object-cover object-center brightness-[0.7]"
-            />
-            <span
-              aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-br from-neutral-800 via-transparent to-neutral-900"
+              className="inset-0 h-80 w-80 rounded-lg object-cover object-center"
             />
           </span>
-          <div className="m-3 relative h-full">
-            <p className="text-base">Listening to</p>
-            <p className="font-bold text-3xl">Spotify</p>
-            <div className="absolute bottom-5 right-0 text-right">
-              <p className="text-2xl font-semibold">{data.title}</p>
-              <p className="text-lg">{data.artist}</p>
+          <div className="mt-2 space-y-3 w-80">
+            <div className="">
+              <p className="text-3xl font-semibold">{data.title}</p>
+              <p className="text-lg text-neutral-300">{data.artist}</p>
             </div>
+            <p className="font-bold text-xl">Spotify</p>
           </div>
         </Link>
       ) : (
@@ -75,6 +57,6 @@ export function Spotify() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

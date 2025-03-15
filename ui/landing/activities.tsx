@@ -1,28 +1,35 @@
-import {Spotify, SpotifyProfile, YoutubeMusicProfile} from ".";
+"use client";
+
+import useSWR from "swr";
+import {useState, useEffect} from "react";
+import {Spotify} from ".";
+
+export interface NowPlaying {
+  album: string;
+  albumImageUrl: string;
+  artist: string;
+  isPlaying: boolean;
+  songUrl: string;
+  title: string;
+}
+
+const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 export function Activities() {
+  const {data} = useSWR<NowPlaying>("/api/now-playing", fetcher, {refreshInterval: 10000});
+
   return (
-    <section className="text-xl">
-      <h2 className="font-semibold">My Recent Activities</h2>
-      <div className="grid md:grid-cols-[auto_20rem] gap-x-8 gap-y-4">
-        <div>
-          <div className="text-justify space-y-3">
-            <p>
-              I mostly spend my time studying and working on projects. Currently I'm exploring more about backend
-              development and also trying photography. I also love to listen to music and watch movies in my free time.
-              Other than that, I use my time socializing or going out.
-            </p>
-            <p>
-              In my free time I love to play some music to get the mood going. You can check out my Spotify
-              profile below and my (currently inactive) Youtube Music profile as well.
-            </p>
-          </div>
-          <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-4 lg:mt-8">
-            <SpotifyProfile/>
-            <YoutubeMusicProfile/>
-          </div>
-        </div>
-        <Spotify/>
+    <section className="text-xl flex flex-col items-center">
+      <div className="h-[140vh] w-screen flex justify-center items-center overflow-hidden"
+      style={{
+        backgroundImage: `url('${data?.isPlaying ?
+        "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        : "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}')`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "50% 50%",
+        backgroundAttachment: "fixed",
+      }}>
+        <Spotify data={data}/>
       </div>
     </section>
   )
