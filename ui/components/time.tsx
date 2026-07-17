@@ -49,7 +49,7 @@ export function Time({ simple = false }: { simple?: boolean }) {
   return simple ? (
     <span suppressHydrationWarning>{formatSimpleTime.format(now)}</span>
   ) : (
-    <div className="relative flex items-center justify-center h-7">
+    <div className="flex items-center h-7">
       {isDay ? (
         <Image
           src="https://em-content.zobj.net/source/microsoft-teams/363/grinning-face_1f600.png"
@@ -71,7 +71,7 @@ export function Time({ simple = false }: { simple?: boolean }) {
           unoptimized
         />
       )}
-      <p suppressHydrationWarning className="inline-block pl-2">
+      <p suppressHydrationWarning className="pl-2">
         {formatWeekday.format(now)}, {formatDay.format(now)}{" "}
         {formatTime.format(now)}
       </p>
