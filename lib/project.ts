@@ -1,31 +1,11 @@
-import { readdirSync, readFileSync } from "fs";
-import matter from "gray-matter";
-import { join } from "path";
-
-export interface Project {
+export interface ProjectType {
   title: string;
-  excerpt: string;
-  date: string;
-  tags: string;
-  link?: string;
-  oss?: string;
-  pinned?: boolean
+  projectUrl?: string;
+  repository?: string;
+  description: any;
+  mainImage: {
+    image: string;
+    lqip: string;
+    alt: string | null;
+  };
 }
-
-export function getProjects() {
-  const rawData = readdirSync(join(process.cwd(), "contents/projects"));
-  const data = rawData
-    .map((d) => getProject(d))
-    .sort((d1, d2) => (d1.date > d2.date ? -1 : 1));
-
-  return data;
-}
-
-export function getProject(slug: string) {
-  const path = join(process.cwd(), "contents/projects");
-  const webSlug = slug.replace(/\.mdx$/, "");
-  const file = readFileSync(join(path, `${webSlug}.mdx`), "utf-8");
-  const { data } = matter(file);
-  return { ...data } as Project;
-}
-

@@ -1,0 +1,25 @@
+     ___          _______            ___        ___
+    /  /         |  ___  \          /  /        \  \
+   /  /          | |   \  \        /  /          \  \
+  /  /           | |    |  |      /  /            \  \
+ <  <            | |    |  |     /  /              >  >
+  \  \           | |___/  /     /  /              /  /
+   \  \          |_______/     /  /              /  /
+    \__\                      /__/              /__/
+
+Welcome to humans.txt!
+
+/* DEVELOPER | 网页开发者 | 網頁開發者 */
+Author: Debert Jamie Chanderson
+Contact: debertchanderson [at] gmail.com
+Twitter: @DebertJamie
+
+/* THANKS | 谢谢 | 感謝 */
+To: My parents and my family
+From: Planet Earth
+
+To: My friends I asked (forced) to try this website
+From: Planet Earth
+
+To: All my friends
+From: Planet Earth (too)

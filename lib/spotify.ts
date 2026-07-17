@@ -26,10 +26,10 @@ export async function getNowPlaying() {
   return fetch("https://api.spotify.com/v1/me/player/currently-playing", {
     headers: {
       Authorization: `Bearer ${access_token}`,
-      cache: "no-store",
     },
+    cache: "no-cache",
   });
-};
+}
 
 export async function getRecentlyPlayed() {
   const { access_token } = await getAccessToken();

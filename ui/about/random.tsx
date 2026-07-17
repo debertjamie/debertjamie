@@ -1,30 +1,39 @@
-import Link from "next/link";
+import { maiyuan } from "@/ui/fonts/fonts";
 
-const randomFacts = [{
-  title: "Favourite Book",
-  content: (
-    <p>One of my favourite books is "<Link
-      href="https://www.popularonline.com.my/cnsimplified/catalog/product/view/_ignore_category/1/id/110199/s/9789674143572/?did=8"
-      target="_blank" rel="noreferrer noopener"
-      className="text-sky-700 dark:text-sky-400">烂鬼熊猫搞烂GAG 2</Link>" by 大田.
-    </p>
-  ),
-}, {
-  title: "Bored During COVID",
-  content: (
-    <p>
-      During COVID I learned programming and created a website out of boredom.
-    </p>
-  ),
-}];
+const randomFacts = [(
+    <span>
+      I learned English by watching movies and playing video games
+    </span>
+  ), (
+    <span>
+      During 8th grade I self-taught myself to code in JavaScript and Python
+    </span>
+  ), (
+    <span>
+      Sometimes I like to photograph nature and landscapes wherever I go (page SOON!)
+    </span>
+  ), (
+    <span>
+      I love drinking coffee and tea, but I prefer tea more than coffee
+    </span>
+  ), (
+    <span>
+      <span className={`${maiyuan.className}`}>我的母語是閩南語</span> guá ē-hiáu Hok-kiàn-uē, but mostly speaking and listening
+    </span>
+  ), (
+    <span>
+      I like traveling and exploring new places, I also like self-traveling!
+    </span>
+  )];
 
 export function Random() {
-  const randomFact = randomFacts[Math.floor(Math.random() * randomFacts.length)];
   return (
-    <div
-      className="w-fit bg-stone-200 dark:bg-stone-800 px-4 py-2 rounded-r-xl border-l-4 border-l-blue-500 dark:border-l-blue-800">
-      <h3 className="text-xl font-semibold">{randomFact.title}</h3>
-      {randomFact.content}
-    </div>
+    <ul className="grid md:grid-cols-2 gap-x-8 gap-y-4 ml-5 text-base list-disc">
+      {randomFacts.map((f, i) => (
+        <li key={i} className="marker:text-spicy-mix dark:marker:text-spicy-mix-dark">
+          {f}
+        </li>
+      ))}
+    </ul>
   )
 }

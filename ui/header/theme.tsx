@@ -1,16 +1,16 @@
 "use client";
 
-import { useDarkMode } from "@/lib/darkMode";
-import { LightTheme, DarkTheme } from "@/ui/icons";
+import {useDarkMode} from "@/lib/darkMode";
+import {LightTheme, DarkTheme} from "@/ui/icons";
 
 export function ToggleTheme() {
-  const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const {isDarkMode, toggleDarkMode} = useDarkMode();
   return (
-    <button className="flex items-center *:cursor-pointer" onClick={toggleDarkMode}>
+    <button className="flex justify-center items-center hover:text-buttercup dark:hover:text-buttercup-dark duration-300" onClick={toggleDarkMode}>
       {isDarkMode ? (
-        <DarkTheme width={20} height={20} className="-mt-1" />
+        <DarkTheme width={22} height={22}/>
       ) : (
-        <LightTheme width={20} height={20} className="-mt-1" />
+        <LightTheme width={22} height={22}/>
       )}
     </button>
   );

@@ -10,6 +10,21 @@ const config: Config = {
   darkMode: "selector",
   theme: {
     extend: {
+      colors: {
+        "porcelain": "#F5F8F7",
+        "porcelain-dark": "#E5E5E5",
+        "olivine": "#96B478",
+        "olivine-dark": "#6B8E23",
+        "buttercup": "#F4BD1B",
+        "buttercup-dark": "#D4A017",
+        "spicy-mix": "#906545",
+        "spicy-mix-dark": "#7B4D3A",
+        "steel-grey": "#1B1C2A",
+        "steel-grey-dark": "#0F0F1A",
+      },
+      fontFamily: {
+        bpmf: ['var(--font-bpmf)', 'inter'],
+      },
       keyframes: {
         "fade-down": {
           from: {

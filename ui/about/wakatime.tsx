@@ -1,58 +1,54 @@
-import {getWakatimeData, getWakatimeWeeklyData} from "@/lib/wakatime";
-import {Counter} from "../components";
+import { getWakatimeData, getWakatimeWeeklyData } from "@/lib/wakatime";
+import { Counter } from "@/ui/components";
 
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
-  return date.toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
+  return date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
   });
 }
 
 export async function Wakatime() {
   const data = await getWakatimeData();
   const weeklyData = await getWakatimeWeeklyData();
-  const totalHours = Math.floor(data.total_seconds / 3600);
-  const totalMinutes = Math.floor((data.total_seconds % 3600) / 60);
+  const totalHours = Math.ceil(data.total_seconds / 3600);
   const averageHours = Math.floor(data.daily_average / 3600);
   const averageMinutes = Math.floor((data.daily_average % 3600) / 60);
   const language = data.languages.map((l: { name: string }) => l.name)[0];
 
-  // const languageChart: (string | number)[][] = [["Language", "Percentage"]];
   let percent = 0;
-  for(let i = 0; i < 5; i++) {
+  for (let i = 0; i < 5; i++) {
     const l = data.languages[i];
     percent += l.percent;
   }
-  // languageChart.push(["Others", 100 - percent]);
   return (
-    <div
-      className="grid lg:grid-cols-2 gap-4 *:rounded-xl *:px-4 *:py-2 *:border-2 *:border-neutral-400 *:dark:border-neutral-700 *:bg-neutral-300 *:dark:bg-neutral-900">
-      <div>
+    <div className="grid sm:grid-cols-2 sm:gap-2 *:bg-porcelain-dark *:dark:bg-steel-grey">
+      <div className="rounded-t-lg sm:rounded-lg px-4 py-2">
         <p>Best Day of the Week</p>
-        <p className="text-2xl font-semibold">
-          {weeklyData.best_day ? `${formatDate(weeklyData.best_day.date)} (${Math.floor((weeklyData.best_day.total_seconds) / 3600)} hours ${Math.floor(((weeklyData.best_day.total_seconds) % 3600) / 60)} minutes}` : "No data for this week"}
+        <p className="text-2xl font-semibold text-center">
+          {weeklyData.best_day
+            ? `${formatDate(weeklyData.best_day.date)} (${Math.floor(weeklyData.best_day.total_seconds / 3600)}h ${Math.floor((weeklyData.best_day.total_seconds % 3600) / 60)}min)`
+            : "No Data"}
         </p>
       </div>
-      <div>
+      <div className="sm:rounded-lg px-4 py-2">
         <p>Average Time Coding</p>
-        <p className="text-2xl font-semibold">
-          {averageHours} hours {averageHours} minutes
+        <p className="text-2xl font-semibold text-center">
+          {averageHours} hours {averageMinutes} minutes
         </p>
       </div>
-      <div>
+      <div className="sm:rounded-lg px-4 py-2">
         <p>Total Time Coding</p>
-        <p>
-          <Counter num={totalHours} className="font-bold text-6xl"/>{" "}
+        <p className="text-center">
+          <Counter num={totalHours} className="font-bold text-6xl" />{" "}
           <span className="text-2xl">Hours</span>{" "}
-          <Counter num={totalMinutes} speed={25} className="font-bold text-6xl"/>{" "}
-          <span className="text-2xl">Minutes</span>
         </p>
       </div>
-      <div>
+      <div className="rounded-b-lg sm:rounded-lg pb-4 px-4 pt-2 sm:pb-2">
         <p>All Time Most Used Language</p>
-        <p className="text-4xl mt-3 font-bold">{language}</p>
+        <p className="text-4xl mt-3 font-bold text-center">{language}</p>
       </div>
     </div>
   );

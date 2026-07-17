@@ -1,4 +1,4 @@
-const EMAIL_URL = "https://api.web3forms.com/submit";
+const EMAIL_URL = "https://api.staticforms.dev/submit";
 
 export async function sendEmail(formData: FormData) {
   const res = await fetch(EMAIL_URL, {

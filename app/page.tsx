@@ -1,22 +1,20 @@
-import type {Metadata} from "next";
-import {Head, Intro, Details, Activities, Connect} from "@/ui/landing";
+import type { Metadata } from "next";
+import { Head, Details, Extra, Activities } from "@/ui/landing";
 
 export default function Home() {
   return (
-    <main className="space-y-16 mt-8 sm:mt-20">
-      <Head/>
-      <div className="sm:py-24"/>
-      <Intro/>
-      <Details/>
+    <main className="space-y-12">
+      <Head />
+      <Details />
+      <Extra />
       <Activities/>
-      <Connect/>
     </main>
   );
 }
 
-const title = "Debert Jamie C";
+const title = "Debert Jamie";
 const description =
-  "Debert Jamie Chanderson is an undergraduate student at Gadjah Mada University who is majoring in Information Engineering. As an IE student, Debert has a growing passion for software development and machine learning related technologies.";
+  "Hi! I'm Debert, a third-year undergraduate student learning about life and technology. Welcome to my internet home where I share thoughts and showcase my projects.";
 
 export const metadata: Metadata = {
   title,
