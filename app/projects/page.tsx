@@ -1,26 +1,26 @@
-import {Featured, Grid} from "@/ui/projects";
-import type {Metadata} from "next";
-import {Suspense} from "react";
+import type { Metadata } from "next";
+import { ProjectGrid } from "@/ui/projects";
+import { ReturnHome } from "@/ui/components";
 
 export default function Projects() {
   return (
-    <main className="space-y-16 mt-8 sm:mt-18 text-xl">
-      <div className="space-y-2">
+    <main className="space-y-8 mt-8 sm:mt-18 text-lg">
+      <section className="space-y-2">
         <h1 className="text-5xl font-bold">Projects</h1>
-        <p className="text-xl">
-          Some programming-related projects I created or contributed in, both private and open source.
+        <p>
+          Some programming-related projects I created or contributed in, both
+          private and open source.
         </p>
-      </div>
-      <Suspense fallback={<p className="text-2xl">Loading projects...</p>}>
-        <Featured/>
-        <Grid/>
-      </Suspense>
+      </section>
+      <ProjectGrid />
+      <ReturnHome />
     </main>
   );
 }
 
 const title = "Projects";
-const description = "A list of projects I created";
+const description =
+  "Some programming-related projects I created or contributed in, both private and open source.";
 
 export const metadata: Metadata = {
   title,
