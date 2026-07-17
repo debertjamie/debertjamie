@@ -10,15 +10,6 @@ export const discordSecret = process.env.DISCORD_CLIENT_SECRET;
 export const googleId = process.env.GOOGLE_CLIENT_ID;
 export const googleSecret = process.env.GOOGLE_CLIENT_SECRET;
 
-// ADMIN EMAIL(S)
-const email = process.env.ADMIN_EMAIL;
-export const adminEmail = email.includes(",") ? email.split(",") : email;
-
-// GIT COMMIT SHA
-export const sha =
-  process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA ??
-  "9797610087981a0db4e1f6134a4f718501ba55c6";
-
 // SPOTIFY
 export const spotifyId = process.env.SPOTIFY_CLIENT_ID;
 export const spotifySecret = process.env.SPOTIFY_CLIENT_SECRET;
@@ -29,3 +20,27 @@ export const wakatimeKey = process.env.WAKATIME_KEY;
 
 // EMAIL FORM API KEY
 export const emailApiKey = process.env.EMAIL_API_KEY;
+
+// SANITY CONFIG
+export const apiVersion =
+  process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2026-07-13";
+
+export const dataset = assertValue(
+  process.env.NEXT_PUBLIC_SANITY_DATASET,
+  "Missing environment variable: NEXT_PUBLIC_SANITY_DATASET",
+);
+
+export const projectId = assertValue(
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  "Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID",
+);
+
+export const mode = process.env.NODE_ENV || "development";
+
+function assertValue(v, errorMessage) {
+  if (v === undefined) {
+    throw new Error(errorMessage);
+  }
+
+  return v;
+}
