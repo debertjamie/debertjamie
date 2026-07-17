@@ -1,17 +1,26 @@
 "use client";
 
-import {useState, useEffect, useRef} from "react";
+import {useState, useEffect, useRef, AnchorHTMLAttributes} from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { MobileToggleTheme } from ".";
+import {usePathname} from "next/navigation";
+import {MobileToggleTheme} from ".";
 
-export function Menu({ name, path, ...props }: { name: string; path: string } & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+const routes = [
+  {name: "Home", href: "/"},
+  {name: "About", href: "/about"},
+  {name: "Writing", href: "/blog"},
+  {name: "Projects", href: "/projects"},
+  {name: "Resume", href: "/resume"},
+  {name: "Connect", href: "/connect"},
+];
+
+export function Menu({name, path, ...props}: {name: string; path: string} & AnchorHTMLAttributes<HTMLAnchorElement>) {
   const pathname = usePathname();
   const isActive = path === "/" ? path === pathname : pathname.startsWith(path);
   return (
     <Link
       href={path}
-      className={`${isActive ? "font-semibold" : "text-zinc-700 dark:text-zinc-300"}`}
+      className={`${isActive ? "font-semibold" : ""}`}
       {...props}
     >
       {name}
@@ -20,6 +29,7 @@ export function Menu({ name, path, ...props }: { name: string; path: string } & 
 }
 
 export function HamburgerMenu() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [wasOpen, setWasOpen] = useState(false);
 
@@ -48,8 +58,9 @@ export function HamburgerMenu() {
     setTimeout(() => setWasOpen(isOpen), 150);
   }, [isOpen]);
 
-  const hamburgerClass = "absolute text-xl *:block -ml-5 -mt-4 pt-12 space-y-4 w-56 bg-zinc-200 dark:bg-zinc-900 rounded-xl py-2 px-4";
-
+  const hamburgerClass = "absolute text-xl *:block -ml-5 -mt-4 pt-12 w-56 bg-porcelain-dark dark:bg-steel-grey rounded-xl py-2 px-4";
+  const borderClass = "py-2"
+  const mobileRoutes = routes.filter((r) => !r.href.startsWith("https"));
   return (
     <nav
       ref={dropdownRef}
@@ -60,40 +71,35 @@ export function HamburgerMenu() {
         onClick={toggleMenu}
       >
         <span
-          className={
-            isOpen
-              ? "transition duration-500 ease-in-out rotate-45 translate-x-1 origin-top-left w-6"
-              : ""
-          }
+          className={isOpen ? "transition duration-500 ease-in-out rotate-45 translate-x-1 origin-top-left w-6" : ""}
         />
         <span
-          className={
-            isOpen
-              ? "transition duration-500 ease-in-out origin-center w-0"
-              : ""
-          }
+          className={isOpen ? "transition duration-500 ease-in-out origin-center w-0" : ""}
         />
         <span
-          className={
-            isOpen
-              ? "transition duration-500 ease-in-out -rotate-45 translate-x-1 origin-bottom-left w-6"
-              : ""
-          }
+          className={isOpen ? "transition duration-500 ease-in-out -rotate-45 translate-x-1 origin-bottom-left w-6" : ""}
         />
       </div>
       <div
-        className={`
-          ${isOpen
-            ? `animate-fade-down ${hamburgerClass}`
-            : wasOpen ? `animate-fade-up ${hamburgerClass}` : "hidden"} 
-        `}
+        className={`pb-3
+          ${isOpen ? `animate-fade-down ${hamburgerClass}` : wasOpen ? `animate-fade-up ${hamburgerClass}` : "hidden"}`}
       >
-        <Menu name="Home" path="/" onClick={toggleMenu} />
-        <Menu name="About" path="/about" onClick={toggleMenu} />
-        <Menu name="Blog" path="/blog" onClick={toggleMenu} />
-        <Menu name="Projects" path="/projects" onClick={toggleMenu} />
-        <Menu name="Guestbook" path="/guestbook" onClick={toggleMenu} />
-        <MobileToggleTheme />
+        {mobileRoutes.map((m, i) => {
+          const isActive = m.href === "/" ? m.href === pathname : pathname.startsWith(m.href);
+          if(isActive) return (
+            <p key={i} onClick={toggleMenu} data-index={i} className={`font-semibold cursor-pointer ${borderClass}`}>
+              {m.name}
+            </p>
+          )
+
+          return (
+            <Link key={i} onClick={toggleMenu} href={m.href} data-index={i} className={borderClass}>
+              {m.name}
+            </Link>
+          )
+        })}
+        <div className="py-1" />
+        <MobileToggleTheme/>
       </div>
     </nav>
   );
