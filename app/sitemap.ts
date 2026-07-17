@@ -1,29 +1,57 @@
-import { Column, getBlogs, Shorts } from "@/lib/blog";
 import { MetadataRoute } from "next";
+import { postsQuery, notesQuery } from "@/lib/sanity/lib/query";
+import { sanityFetch } from "@/lib/sanity/lib/client";
+import type { PostType, NoteType } from "@/lib/blog";
 import { publicUrl } from "./env.mjs";
 
-export default function Sitemap(): MetadataRoute.Sitemap {
-  const blogs: MetadataRoute.Sitemap = (getBlogs()
-    .filter((blog) => "slug" in blog) as (Column | Shorts)[])
-    .map((blog) => ({
-      url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}blog/${blog.slug}`,
-      lastModified: "updated" in blog ? blog.updated : blog.published,
-      changeFrequency: "draft" in blog && blog.draft ? "weekly" : "never",
-      priority: 0.8,
-    }));
+export default async function Sitemap(): Promise<MetadataRoute.Sitemap> {
+  const posts: PostType[] = await sanityFetch({
+    query: postsQuery,
+    tags: ["posts"],
+  });
+  const notes: NoteType[] = await sanityFetch({
+    query: notesQuery,
+    tags: ["notes"],
+  });
 
-  const otherRoutes: MetadataRoute.Sitemap = [
+  const blogs: MetadataRoute.Sitemap = [
+    ...posts.map((post): MetadataRoute.Sitemap[number] => ({
+      url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}blog/${post.slug}`,
+      lastModified: post._updatedAt || post._createdAt,
+      changeFrequency: "never",
+      priority: 0.7,
+    })),
+    ...notes.map((note): MetadataRoute.Sitemap[number] => ({
+      url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}blog/notes/${note.slug}`,
+      lastModified: note._updatedAt || note._createdAt,
+      changeFrequency: "never",
+      priority: 0.5,
+    })),
+  ];
+
+  const yearlyRoutes: MetadataRoute.Sitemap = [
     "",
     "about",
     "blog",
+    "connect",
+  ].map((route) => ({
+    url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}${route}`,
+    lastModified: new Date().toISOString().split("T")[0],
+    changeFrequency: "yearly",
+    priority: 1,
+  }));
+
+  const monthlyRoutes: MetadataRoute.Sitemap = [
     "projects",
-    "guestbook",
+    "resume",
+    "friends",
+    "now",
   ].map((route) => ({
     url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}${route}`,
     lastModified: new Date().toISOString().split("T")[0],
     changeFrequency: "monthly",
-    priority: 1,
+    priority: 0.9,
   }));
 
-  return [...otherRoutes, ...blogs];
+  return [...yearlyRoutes, ...monthlyRoutes, ...blogs];
 }
