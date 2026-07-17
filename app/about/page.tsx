@@ -1,14 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
-import type {Metadata} from "next";
-import {Movies, Games, Timeline, Random, Wakatime} from "@/ui/about";
-import {QuoteIcon} from "@/ui/icons";
+import type { Metadata } from "next";
+import { Random, Site, Wakatime } from "@/ui/about";
+import { maiyuan } from "@/ui/fonts/fonts";
+import { ExternalLink, ReturnHome } from "@/ui/components";
 
 export default function About() {
   return (
-    <main className="space-y-16 mt-8 sm:mt-18 text-lg">
-      <h1 className="text-5xl font-bold">About Me</h1>
-      <section className="lg:flex lg:flex-row-reverse lg:gap-x-8">
+    <main className="space-y-8 mt-8 sm:mt-20 text-lg">
+      <section className="space-y-4">
+        <h1 className="text-5xl font-bold">About The Author</h1>
+        <h2 className={`text-2xl font-bold ${maiyuan.className}`}>Ta̍k-ke-hó! Guá sī Debert</h2>
+      </section>
+      <section className="lg:grid lg:grid-cols-[1fr_2fr] lg:gap-x-8">
         <Image
           src="/static/debertjamie.jpg"
           alt="Me"
@@ -16,78 +20,71 @@ export default function About() {
           height={0}
           sizes="100%"
           priority={true}
-          className="rounded-xl w-72 h-96 xs:w-96 xs:h-[32rem] mx-auto sm:float-right lg:float-none mb-10 sm:mb-4 sm:ml-4 lg:m-0"
+          className="rounded-xl select-none w-full mx-auto sm:float-right lg:float-none mb-10 sm:mb-4 sm:ml-4 lg:m-0"
         />
-        <article className="space-y-8 text-justify">
-          <p className="text-xl">
-            Hello! I'm Debert Jamie Chanderson, also known as{" "}
-            <span className="font-thin">陳宥維</span> (chen2 you4 wei2). I'm an undergraduate freshman student at{" "}
-            <Link
-              href="https://ugm.ac.id"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-cyan-600 dark:text-cyan-500 font-semibold"
-            >
-              Gadjah Mada University
-            </Link>
-            , Yogyakarta where I major in Information Engineering. I have a passion for web development and software
-            engineering, where I aspire towards a career that allows me to create technologies to solve mankind
-            problems. I'm also a self-taught programmer and a hobbyist photographer. Other than that, I'm a casual gamer
-            and a public speaking enthusiast.
+        <article className="space-y-4 text-justify">
+          <p>
+            I'm Debert, also known as Tan Youwei, a third-year undergraduate
+            student at{" "}
+            <ExternalLink href="https://ugm.ac.id/" arrowSize={5}>
+              Universitas Gadjah Mada
+            </ExternalLink>{" "}
+            where I major in Information Engineering. I have a strong interest
+            in technology, particularly in software development, machine
+            learning, and cybersecurity.
           </p>
           <p>
-            I mainly code in TypeScript, but I'm also familiar with other languages like Python and C++. I mostly use
-            React-based frameworks like Next.js for web development, and currently I'm learning more about Astro.
+            In my free time, I like to read books, listen to music, or going out
+            for a walk. Sometimes, I also enjoy watching movies. Currently I am
+            learning to write more blog posts to share my thoughts with others
+            and to improve my writing skills. I'm also aiming to create more
+            small projects and contribute to open-source projects to enhance my
+            programming skills and gain more experience in the field.
           </p>
           <p>
-            Other than tech-related bits and bobs, I usually spend my free time listening to music, watching movies or
-            read some books. I'm also interested in photography and human psychology. Some of my favourite artists/bands
-            are{" "}
-            <span className="font-semibold">One Direction</span>, <span className="font-semibold">Lauv</span>,{" "}
-            <span className="font-semibold">Jason Derulo</span> and{" "}
-            <span className="font-semibold">Owl City</span>.
+            Feel free to reach out to me! I'm open to meeting new people and
+            learning from their experiences!
           </p>
         </article>
       </section>
-      <section
-        className="flex items-center rounded-r-xl border-l-4 border-l-zinc-400 dark:border-l-zinc-600 bg-zinc-300 dark:bg-zinc-800 px-4 py-2 w-fit">
-        <QuoteIcon className="pointer-events-none w-12 h-12"/>
-        <p className="pl-2 font-medium z-10">
-          Impermanence is elegance, it's what makes life worth to live.
+      <section className="border-l-4 border-l-olivine dark:border-l-olivine-dark">
+        <p className="pl-4 font-medium z-10 text-justify">
+          "You are the star of your own show, and the world is your stage.
+          Embrace what you have, enjoy what you do, love who you are, make the
+          most of every moment. Be the best version of yourself, because you are
+          the only you that can be. Good luck with your journey, friend!"
         </p>
       </section>
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">Movies and Stuff</h2>
-        <div className="grid sm:grid-cols-2 gap-4">
-          <Movies/>
-          <Games/>
-        </div>
+      <section>
+        <Wakatime />
       </section>
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">Random Facts About Me</h2>
-        <Random/>
+        <h2 className="text-xl font-semibold">Random Facts About Me</h2>
+        <Random />
       </section>
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">WakaTime Statistics</h2>
-        <Wakatime/>
+      <Site />
+      <section className="space-y-2">
+        <h2 className="text-xl font-semibold">Let's Chat!</h2>
+        <p className="text-justify">
+          If you want to reach out to me to discuss about anything, just want to
+          say hi, or want a friend to talk to, feel free to check out my{" "}
+          <Link
+            href="/connect"
+            className="border-b border-b-olivine/30 dark:border-b-olivine-dark/30 text-olivine-dark dark:text-olivine hover:border-b-olivine-dark dark:hover:border-b-olivine duration-300"
+          >
+            socials here
+          </Link>
+          . I'm up for a coffee chat (or a tea chat!) anytime!
+        </p>
       </section>
-      <section className="space-y-4 text-left">
-        <h2 className="text-2xl font-semibold">Timeline of My Life</h2>
-        <Timeline/>
-      </section>
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">Wall of Appreciation</h2>
-        <div className="grid md:grid-cols-2 gap-2">
-          <p>Elvin F Ciang - Interface Evaluator</p>
-          <p>Fernando P Wijaya - Interface Evaluator</p>
-        </div>
-      </section>
+      <ReturnHome />
     </main>
   );
 }
 
 const title = "About Me";
-const description = "About Debert Jamie";
+const description =
+  "I'm Debert Jamie, a third-year undergraduate student at Universitas Gadjah Mada majoring in Information Engineering. I have a strong interest in technology, particularly in software development, machine learning, and cybersecurity.";
 
 export const metadata: Metadata = {
   title,
