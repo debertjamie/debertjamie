@@ -1,12 +1,11 @@
 import {ReactNode} from "react";
-import type { Metadata, Viewport } from "next";
+import type {Metadata, Viewport} from "next";
 import "@/styles/globals.css";
-import { Footer } from "@/ui/footer";
-import { Header } from "@/ui/header";
-import { inter } from "@/ui/fonts";
-import { ThemedHTML } from "@/ui/components";
-import { publicUrl } from "./env.mjs";
-
+import {Footer} from "@/ui/footer";
+import {Header} from "@/ui/header";
+import {inter} from "@/ui/fonts/fonts";
+import {ThemedHTML} from "@/ui/components";
+import {publicUrl} from "./env.mjs";
 
 // Default metadata
 const title = "Debert Jamie Chanderson";
@@ -14,7 +13,7 @@ const description = "Heya 👋😀 I'm Debert Jamie";
 
 export const metadata: Metadata = {
   metadataBase: new URL(publicUrl),
-  authors: [{ name: "Debert Jamie Chanderson" }],
+  authors: [{ name: "Debert Jamie Chanderson", url: "humans.txt" }],
   title: {
     default: title,
     template: "%s | Debert Jamie",
@@ -30,8 +29,9 @@ export const metadata: Metadata = {
   twitter: {
     title,
     description,
-    card: "summary_large_image",
+    site: "@debertjamie",
     creator: "@debertjamie",
+    card: "summary_large_image",
   },
   icons: {
     shortcut: "/static/favicon.ico",
@@ -55,23 +55,20 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0369A1",
+  themeColor: [
+    {media: "(prefers-color-scheme: dark)", color: "#0F0F1A"},
+    {media: "(prefers-color-scheme: light)", color: "#F5F8F7"}
+  ],
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: ReactNode;
-}>) {
+export default function RootLayout({children}: Readonly<{children: ReactNode}>) {
   return (
     <ThemedHTML>
-      <body className="bg-zinc-100 dark:bg-zinc-950 text-zinc-950 dark:text-zinc-100 selection:bg-violet-950 selection:text-zinc-100">
-        <div className={`${inter.className} mt-8 flex flex-col`}>
-          <Header />
-          <div className="mt-2 px-4 mb-8 min-h-screen mx-auto max-w-5xl">
-            {children}
-          </div>
-          <Footer />
+      <body className="text-steel-grey dark:text-porcelain box-border selection:bg-spicy-mix selection:text-steel-grey dark:selection:bg-spicy-mix-dark dark:selection:text-porcelain">
+        <div className={`${inter.className} flex bg-porcelain dark:bg-steel-grey-dark flex-col`}>
+          <Header/>
+          <div className="mx-auto w-screen md:max-w-3xl px-4 mt-2 min-h-[calc(100vh-15.5rem)]">{children}</div>
+          <Footer/>
         </div>
       </body>
     </ThemedHTML>
