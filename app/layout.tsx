@@ -13,7 +13,7 @@ const description = "Heya 👋😀 I'm Debert Jamie";
 
 export const metadata: Metadata = {
   metadataBase: new URL(publicUrl),
-  authors: [{ name: "Debert Jamie Chanderson", url: "humans.txt" }],
+  authors: [{ name: "Debert Jamie Chanderson", url: "/humans.txt" }],
   title: {
     default: title,
     template: "%s | Debert Jamie",
