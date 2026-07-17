@@ -1,112 +1,125 @@
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Link from "next/link";
-import {publicUrl} from "@/app/env.mjs";
-import type {Metadata} from "next";
-import {Column, formatDate, getBlogs, Shorts} from "@/lib/blog";
-import {notFound} from "next/navigation";
-import {Mdx} from "@/ui/blog";
-import {CalendarIcon, GlobeIcon} from "@/ui/icons";
+import Image from "next/image";
+import { PortableText } from "@portabletext/react";
+import { singlePostQuery } from "@/lib/sanity/lib/query";
+import { sanityFetch } from "@/lib/sanity/lib/client";
+import { urlFor } from "@/lib/sanity/lib/image";
+import type { PostType } from "@/lib/blog";
+import { formatDate, readTime, toPlainText } from "@/lib/blog";
+import { CalendarIcon, TimeIcon, AuthorIcon } from "@/ui/icons";
+import { CustomPortableTextComponents } from "@/ui/blog";
+import { maiyuan, jetbrainsMono } from "@/ui/fonts/fonts";
 
-export function generateMetadata({
-                                   params,
-                                 }: {
-  readonly params: { slug: string };
-}): Metadata {
-  const blog = (getBlogs() as (Column | Shorts)[]).find(
-    (blog) => blog.slug === params.slug
-  );
-  if (!blog) return notFound();
+type Params = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params;
+
+  const post: PostType = await sanityFetch({
+    query: singlePostQuery,
+    qParams: { slug },
+    tags: ["post"],
+  });
+
+  if (!post) {
+    notFound();
+  }
 
   return {
-    title: blog.title,
-    description: blog.excerpt,
+    title: post.title,
+    description: post.description,
+    metadataBase: new URL(`https://debertjamie.com/blog/${post.slug}`),
+    keywords: post.tags.map((t) => t.tag),
     openGraph: {
-      title: blog.title,
-      description: blog.excerpt,
+      title: post.title,
+      description: post.description,
+      url: `https://debertjamie.com/blog/${post.slug}`,
+      siteName: "debertjamie.com",
+      authors: post.author.name,
+      tags: post.tags.map((t) => t.tag),
+      publishedTime: post._createdAt,
+      modifiedTime: post._updatedAt || "",
+      images: urlFor(post.mainImage.image).width(1200).height(630).url(),
+      locale: post.locale,
       type: "article",
-      publishedTime: blog.published,
-      url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}blog/${blog.slug}`,
     },
     twitter: {
-      title: blog.title,
-      description: blog.excerpt,
       card: "summary_large_image",
-      creator: "@debertjamie",
+      title: post.title,
+      description: post.description,
+      images: urlFor(post.mainImage.image).width(1200).height(630).url(),
+      creator: `@${post.author.twitterUrl.split(".com/")[1]}`,
+      site: `@${post.author.twitterUrl.split(".com/")[1]}`,
     },
   };
 }
 
-export default function Page({
-                               params,
-                             }: {
-  readonly params: { slug: string };
-}) {
-  const blog = (getBlogs() as (Column | Shorts)[]).find(
-    (blog) => blog.slug === params.slug
-  );
-  if (!blog) return notFound();
+export default async function PostPage({ params }: Params) {
+  const { slug } = await params;
+
+  const post: PostType = await sanityFetch({
+    query: singlePostQuery,
+    qParams: { slug },
+    tags: ["post"],
+  });
+
+  if (!post) {
+    notFound();
+  }
 
   return (
-    <main className="space-y-8 mt-16 text-xl">
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning={true}
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: blog.title,
-            datePublished: blog.published,
-            dateModified:
-              "updated" in blog && !!blog.updated
-                ? blog.updated
-                : blog.published,
-            description: blog.excerpt,
-            url: `${publicUrl}${publicUrl.endsWith("/") ? "" : "/"}blog/${blog.slug}`,
-            author: {
-              "@type": "Person",
-              name: "Debert Jamie Chanderson",
-            },
-          }),
-        }}
-      />
-      <div className="space-y-2 border-b-2 border-b-zinc-950 dark:border-b-zinc-100 pb-2">
-        <h1 className="text-3xl font-bold">{blog.title}</h1>
-        <p className="text-lg">{blog.excerpt}</p>
-        <div className="flex flex-wrap gap-x-4 text-lg *:font-semibold">
-          {"tags" in blog &&
-            blog.tags.split(",").map((t) => (
-              <Link href={`/blog/tag/${t}`} key={t} className="hover:underline text-cyan-600 dark:text-cyan-500">
-                #{t}
-              </Link>
-            ))}
+    <main
+      className={`space-y-8 w-full mt-8 sm:mt-18 text-xl ${maiyuan.className}`}
+    >
+      <section className="space-y-4">
+        <h1 className="text-4xl text-center font-bold">{post.title}</h1>
+        <div className="flex gap-x-6 text-sm text-steel-grey/80 dark:text-porcelain/80">
+          <span className="flex items-center gap-x-1">
+            <CalendarIcon className="w-4 h-4" />
+            {formatDate(post._createdAt, post.locale)}
+          </span>
+          <span className="flex items-center gap-x-1">
+            <TimeIcon className="w-4 h-4" />
+            {readTime(toPlainText(post.body))}
+          </span>
+          <span className="flex items-center gap-x-1">
+            <AuthorIcon className="w-4 h-4" />
+            {post.author.name}
+          </span>
         </div>
-      </div>
-      <div className="tracking-wider">
-        <div className="flex flex-wrap gap-x-24 gap-y-2 text-lg">
-          <p>
-            <CalendarIcon className="inline mr-2 w-8"/>
-            {formatDate(blog.published)}
-            {"updated" in blog &&
-              !!blog.updated &&
-              ` (Updated at ${formatDate(blog.updated)})`}
-          </p>
-          {"language" in blog && (
-            <p>
-              <GlobeIcon className="inline mr-2 w-8"/>
-              {blog.language}
-            </p>
-          )}
-        </div>
-        {"draft" in blog && blog.draft && (
-          <div
-            className="bg-zinc-300 mt-4 dark:bg-zinc-800 px-2 py-1 border-l-2 border-l-yellow-500 rounded-r-lg w-fit text-lg font-semibold">
-            ⚠️ This article is a work in progress, information contained in here may not be valid
-          </div>
-        )}
-        <article className="border-l mt-8 pl-8">
-          <Mdx content={blog.content}/>
-        </article>
-      </div>
+        <hr className="border-steel-grey/20 dark:border-porcelain/20" />
+      </section>
+      <article className="text-lg">
+        <Image
+          className="rounded-sm object-cover"
+          src={post.mainImage.image}
+          alt={post.mainImage.alt || post.title}
+          quality={100}
+          width={1024}
+          height={768}
+          placeholder={post.mainImage.lqip ? "blur" : "empty"}
+          blurDataURL={post.mainImage.lqip || ""}
+        />
+        <PortableText
+          value={post.body}
+          components={CustomPortableTextComponents}
+        />
+      </article>
+      <section className="flex pb-6">
+        <p className={`${jetbrainsMono.className} text-lg`}>
+          &gt;{" "}
+          <Link
+            href="/blog"
+            className="text-olivine-dark dark:text-olivine border-b border-b-olivine/30 dark:border-b-olivine-dark/30 hover:border-b-olivine-dark dark:hover:border-b-olivine duration-300"
+          >
+            cd ..
+          </Link>
+        </p>
+      </section>
     </main>
   );
 }

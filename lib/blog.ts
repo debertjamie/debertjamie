@@ -1,86 +1,102 @@
-import {readdirSync, readFileSync} from "fs";
-import matter from "gray-matter";
-import {join} from "path";
+import { PortableTextBlock } from "sanity";
 
-export interface Column {
+export type ProjectType = {
+  _id: string;
+  name: string;
   title: string;
-  excerpt: string;
-  tags: string;
-  published: string;
-  updated?: string;
-  draft?: boolean;
-  pinned?: boolean;
-  language?: string;
-  slug: string;
-  content: string;
-}
+  projectUrl: string;
+  repository: string;
+  logo: string;
+  mainImage: {
+    image: string;
+    alt: string | null;
+    lqip: string;
+  };
+  description: PortableTextBlock[];
+};
 
-export interface BaseShorts {
-  type: "Shorts" | "Line";
-  published: string;
-  content: string;
-}
-
-export interface Line extends BaseShorts {
-  type: "Line";
-}
-
-export interface Shorts extends BaseShorts {
-  type: "Shorts";
-  slug: string;
+export type PostType = {
+  _id: string;
+  _createdAt: string;
+  _updatedAt?: string;
   title: string;
-  excerpt: string;
+  slug: string;
+  description: string;
+  date?: string;
+  mainImage: {
+    image: string;
+    lqip: string;
+    alt: string | null;
+  };
+  tags: { tag: string; slug: string }[];
+  locale: string;
+  author: {
+    name: string;
+    twitterUrl: string;
+  };
+  body: PortableTextBlock[];
+  isPublished: boolean;
+};
+
+export type NowType = {
+  _id: string;
+  content: PortableTextBlock[];
+  date: string;
+};
+
+export type NoteType = {
+  _id: string;
+  _createdAt: string;
+  _updatedAt?: string;
+  content: PortableTextBlock[];
+  title: string;
+  date: string;
+  slug: number;
+  locale: string;
+  series: string;
+};
+
+export function formatDate(date: string, locale: string = "en-GB") {
+  const parsedDate = new Date(date);
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+
+  const targetLocale = locale === "en-US" ? "en-GB" : locale;
+  return parsedDate.toLocaleDateString(targetLocale, options);
 }
 
-export function formatDate(date: string) {
-  const formattedDate = new Date(date);
-  return formattedDate.toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
+export function readTime(content: string) {
+  const trimmed = content.trim();
+  if (!trimmed) return "0 min";
+
+  const charRegex = /[\u4e00-\u9fa5]/g;
+  const cMatches = trimmed.match(charRegex);
+  const cCount = cMatches ? cMatches.length : 0;
+
+  const alphabetText = trimmed.replace(charRegex, " ");
+  const aWordsArray = alphabetText.split(/\s+/).filter(Boolean);
+  const aWordCount = aWordsArray.length;
+
+  const AVG_WPM = 225;
+  const AVG_CPM = 250;
+
+  const aTime = aWordCount / AVG_WPM;
+  const cTime = cCount / AVG_CPM;
+  const totalMinutes = Math.ceil(aTime + cTime);
+
+  return `${totalMinutes} min`;
 }
 
-export function getBlogs(type?: "column" | "shorts") {
-  const blogs = [];
-
-  if (type !== "shorts") {
-    const rawData = readdirSync(join(process.cwd(), "contents/column"));
-    const data = rawData
-      .map((d) => getColumn(d))
-      .sort((d1, d2) => (d1.published > d2.published ? -1 : 1));
-    blogs.push(...data);
-  }
-  if (type !== "column") {
-    const rawData = readdirSync(join(process.cwd(), "contents/shorts"));
-    const data = rawData
-      .map((d) => getShorts(d))
-      .sort((d1, d2) => (d1.published > d2.published ? -1 : 1));
-    blogs.push(...data);
-  }
-
-  return blogs;
-}
-
-function getBlog(slug: string, folder: string) {
-  const path = join(process.cwd(), folder);
-  const webSlug = slug.replace(/\.mdx$/, "");
-  const file = readFileSync(join(path, `${webSlug}.mdx`), "utf-8");
-  return {file, webSlug};
-}
-
-export function getColumn(slug: string) {
-  const {file, webSlug} = getBlog(slug, "contents/column");
-  const {data, content} = matter(file);
-  return {...data, slug: webSlug, content} as Column;
-}
-
-export function getShorts(slug: string) {
-  const {file, webSlug} = getBlog(slug, "contents/shorts");
-  const {data, content} = matter(file);
-  if (data.type === "Shorts") {
-    return {...data, content, slug: webSlug} as Shorts;
-  } else {
-    return {...data, content} as Line;
-  }
+export function toPlainText(blocks: PortableTextBlock[] = []) {
+  return blocks
+    .map((block: any) => {
+      if (block._type !== "block" || !block.children) {
+        return "";
+      }
+      return block.children.map((child: any) => child.text).join("");
+    })
+    .join("\n\n");
 }
