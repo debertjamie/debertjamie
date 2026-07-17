@@ -9,7 +9,7 @@ export default async function NotFound() {
         <p>Try checking back later for (possibly) some easter eggs 🤔</p>
       </div>
       <Link
-        className="block w-fit px-4 py-2 bg-blue-800 text-zinc-100 font-semibold text-lg rounded-lg"
+        className="block w-fit px-4 py-2 bg-olivine dark:bg-olivine-dark font-semibold text-lg rounded-lg"
         href="/"
       >
         Return Home
