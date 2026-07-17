@@ -1,4 +1,4 @@
-import { bpmf, maiyuan } from "@/ui/fonts/fonts";
+import { maiyuan } from "@/ui/fonts/fonts";
 
 const randomFacts = [(
     <span>
