@@ -4,11 +4,15 @@ import {emailApiKey} from "@/app/env.mjs";
 export async function POST(req: Request) {
   const data = await req.json();
   const formData = new FormData();
-  formData.append("access_key", emailApiKey!);
+  const message = [];
+  formData.append("apiKey", emailApiKey!);
 
   for(const key in data) {
     if(key === "subject") {
-      formData.append(key, `[EMAIL FORM SUBMISSION] ${data[key]}`);
+      message.push(`SUBJECT: ${data[key]}`);
+    } else if(key === "message") {
+      message.push(data[key]);
+      formData.append(key, message.join("\n\n"));
     } else {
       formData.append(key, data[key]);
     }
