@@ -24,8 +24,19 @@ interface Item {
 export async function GET() {
   const res = await getRecentlyPlayed();
 
-  if (res.status !== 200) {
-    return new Response(JSON.stringify({ error: true }), {
+  if (res.status === 204) {
+    return new Response(JSON.stringify({ error: false, list: [] }), {
+      status: 200,
+      headers: {
+        "content-type": "application/json",
+        "Cache-Control": "no-cache",
+      },
+    });
+  }
+
+  if (!res.ok) {
+    const text = await res.text();
+    return new Response(JSON.stringify({ error: true, message: text }), {
       status: res.status,
       headers: {
         "content-type": "application/json",

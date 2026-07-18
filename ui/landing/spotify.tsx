@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { NowPlaying } from "@/ui/landing/activities";
+import { SpotifyLogo } from "@/ui/icons";
 
 export function Spotify({ data }: { data?: NowPlaying }) {
   return (
@@ -29,7 +30,9 @@ export function Spotify({ data }: { data?: NowPlaying }) {
               <p className="text-3xl font-semibold">{data.title}</p>
               <p className="text-lg text-neutral-300">{data.artist}</p>
             </div>
-            <p className="font-bold text-xl">Listening to Spotify</p>
+            <div className="flex justify-end">
+              <SpotifyLogo width={120} />
+            </div>
           </div>
         </Link>
       ) : (
@@ -49,7 +52,9 @@ export function Spotify({ data }: { data?: NowPlaying }) {
               <p className="text-3xl font-semibold">No Songs Playing</p>
               <p className="text-lg text-neutral-300"></p>
             </div>
-            <p className="font-bold text-xl">Spotify</p>
+            <div className="flex justify-end">
+              <SpotifyLogo width={120} />
+            </div>
           </div>
         </div>
       )}

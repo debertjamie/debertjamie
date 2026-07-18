@@ -17,6 +17,13 @@ export async function getAccessToken() {
     }),
   });
 
+  if(!response.ok) {
+    const text = await response.text();
+    throw new Error("Failed to get access token", {
+      cause: { status: response.status, statusText: response.statusText, text }
+    })
+  }
+
   return (await response.json()) as { access_token: string };
 }
 
