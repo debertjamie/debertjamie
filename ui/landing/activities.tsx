@@ -1,7 +1,6 @@
 "use client";
 
 import useSWR from "swr";
-import {useState, useEffect} from "react";
 import {Spotify} from ".";
 
 export interface NowPlaying {
