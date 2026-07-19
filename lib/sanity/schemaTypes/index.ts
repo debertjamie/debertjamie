@@ -7,6 +7,7 @@ import { authorType } from "./authorType";
 import { projectType } from "./projectType";
 import { nowType } from "./nowType";
 import { notesType } from "./notesType";
+import { galleryType } from "./imagesType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -17,5 +18,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     projectType,
     nowType,
     notesType,
+    galleryType,
   ],
 };

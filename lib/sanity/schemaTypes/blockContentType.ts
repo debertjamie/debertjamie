@@ -1,3 +1,4 @@
+import { EraserIcon } from "@/ui/icons";
 import { defineType, defineArrayMember } from "sanity";
 
 /**
@@ -26,7 +27,6 @@ export const blockContentType = defineType({
         { title: "H2", value: "h2" },
         { title: "H3", value: "h3" },
         { title: "H4", value: "h4" },
-        { title: "Quote", value: "blockquote" },
       ],
       lists: [
         { title: "Bullet", value: "bullet" },
@@ -41,6 +41,7 @@ export const blockContentType = defineType({
           { title: "Emphasis", value: "em" },
           { title: "Code", value: "code" },
           { title: "Strike through", value: "strike-through" },
+          { title: "Spoiler", value: "spoiler", icon: EraserIcon },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -64,7 +65,7 @@ export const blockContentType = defineType({
     // as a block type.
     defineArrayMember({
       type: "image",
-      options: { hotspot: true },
+      options: { hotspot: true, metadata: ["lqip"] },
       fields: [
         {
           name: "caption",
@@ -104,6 +105,38 @@ export const blockContentType = defineType({
           { title: "Arduino", value: "ino" },
         ],
       },
+    }),
+    defineArrayMember({
+      type: "object",
+      title: "Blockquote",
+      name: "blockquote",
+      fields: [
+        {
+          name: "quote",
+          title: "Quote",
+          type: "string",
+        },
+      ],
+    }),
+    defineArrayMember({
+      type: "gallery",
+    }),
+    defineArrayMember({
+      name: "callout",
+      title: "Callout",
+      type: "object",
+      fields: [
+        {
+          name: "text",
+          title: "Text",
+          type: "string",
+        },
+        {
+          name: "icon",
+          title: "Icon",
+          type: "string",
+        },
+      ],
     }),
   ],
 });

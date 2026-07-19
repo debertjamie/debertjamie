@@ -6,7 +6,7 @@ const basic = Buffer.from(`${spotifyId}:${spotifySecret}`).toString("base64");
 export async function getAccessToken() {
   const response = await fetch(tokenApi, {
     method: "POST",
-    next: { revalidate: 60 * 60 },
+    cache: "no-store",
     headers: {
       Authorization: `Basic ${basic}`,
       "Content-Type": "application/x-www-form-urlencoded",

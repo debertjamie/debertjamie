@@ -53,7 +53,7 @@ export const notesType = defineType({
           { title: "College 大学", value: "college" },
           { title: "Programming 编程", value: "programming" },
           { title: "Technology 科技", value: "technology" },
-          { title: "Today I Learned 今天学到了", value: "til" },
+          { title: "T.I.L. 今天学到了", value: "til" },
           { title: "Other 其他", value: "other" },
         ],
       },
