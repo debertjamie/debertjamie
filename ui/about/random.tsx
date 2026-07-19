@@ -6,7 +6,7 @@ const randomFacts = [(
     </span>
   ), (
     <span>
-      During 8th grade I self-taught myself to code in JavaScript and Python
+      During 8th grade I taught myself to code in JavaScript and Python
     </span>
   ), (
     <span>

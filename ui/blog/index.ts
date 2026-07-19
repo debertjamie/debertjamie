@@ -6,3 +6,5 @@ export * from "./customise";
 export * from "./navbar";
 export * from "./card";
 export * from "./notes";
+export * from "./gallery";
+export * from "./quote";
