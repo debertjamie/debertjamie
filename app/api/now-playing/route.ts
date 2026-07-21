@@ -1,4 +1,4 @@
-import { getNowPlaying } from "@/lib/spotify";
+import { SpotifyAuthError, getNowPlaying } from "@/lib/spotify";
 
 export const runtime = "edge";
 
@@ -22,7 +22,23 @@ interface SongResponse {
 }
 
 export async function GET() {
-  const res = await getNowPlaying();
+  let res: Awaited<ReturnType<typeof getNowPlaying>>;
+
+  try {
+    res = await getNowPlaying();
+  } catch (error) {
+    if (error instanceof SpotifyAuthError) {
+      return new Response(JSON.stringify({ isPlaying: false, error: true, message: error.message }), {
+        status: 503,
+        headers: {
+          "content-type": "application/json",
+          "Cache-Control": "no-cache",
+        },
+      });
+    }
+
+    throw error;
+  }
 
   if (res.status === 204) {
     return new Response(JSON.stringify({ isPlaying: false }), {
@@ -79,6 +95,6 @@ export async function GET() {
         "content-type": "application/json",
         "Cache-Control": "public, max-age=0, s-maxage=3",
       },
-    }
+    },
   );
 }
