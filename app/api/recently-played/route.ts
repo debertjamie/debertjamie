@@ -1,4 +1,4 @@
-import { getRecentlyPlayed } from "@/lib/spotify";
+import { SpotifyAuthError, getRecentlyPlayed } from "@/lib/spotify";
 
 export const runtime = "edge";
 
@@ -22,7 +22,23 @@ interface Item {
 }
 
 export async function GET() {
-  const res = await getRecentlyPlayed();
+  let res: Awaited<ReturnType<typeof getRecentlyPlayed>>;
+
+  try {
+    res = await getRecentlyPlayed();
+  } catch (error) {
+    if (error instanceof SpotifyAuthError) {
+      return new Response(JSON.stringify({ error: true, message: error.message, list: [] }), {
+        status: 503,
+        headers: {
+          "content-type": "application/json",
+          "Cache-Control": "no-cache",
+        },
+      });
+    }
+
+    throw error;
+  }
 
   if (res.status === 204) {
     return new Response(JSON.stringify({ error: false, list: [] }), {
