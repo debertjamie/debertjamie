@@ -1,5 +1,6 @@
 import {ReactNode} from "react";
 import type {Metadata, Viewport} from "next";
+import Script from "next/script";
 import "@/styles/globals.css";
 import {Footer} from "@/ui/footer";
 import {Header} from "@/ui/header";
@@ -64,6 +65,9 @@ export const viewport: Viewport = {
 export default function RootLayout({children}: Readonly<{children: ReactNode}>) {
   return (
     <ThemedHTML>
+      <head>
+        <Script async src="https://cloud.umami.is/script.js" data-website-id="1356daa9-bf0f-48f5-b301-5a34cb871e39" strategy="afterInteractive" />
+      </head>
       <body className="text-steel-grey dark:text-porcelain box-border selection:bg-spicy-mix selection:text-steel-grey dark:selection:bg-spicy-mix-dark dark:selection:text-porcelain">
         <div className={`${inter.className} flex bg-porcelain dark:bg-steel-grey-dark flex-col`}>
           <Header/>
