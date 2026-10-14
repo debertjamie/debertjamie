@@ -1,0 +1,39 @@
+name: Generate Streak Stats
+
+on:
+  schedule:
+    # 00:30 UTC daily
+    - cron: "30 0 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  streak:
+    name: Generate the streak stats SVG
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate streak stats SVG
+        uses: DenverCoder1/github-readme-streak-stats@v1
+        with:
+          path: assets/streak.svg
+          options: >-
+            user=debertjamie&theme=tokyonight&hide_border=true
+          token: ${{ secrets.STREAK_TOKEN }}
+
+      - name: Commit the SVG
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/streak.svg
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "🔥 Update streak stats"
+            git push
+          fi
