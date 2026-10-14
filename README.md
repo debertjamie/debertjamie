@@ -5,7 +5,6 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1000&color=36BCF7&center=true&vCenter=true&width=600&lines=Hi+there%2C+I'm+Debert+Jamie+%F0%9F%91%8B;Learning+Software+Engineering+%F0%9F%92%BB;Curious+About+Machine+Learning+%F0%9F%A4%96;Stay+Hydrated%2C+Drink+Tea+%E2%98%95" alt="Typing SVG" />
 </a>
 
-![Profile Views](https://komarev.com/ghpvc/?username=debertjamie&label=Profile%20Views&color=36BCF7&style=for-the-badge)
 [![GitHub followers](https://img.shields.io/github/followers/debertjamie?label=Followers&style=for-the-badge&color=blueviolet)](https://github.com/debertjamie?tab=followers)
 
 </div>
@@ -37,7 +36,11 @@ me.say_hi()
 - ✨ Fun fact: 我会说华语，嘛會晓講閩南語
 - 📄 Check out my <a href="https://debertjamie.com/CV_Debert_Jamie_Chanderson.pdf">CV here</a>.
 
+<div align="center">
+
 [![Spotify recently played](https://spotify-recently-played.jeffreyca.workers.dev/svg?user=31cquejvozvwhwj6vv3snek5asfu&unique=1&footer=wave)](https://open.spotify.com/user/31cquejvozvwhwj6vv3snek5asfu?si=ea5f4611630a476b)
+
+</div>
 
 ---
 
