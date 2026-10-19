@@ -83,7 +83,7 @@ me.say_hi()
 ## 💭 Quote of the Day
 
 <!--START_SECTION:quote-->
-_"Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth."_ — Marcus Aurelius
+_"The cost of procrastinating is the life you could've lived."_ — Anonymous
 <!--END_SECTION:quote-->
 
 ---
