@@ -83,7 +83,7 @@ me.say_hi()
 ## 💭 Quote of the Day
 
 <!--START_SECTION:quote-->
-_"The cost of procrastinating is the life you could've lived."_ — Anonymous
+_"The only way to go fast is to go well."_ — Robert C. Martin
 <!--END_SECTION:quote-->
 
 ---
