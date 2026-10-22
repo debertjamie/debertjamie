@@ -83,7 +83,7 @@ me.say_hi()
 ## 💭 Quote of the Day
 
 <!--START_SECTION:quote-->
-_"Orang boleh pandai setinggi langit, tapi selama ia tidak menulis, ia akan hilang di dalam masyarakat dan dari sejarah."_ — Pramoedya Ananta Toer
+_"生活是种律动，须有光有影，有左有右，有晴有雨，滋味就含在这变而不猛的曲折里。"_ — 老舍
 <!--END_SECTION:quote-->
 
 ---
