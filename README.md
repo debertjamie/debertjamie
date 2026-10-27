@@ -107,11 +107,11 @@ _"有些事，只能一个人做。有些关，只能一个人过。有些路啊
 ## 📰 Recent Activity
 
 <!--START_SECTION:activity-->
-1. ℹ️ Labeled PR [#4](https://github.com/debertjamie/save-earth/pull/4) in [debertjamie/save-earth](https://github.com/debertjamie/save-earth)
-2. 💪 Opened PR [#4](https://github.com/debertjamie/save-earth/pull/4) in [debertjamie/save-earth](https://github.com/debertjamie/save-earth)
-3. ℹ️ Assigned PR [#4](https://github.com/debertjamie/save-earth/pull/4) in [debertjamie/save-earth](https://github.com/debertjamie/save-earth)
-4. 🎉 Merged PR [#1](https://github.com/gadicandra/PassGo/pull/1) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
-5. ℹ️ Labeled PR [#1](https://github.com/gadicandra/PassGo/pull/1) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+1. 🎉 Merged PR [#2](https://github.com/debertjamie/contribution-heatmap/pull/2) in [debertjamie/contribution-heatmap](https://github.com/debertjamie/contribution-heatmap)
+2. 🔒 Closed issue [#1](https://github.com/debertjamie/contribution-heatmap/issues/1) in [debertjamie/contribution-heatmap](https://github.com/debertjamie/contribution-heatmap)
+3. 💪 Opened PR [#2](https://github.com/debertjamie/contribution-heatmap/pull/2) in [debertjamie/contribution-heatmap](https://github.com/debertjamie/contribution-heatmap)
+4. ℹ️ Assigned issue [#1](https://github.com/debertjamie/contribution-heatmap/issues/1) in [debertjamie/contribution-heatmap](https://github.com/debertjamie/contribution-heatmap)
+5. ❗ Opened issue [#1](https://github.com/debertjamie/contribution-heatmap/issues/1) in [debertjamie/contribution-heatmap](https://github.com/debertjamie/contribution-heatmap)
 <!--END_SECTION:activity-->
 
 ---
