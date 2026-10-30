@@ -107,11 +107,11 @@ _"You aren't required to set yourself on fire to keep other people warm."_ — P
 ## 📰 Recent Activity
 
 <!--START_SECTION:activity-->
-1. 🎉 Merged PR [#2](https://github.com/debertjamie/contribution-heatmap/pull/2) in [debertjamie/contribution-heatmap](https://github.com/debertjamie/contribution-heatmap)
-2. 🔒 Closed issue [#1](https://github.com/debertjamie/contribution-heatmap/issues/1) in [debertjamie/contribution-heatmap](https://github.com/debertjamie/contribution-heatmap)
-3. 💪 Opened PR [#2](https://github.com/debertjamie/contribution-heatmap/pull/2) in [debertjamie/contribution-heatmap](https://github.com/debertjamie/contribution-heatmap)
-4. ℹ️ Assigned issue [#1](https://github.com/debertjamie/contribution-heatmap/issues/1) in [debertjamie/contribution-heatmap](https://github.com/debertjamie/contribution-heatmap)
-5. ❗ Opened issue [#1](https://github.com/debertjamie/contribution-heatmap/issues/1) in [debertjamie/contribution-heatmap](https://github.com/debertjamie/contribution-heatmap)
+1. 💪 Opened PR [#1](https://github.com/debertjamie/job-board-api/pull/1) in [debertjamie/job-board-api](https://github.com/debertjamie/job-board-api)
+2. ℹ️ Assigned PR [#1](https://github.com/debertjamie/job-board-api/pull/1) in [debertjamie/job-board-api](https://github.com/debertjamie/job-board-api)
+3. 🎉 Merged PR [#2](https://github.com/debertjamie/contribution-heatmap/pull/2) in [debertjamie/contribution-heatmap](https://github.com/debertjamie/contribution-heatmap)
+4. 🔒 Closed issue [#1](https://github.com/debertjamie/contribution-heatmap/issues/1) in [debertjamie/contribution-heatmap](https://github.com/debertjamie/contribution-heatmap)
+5. 💪 Opened PR [#2](https://github.com/debertjamie/contribution-heatmap/pull/2) in [debertjamie/contribution-heatmap](https://github.com/debertjamie/contribution-heatmap)
 <!--END_SECTION:activity-->
 
 ---
