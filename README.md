@@ -83,7 +83,7 @@ me.say_hi()
 ## 💭 Quote of the Day
 
 <!--START_SECTION:quote-->
-_"The first principle is that you must not fool yourself—and you are the easiest person to fool."_ — Richard Feynman
+_"Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth."_ — Marcus Aurelius
 <!--END_SECTION:quote-->
 
 ---
