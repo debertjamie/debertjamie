@@ -107,11 +107,11 @@ _"The cost of procrastinating is the life you could've lived."_ — Anonymous
 ## 📰 Recent Activity
 
 <!--START_SECTION:activity-->
-1. ℹ️ Labeled PR [#34](https://github.com/debertjamie/atmoguard/pull/34) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
-2. 💪 Opened PR [#34](https://github.com/debertjamie/atmoguard/pull/34) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
-3. ℹ️ Assigned PR [#34](https://github.com/debertjamie/atmoguard/pull/34) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
-4. 💪 Opened PR [#1](https://github.com/debertjamie/job-board-api/pull/1) in [debertjamie/job-board-api](https://github.com/debertjamie/job-board-api)
-5. ℹ️ Assigned PR [#1](https://github.com/debertjamie/job-board-api/pull/1) in [debertjamie/job-board-api](https://github.com/debertjamie/job-board-api)
+1. 🎉 Merged PR [#1](https://github.com/debertjamie/job-board-api/pull/1) in [debertjamie/job-board-api](https://github.com/debertjamie/job-board-api)
+2. ℹ️ Labeled PR [#34](https://github.com/debertjamie/atmoguard/pull/34) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
+3. 💪 Opened PR [#34](https://github.com/debertjamie/atmoguard/pull/34) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
+4. ℹ️ Assigned PR [#34](https://github.com/debertjamie/atmoguard/pull/34) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
+5. 💪 Opened PR [#1](https://github.com/debertjamie/job-board-api/pull/1) in [debertjamie/job-board-api](https://github.com/debertjamie/job-board-api)
 <!--END_SECTION:activity-->
 
 ---
