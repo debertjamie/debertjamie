@@ -107,11 +107,11 @@ _"The only way to go fast is to go well."_ — Robert C. Martin
 ## 📰 Recent Activity
 
 <!--START_SECTION:activity-->
-1. 🎉 Merged PR [#1](https://github.com/debertjamie/job-board-api/pull/1) in [debertjamie/job-board-api](https://github.com/debertjamie/job-board-api)
-2. ℹ️ Labeled PR [#34](https://github.com/debertjamie/atmoguard/pull/34) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
-3. 💪 Opened PR [#34](https://github.com/debertjamie/atmoguard/pull/34) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
-4. ℹ️ Assigned PR [#34](https://github.com/debertjamie/atmoguard/pull/34) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
-5. 💪 Opened PR [#1](https://github.com/debertjamie/job-board-api/pull/1) in [debertjamie/job-board-api](https://github.com/debertjamie/job-board-api)
+1. 🔒 Closed issue [#23](https://github.com/debertjamie/atmoguard/issues/23) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
+2. 🔒 Closed issue [#22](https://github.com/debertjamie/atmoguard/issues/22) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
+3. 🎉 Merged PR [#34](https://github.com/debertjamie/atmoguard/pull/34) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
+4. 🎉 Merged PR [#1](https://github.com/debertjamie/job-board-api/pull/1) in [debertjamie/job-board-api](https://github.com/debertjamie/job-board-api)
+5. ℹ️ Labeled PR [#34](https://github.com/debertjamie/atmoguard/pull/34) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
 <!--END_SECTION:activity-->
 
 ---
