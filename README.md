@@ -83,7 +83,7 @@ me.say_hi()
 ## 💭 Quote of the Day
 
 <!--START_SECTION:quote-->
-_"The only way to go fast is to go well."_ — Robert C. Martin
+_"Orang boleh pandai setinggi langit, tapi selama ia tidak menulis, ia akan hilang di dalam masyarakat dan dari sejarah."_ — Pramoedya Ananta Toer
 <!--END_SECTION:quote-->
 
 ---
