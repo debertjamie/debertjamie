@@ -107,11 +107,11 @@ _"Orang boleh pandai setinggi langit, tapi selama ia tidak menulis, ia akan hila
 ## 📰 Recent Activity
 
 <!--START_SECTION:activity-->
-1. 🔒 Closed issue [#23](https://github.com/debertjamie/atmoguard/issues/23) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
-2. 🔒 Closed issue [#22](https://github.com/debertjamie/atmoguard/issues/22) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
-3. 🎉 Merged PR [#34](https://github.com/debertjamie/atmoguard/pull/34) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
-4. 🎉 Merged PR [#1](https://github.com/debertjamie/job-board-api/pull/1) in [debertjamie/job-board-api](https://github.com/debertjamie/job-board-api)
-5. ℹ️ Labeled PR [#34](https://github.com/debertjamie/atmoguard/pull/34) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
+1. 💪 Opened PR [#3](https://github.com/gadicandra/PassGo/pull/3) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+2. ℹ️ Assigned PR [#3](https://github.com/gadicandra/PassGo/pull/3) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+3. 🔒 Closed issue [#23](https://github.com/debertjamie/atmoguard/issues/23) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
+4. 🔒 Closed issue [#22](https://github.com/debertjamie/atmoguard/issues/22) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
+5. 🎉 Merged PR [#34](https://github.com/debertjamie/atmoguard/pull/34) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
 <!--END_SECTION:activity-->
 
 ---
