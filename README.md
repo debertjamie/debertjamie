@@ -92,9 +92,9 @@ _"生活不能等待别人来安排，要自己去争取和奋斗；而不论其
 
 <div align="center">
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=debertjamie&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true" alt="GitHub Stats" />
+<img height="180em" src="./assets/stats.svg" alt="GitHub Stats" />
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=debertjamie&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" alt="Top Languages" />
+<img height="180em" src="./assets/top-langs.svg" alt="Top Languages" />
 
 <img src="./assets/streak.svg" alt="GitHub Streak" />
 
