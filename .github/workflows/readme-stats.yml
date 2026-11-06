@@ -1,0 +1,49 @@
+name: Generate README Stats Cards
+
+on:
+  schedule:
+    - cron: "45 0 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/readme-stats.yml
+
+jobs:
+  cards:
+    name: Generate GitHub stats and top languages SVGs
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=debertjamie&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true
+          path: assets/stats.svg
+          token: ${{ secrets.STREAK_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Generate top languages card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=debertjamie&layout=compact&theme=tokyonight&hide_border=true&langs_count=8
+          path: assets/top-langs.svg
+          token: ${{ secrets.STREAK_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Commit the SVGs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/stats.svg assets/top-langs.svg
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "📊 Update GitHub stats cards"
+            git pull --rebase
+            git push
+          fi
