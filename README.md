@@ -83,7 +83,7 @@ me.say_hi()
 ## 💭 Quote of the Day
 
 <!--START_SECTION:quote-->
-_"有些事，只能一个人做。有些关，只能一个人过。有些路啊，只能一个人走。"_ — 龙应台
+_"It works on my machine."_ — Every developer ever
 <!--END_SECTION:quote-->
 
 ---
