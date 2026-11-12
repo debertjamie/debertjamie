@@ -83,7 +83,7 @@ me.say_hi()
 ## 💭 Quote of the Day
 
 <!--START_SECTION:quote-->
-_"It works on my machine."_ — Every developer ever
+_"Talk is cheap. Show me the code."_ — Linus Torvalds
 <!--END_SECTION:quote-->
 
 ---
