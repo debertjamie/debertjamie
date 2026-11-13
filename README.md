@@ -83,7 +83,7 @@ me.say_hi()
 ## 💭 Quote of the Day
 
 <!--START_SECTION:quote-->
-_"Talk is cheap. Show me the code."_ — Linus Torvalds
+_"You aren't required to set yourself on fire to keep other people warm."_ — Penny Reid
 <!--END_SECTION:quote-->
 
 ---
