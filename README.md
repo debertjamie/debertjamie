@@ -107,11 +107,11 @@ _"The first principle is that you must not fool yourself—and you are the easie
 ## 📰 Recent Activity
 
 <!--START_SECTION:activity-->
-1. 🗣 Commented on [#1](https://github.com/debertjamie/skills-code-with-codespaces/issues/1#issuecomment-6786791475) in [debertjamie/skills-code-with-codespaces](https://github.com/debertjamie/skills-code-with-codespaces)
-2. 💪 Opened PR [#3](https://github.com/gadicandra/PassGo/pull/3) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
-3. ℹ️ Assigned PR [#3](https://github.com/gadicandra/PassGo/pull/3) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
-4. 🔒 Closed issue [#23](https://github.com/debertjamie/atmoguard/issues/23) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
-5. 🔒 Closed issue [#22](https://github.com/debertjamie/atmoguard/issues/22) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
+1. 💪 Opened PR [#1](https://github.com/Syauqi-dotcom/Human-Mobility/pull/1) in [Syauqi-dotcom/Human-Mobility](https://github.com/Syauqi-dotcom/Human-Mobility)
+2. 🗣 Commented on [#1](https://github.com/debertjamie/skills-code-with-codespaces/issues/1#issuecomment-6786791475) in [debertjamie/skills-code-with-codespaces](https://github.com/debertjamie/skills-code-with-codespaces)
+3. 💪 Opened PR [#3](https://github.com/gadicandra/PassGo/pull/3) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+4. ℹ️ Assigned PR [#3](https://github.com/gadicandra/PassGo/pull/3) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+5. 🔒 Closed issue [#23](https://github.com/debertjamie/atmoguard/issues/23) in [debertjamie/atmoguard](https://github.com/debertjamie/atmoguard)
 <!--END_SECTION:activity-->
 
 ---
