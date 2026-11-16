@@ -107,11 +107,11 @@ _"The cost of procrastinating is the life you could've lived."_ — Anonymous
 ## 📰 Recent Activity
 
 <!--START_SECTION:activity-->
-1. 🎉 Merged PR [#1](https://github.com/Syauqi-dotcom/Human-Mobility/pull/1) in [Syauqi-dotcom/Human-Mobility](https://github.com/Syauqi-dotcom/Human-Mobility)
-2. 💪 Opened PR [#1](https://github.com/Syauqi-dotcom/Human-Mobility/pull/1) in [Syauqi-dotcom/Human-Mobility](https://github.com/Syauqi-dotcom/Human-Mobility)
-3. 🗣 Commented on [#1](https://github.com/debertjamie/skills-code-with-codespaces/issues/1#issuecomment-6786791475) in [debertjamie/skills-code-with-codespaces](https://github.com/debertjamie/skills-code-with-codespaces)
-4. 💪 Opened PR [#3](https://github.com/gadicandra/PassGo/pull/3) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
-5. ℹ️ Assigned PR [#3](https://github.com/gadicandra/PassGo/pull/3) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+1. ℹ️ Reopened PR [#8](https://github.com/gadicandra/PassGo/pull/8) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+2. ❌ Closed PR [#8](https://github.com/gadicandra/PassGo/pull/8) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+3. 💪 Opened PR [#8](https://github.com/gadicandra/PassGo/pull/8) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+4. ℹ️ Assigned PR [#8](https://github.com/gadicandra/PassGo/pull/8) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+5. ℹ️ Labeled PR [#8](https://github.com/gadicandra/PassGo/pull/8) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
 <!--END_SECTION:activity-->
 
 ---
