@@ -107,11 +107,11 @@ _"The cost of procrastinating is the life you could've lived."_ — Anonymous
 ## 📰 Recent Activity
 
 <!--START_SECTION:activity-->
-1. ℹ️ Reopened PR [#8](https://github.com/gadicandra/PassGo/pull/8) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
-2. ❌ Closed PR [#8](https://github.com/gadicandra/PassGo/pull/8) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
-3. 💪 Opened PR [#8](https://github.com/gadicandra/PassGo/pull/8) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
-4. ℹ️ Assigned PR [#8](https://github.com/gadicandra/PassGo/pull/8) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
-5. ℹ️ Labeled PR [#8](https://github.com/gadicandra/PassGo/pull/8) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+1. 💪 Opened PR [#9](https://github.com/gadicandra/PassGo/pull/9) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+2. 🗣 Commented on [#7](https://github.com/gadicandra/PassGo/pull/7#issuecomment-6926321560) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+3. 🎉 Merged PR [#8](https://github.com/gadicandra/PassGo/pull/8) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+4. 🎉 Merged PR [#3](https://github.com/gadicandra/PassGo/pull/3) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+5. ℹ️ Reopened PR [#8](https://github.com/gadicandra/PassGo/pull/8) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
 <!--END_SECTION:activity-->
 
 ---
