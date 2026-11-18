@@ -107,11 +107,11 @@ _"Orang boleh pandai setinggi langit, tapi selama ia tidak menulis, ia akan hila
 ## 📰 Recent Activity
 
 <!--START_SECTION:activity-->
-1. 🎉 Merged PR [#10](https://github.com/gadicandra/PassGo/pull/10) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
-2. 💪 Opened PR [#10](https://github.com/gadicandra/PassGo/pull/10) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
-3. 🗣 Commented on [#7](https://github.com/gadicandra/PassGo/pull/7#issuecomment-6935512747) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
-4. 🎉 Merged PR [#9](https://github.com/gadicandra/PassGo/pull/9) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
-5. 💪 Opened PR [#9](https://github.com/gadicandra/PassGo/pull/9) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+1. ❗ Opened issue [#1](https://github.com/debertjamie/hi-breathelab.id/issues/1) in [debertjamie/hi-breathelab.id](https://github.com/debertjamie/hi-breathelab.id)
+2. ℹ️ Labeled issue [#1](https://github.com/debertjamie/hi-breathelab.id/issues/1) in [debertjamie/hi-breathelab.id](https://github.com/debertjamie/hi-breathelab.id)
+3. ℹ️ Assigned issue [#1](https://github.com/debertjamie/hi-breathelab.id/issues/1) in [debertjamie/hi-breathelab.id](https://github.com/debertjamie/hi-breathelab.id)
+4. 🎉 Merged PR [#10](https://github.com/gadicandra/PassGo/pull/10) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+5. 💪 Opened PR [#10](https://github.com/gadicandra/PassGo/pull/10) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
 <!--END_SECTION:activity-->
 
 ---
