@@ -107,11 +107,11 @@ _"生活不能等待别人来安排，要自己去争取和奋斗；而不论其
 ## 📰 Recent Activity
 
 <!--START_SECTION:activity-->
-1. ❗ Opened issue [#1](https://github.com/debertjamie/hi-breathelab.id/issues/1) in [debertjamie/hi-breathelab.id](https://github.com/debertjamie/hi-breathelab.id)
-2. ℹ️ Labeled issue [#1](https://github.com/debertjamie/hi-breathelab.id/issues/1) in [debertjamie/hi-breathelab.id](https://github.com/debertjamie/hi-breathelab.id)
-3. ℹ️ Assigned issue [#1](https://github.com/debertjamie/hi-breathelab.id/issues/1) in [debertjamie/hi-breathelab.id](https://github.com/debertjamie/hi-breathelab.id)
-4. 🎉 Merged PR [#10](https://github.com/gadicandra/PassGo/pull/10) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
-5. 💪 Opened PR [#10](https://github.com/gadicandra/PassGo/pull/10) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
+1. ❗ Opened issue [#2](https://github.com/debertjamie/hi-breathelab.id/issues/2) in [debertjamie/hi-breathelab.id](https://github.com/debertjamie/hi-breathelab.id)
+2. ❗ Opened issue [#1](https://github.com/debertjamie/hi-breathelab.id/issues/1) in [debertjamie/hi-breathelab.id](https://github.com/debertjamie/hi-breathelab.id)
+3. ℹ️ Labeled issue [#1](https://github.com/debertjamie/hi-breathelab.id/issues/1) in [debertjamie/hi-breathelab.id](https://github.com/debertjamie/hi-breathelab.id)
+4. ℹ️ Assigned issue [#1](https://github.com/debertjamie/hi-breathelab.id/issues/1) in [debertjamie/hi-breathelab.id](https://github.com/debertjamie/hi-breathelab.id)
+5. 🎉 Merged PR [#10](https://github.com/gadicandra/PassGo/pull/10) in [gadicandra/PassGo](https://github.com/gadicandra/PassGo)
 <!--END_SECTION:activity-->
 
 ---
