@@ -83,7 +83,7 @@ me.say_hi()
 ## 💭 Quote of the Day
 
 <!--START_SECTION:quote-->
-_"You aren't required to set yourself on fire to keep other people warm."_ — Penny Reid
+_"The first principle is that you must not fool yourself—and you are the easiest person to fool."_ — Richard Feynman
 <!--END_SECTION:quote-->
 
 ---
